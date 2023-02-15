@@ -1,11 +1,11 @@
 import BaseLayout from "../ layouts/baseLayout";
 
-const Projects = () =>{
+const Home = () => {
   return (
       <BaseLayout>
-        projects
+        main
       </BaseLayout>
   )
 }
 
-export default Projects
+export default Home

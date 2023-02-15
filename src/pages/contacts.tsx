@@ -1,8 +1,10 @@
+import BaseLayout from "../ layouts/baseLayout";
+
 const Contacts = () =>{
   return (
-      <div>
+      <BaseLayout>
         contacts
-      </div>
+      </BaseLayout>
   )
 }
 
