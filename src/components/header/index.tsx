@@ -1,38 +1,28 @@
+import {NavLink, useLocation} from "react-router-dom";
 import styles from './styles.module.scss'
-import {BASE_URL} from "../../api/baseURL";
-import {NavLink} from "react-router-dom";
+import classNames from "classnames";
+import {ROUTES} from "../../api/routes";
+
 
 const Header = () => {
+  const location = useLocation()
+
   return (
       <header className={styles.header}>
-        <ul className={styles.header__list}>
-          <li>
-            <NavLink
-                to={`${BASE_URL}/`}
-                className={styles.header__link}
-            >
-              Home
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-                to={`${BASE_URL}/projects`}
-                className={styles.header__link}
-            >
-              Projects
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-                to={`${BASE_URL}/contacts`}
-                className={styles.header__link}
-            >
-              Contacts
-            </NavLink>
-          </li>
-        </ul>
+        <nav className={styles.header__list}>
+          {Object.keys(ROUTES).map(key => (
+              <NavLink
+                  key={key}
+                  to={ROUTES[key].path}
+                  className={classNames(
+                      styles.header__link,
+                      {[styles.headerLink__active]: location.pathname === ROUTES[key].path}
+                  )}
+              >
+                {ROUTES[key].titleRu}
+              </NavLink>
+          ))}
+        </nav>
       </header>
   )
 }

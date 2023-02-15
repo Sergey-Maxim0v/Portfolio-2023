@@ -3,20 +3,20 @@ import Home from "../pages/home";
 import Contacts from "../pages/contacts";
 import Projects from "../pages/projects";
 import ErrorPage from "../pages/errorPage";
-import {BASE_URL} from "./baseURL";
+import {ROUTES} from "./routes";
 
 const router = createBrowserRouter([
   {
-    path: BASE_URL,
+    path: ROUTES.home.path,
     element: <Home/>,
     errorElement: <ErrorPage/>
   },
   {
-    path: BASE_URL + "/projects",
+    path: ROUTES.projects.path,
     element: <Projects/>
   },
   {
-    path: BASE_URL + "/contacts",
+    path: ROUTES.contacts.path,
     element: <Contacts/>
   }
 ]);
