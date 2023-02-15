@@ -3,6 +3,7 @@ import Header from "../../components/header";
 import {IBaseLayout} from "./types";
 import {useNavigation} from "react-router-dom";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 
 const BaseLayout: FC<IBaseLayout> = ({children}) => {
   const navigation = useNavigation();
@@ -11,7 +12,7 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
   return (
       <>
         <Header/>
-        <div className={styles.contentLayout}>
+        <div className={classNames(styles.contentLayout, "container")}>
           {children}
         </div>
       </>
