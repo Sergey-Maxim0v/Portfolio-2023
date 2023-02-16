@@ -23,6 +23,17 @@ const Header = () => {
               </NavLink>
           ))}
         </nav>
+        <div className={styles.header__activities}>
+          <div className={classNames(styles.header__popup, styles.headerPopup__container)}>
+            <div className={styles.headerPopup__button}>
+              <span>RU</span>
+            </div>
+            <div className={styles.headerPopup__content}>
+              <button>Русский</button>
+              <button>English</button>
+            </div>
+          </div>
+        </div>
       </header>
   )
 }
