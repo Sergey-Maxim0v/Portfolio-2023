@@ -6,8 +6,8 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 
 const BaseLayout: FC<IBaseLayout> = ({children}) => {
-  const navigation = useNavigation();
-  const isLoading = navigation.state === "loading"
+  // const navigation = useNavigation();
+  // const isLoading = navigation.state === "loading"
 
   return (
       <>
