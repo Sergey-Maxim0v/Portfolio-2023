@@ -5,7 +5,7 @@ import {ROUTES} from "../../api/routes";
 
 
 const Header = () => {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
       <header className={classNames(styles.header, "container")}>

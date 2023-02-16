@@ -1,3 +1,12 @@
+
+body {
+  height: calc(100% - 3rem);
+}
+
+#root {
+  height: 100%;
+}
+
 .container {
   padding-left: 8vw;
   padding-right: 8vw;
