@@ -1,3 +1,5 @@
+@import "src/assets/styles/lib/_fluid-type.scss";
+
 .header {
   box-sizing: border-box;
   position: fixed;
@@ -8,7 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  //box-shadow: 0 0 0.2rem $gray;
+  box-shadow: 0 0 0.2rem gray;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
 
   &__list {
 
