@@ -1,4 +1,5 @@
 import {useRouteError} from "react-router-dom";
+import BaseLayout from "../ layouts/baseLayout";
 
 const ErrorPage = () => {
   const error = useRouteError();
@@ -6,9 +7,9 @@ const ErrorPage = () => {
   console.error(error);
 
   return (
-      <div>
-        Error
-      </div>
+      <BaseLayout>
+        Error page under construction
+      </BaseLayout>
   )
 }
 

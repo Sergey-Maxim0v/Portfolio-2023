@@ -1,12 +1,14 @@
-import {FC, MouseEvent, useState} from "react";
+import {FC, MouseEvent} from "react";
 import {ILanguageChanger} from "./types";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import {LangEnum} from "../../constants/enums";
 import {LANGUAGE_VALUES} from "./constants";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
-  const [actualLanguage, setActualLanguage] = useState(LangEnum.RU);
+  const [actualLanguage, setActualLanguage] = useLocalStorage<string>("lang", LangEnum.RU);
+
   const actualValue = LANGUAGE_VALUES[actualLanguage];
 
   const changeLanguage = (event: MouseEvent<HTMLButtonElement>) => {
@@ -24,7 +26,7 @@ const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
     const languages = Object.values(LANGUAGE_VALUES)
         .reduce((res: Array<LangEnum>, lanObj) => res.concat(lanObj.value), [])
 
-    const index: number = languages.indexOf(actualLanguage);
+    const index: number = languages.indexOf(actualLanguage as LangEnum);
     const nextLanguage = languages[index + 1] ?? languages[0]
 
     setActualLanguage(nextLanguage)
