@@ -1,7 +1,7 @@
 @import './lib/_fluid-type.scss';
 
 html {
-    @include fluid-type(font-size, 768px, 1920px, 14px, 20px);
+    @include fluid-type(font-size, $b-tablet, $b-fhd, 14px, 20px);
 
   @media (min-width: 1920px) {
     font-size: calc((20 / 1920)* 100vw);
