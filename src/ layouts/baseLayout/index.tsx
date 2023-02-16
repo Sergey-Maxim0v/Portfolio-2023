@@ -9,6 +9,8 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
   // const navigation = useNavigation();
   // const isLoading = navigation.state === "loading"
 
+  // TODO: useContext
+
   return (
       <>
         <Header/>
