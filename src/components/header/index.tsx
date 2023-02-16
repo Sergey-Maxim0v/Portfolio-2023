@@ -8,7 +8,7 @@ const Header = () => {
   const location = useLocation()
 
   return (
-      <header className={styles.header}>
+      <header className={classNames(styles.header, "container")}>
         <nav className={styles.header__list}>
           {Object.keys(ROUTES).map(key => (
               <NavLink
@@ -23,6 +23,7 @@ const Header = () => {
               </NavLink>
           ))}
         </nav>
+
         <div className={styles.header__activities}>
           <div className={classNames(styles.header__popup, styles.headerPopup__container)}>
             <div className={styles.headerPopup__button}>
@@ -31,6 +32,16 @@ const Header = () => {
             <div className={styles.headerPopup__content}>
               <button>Русский</button>
               <button>English</button>
+            </div>
+          </div>
+
+          <div className={classNames(styles.header__popup, styles.headerPopup__container)}>
+            <div className={styles.headerPopup__button}>
+              <span>Light</span>
+            </div>
+            <div className={styles.headerPopup__content}>
+              <button>Light</button>
+              <button>Dark</button>
             </div>
           </div>
         </div>

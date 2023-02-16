@@ -1,4 +1,15 @@
 .header {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //box-shadow: 0 0 0.2rem $gray;
+
   &__list {
 
   }
@@ -8,7 +19,7 @@
   }
 
   &__activities {
-
+    display: flex;
   }
 
   &__popup {
@@ -16,7 +27,7 @@
   }
 }
 
-.header-popup {
+.headerPopup {
   &__container {
 
   }
@@ -28,7 +39,7 @@
   }
 }
 
-.header-link {
+.headerLink {
   &__active {
 
   }

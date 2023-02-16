@@ -1,9 +1,10 @@
 import BaseLayout from "../ layouts/baseLayout";
+import HomeContent from "../components/home-content";
 
 const Home = () => {
   return (
       <BaseLayout>
-        main
+        <HomeContent/>
       </BaseLayout>
   )
 }
