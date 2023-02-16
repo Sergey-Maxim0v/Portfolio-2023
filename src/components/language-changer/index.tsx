@@ -20,9 +20,21 @@ const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
     setActualLanguage(targetValue)
   }
 
+  const changeNextLanguage = () => {
+    const languages = Object.values(LANGUAGE_VALUES).reduce((res: Array<LangEnum>, lanObj) => res.concat(lanObj.value), [])
+
+    const index: number = languages.indexOf(actualLanguage);
+    const nextLanguage = languages[index + 1] ?? languages[0]
+
+    setActualLanguage(nextLanguage)
+  }
+
   return (
       <div className={classNames(className, styles.languageChanger)}>
-        <div className={styles.languageChanger__button}>
+        <div
+            onClick={() => changeNextLanguage()}
+            className={styles.languageChanger__button}
+        >
           <span>{actualValue.nameShort}</span>
         </div>
 
@@ -30,7 +42,7 @@ const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
           {Object.values(LANGUAGE_VALUES).map(language => (
               <button
                   key={language.value}
-                  className={styles.languageChanger__element}
+                  className={classNames(styles.languageChanger__element, {[styles.languageChanger__active]: language.value === actualLanguage})}
                   value={language.value}
                   onClick={event => changeLanguage(event)}
               >
