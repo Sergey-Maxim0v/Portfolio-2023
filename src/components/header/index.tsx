@@ -8,7 +8,7 @@ const Header = () => {
   const location = useLocation();
 
   return (
-      <header className={classNames(styles.header, "container")}>
+      <header className={classNames(styles.header, "container", "font__semibold")}>
         <nav className={styles.header__list}>
           {Object.keys(ROUTES).map(key => (
               <NavLink
