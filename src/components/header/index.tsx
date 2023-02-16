@@ -2,6 +2,7 @@ import {NavLink, useLocation} from "react-router-dom";
 import styles from './styles.module.scss'
 import classNames from "classnames";
 import {ROUTES} from "../../api/routes";
+import LanguageChanger from "../language-changer";
 
 
 const Header = () => {
@@ -25,25 +26,8 @@ const Header = () => {
         </nav>
 
         <div className={styles.header__activities}>
-          <div className={classNames(styles.header__popup, styles.headerPopup__container)}>
-            <div className={styles.headerPopup__button}>
-              <span>RU</span>
-            </div>
-            <div className={styles.headerPopup__content}>
-              <button>Русский</button>
-              <button>English</button>
-            </div>
-          </div>
-
-          <div className={classNames(styles.header__popup, styles.headerPopup__container)}>
-            <div className={styles.headerPopup__button}>
-              <span>Light</span>
-            </div>
-            <div className={styles.headerPopup__content}>
-              <button>Light</button>
-              <button>Dark</button>
-            </div>
-          </div>
+          <LanguageChanger className={styles.header__language}/>
+          <div>Theme-changer</div>
         </div>
       </header>
   )
