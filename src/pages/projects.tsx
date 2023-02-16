@@ -1,9 +1,10 @@
 import BaseLayout from "../ layouts/baseLayout";
+import ProjectsContent from "../components/projects-content";
 
-const Projects = () =>{
+const Projects = () => {
   return (
       <BaseLayout>
-        projects
+        <ProjectsContent/>
       </BaseLayout>
   )
 }

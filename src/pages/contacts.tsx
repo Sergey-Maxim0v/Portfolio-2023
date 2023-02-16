@@ -1,9 +1,10 @@
 import BaseLayout from "../ layouts/baseLayout";
+import ContactsContent from "../components/contacts-content";
 
-const Contacts = () =>{
+const Contacts = () => {
   return (
       <BaseLayout>
-        contacts
+        <ContactsContent/>
       </BaseLayout>
   )
 }
