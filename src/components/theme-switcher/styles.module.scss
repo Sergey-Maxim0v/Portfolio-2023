@@ -1,4 +1,6 @@
 .themeSwitcher {
+  $parent: &;
+
   width: 3rem;
   height: 100%;
   padding: 0 1rem;
@@ -7,7 +9,6 @@
   justify-content: center;
   position: relative;
   transition: color 0s;
-
 
   &__moon, &__sun {
     position: absolute;
@@ -25,11 +26,23 @@
   &__moon {
     width: 50%;
     opacity: 0;
+    fill: currentColor;
+    transition: fill 0.2s;
   }
 
   &__sun {
     width: 60%;
     opacity: 1;
+  }
+
+  &:hover {
+    #{$parent}__moon {
+      fill: yellowgreen;
+    }
+
+    #{$parent}__sun {
+      color: red;
+    }
   }
 
   &__animation1 {
