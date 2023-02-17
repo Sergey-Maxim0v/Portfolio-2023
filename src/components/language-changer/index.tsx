@@ -1,15 +1,15 @@
-import {FC, MouseEvent} from "react";
+import {FC, MouseEvent, useContext} from "react";
 import {ILanguageChanger} from "./types";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import {LangEnum} from "../../constants/enums";
 import {LANGUAGE_VALUES} from "./constants";
-import useLanguage from "../../hooks/useLanguage";
+import {Context} from "../../context/context";
 
 const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
-  const {actualLanguage, setActualLanguage} = useLanguage()
+  const {lang, setLang} = useContext(Context)
 
-  const actualValue = LANGUAGE_VALUES[actualLanguage];
+  const actualValue = LANGUAGE_VALUES[lang];
 
   const changeLanguage = (event: MouseEvent<HTMLButtonElement>) => {
     if (!event || !event?.target) {
@@ -19,17 +19,17 @@ const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
     const target = event.target as HTMLButtonElement;
     const targetValue = target.value as LangEnum;
 
-    setActualLanguage(targetValue)
+    setLang(targetValue)
   }
 
   const changeNextLanguage = () => {
     const languages = Object.values(LANGUAGE_VALUES)
         .reduce((res: Array<LangEnum>, lanObj) => res.concat(lanObj.value), [])
 
-    const index: number = languages.indexOf(actualLanguage as LangEnum);
+    const index: number = languages.indexOf(lang as LangEnum);
     const nextLanguage = languages[index + 1] ?? languages[0]
 
-    setActualLanguage(nextLanguage)
+    setLang(nextLanguage)
   }
 
   return (
@@ -48,7 +48,7 @@ const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
                   className={
                     classNames(
                         styles.languageChanger__element,
-                        {[styles.languageChanger__active]: language.value === actualLanguage}
+                        {[styles.languageChanger__active]: language.value === lang}
                     )
                   }
                   value={language.value}

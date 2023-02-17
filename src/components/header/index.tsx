@@ -3,10 +3,14 @@ import styles from './styles.module.scss'
 import classNames from "classnames";
 import {ROUTES} from "../../api/routes";
 import LanguageChanger from "../language-changer";
+import {useContext} from "react";
+import {Context} from "../../context/context";
+import {LangEnum} from "../../constants/enums";
 
 
 const Header = () => {
   const location = useLocation();
+  const {lang} = useContext(Context)
 
   return (
       <header className={classNames(styles.header, "container", "font__semibold")}>
@@ -20,14 +24,15 @@ const Header = () => {
                       {[styles.headerLink__active]: location.pathname === ROUTES[key].path}
                   )}
               >
-                {ROUTES[key].titleRu}
+                {lang === LangEnum.RU && ROUTES[key].titleRu}
+                {lang === LangEnum.EN && ROUTES[key].titleEn}
               </NavLink>
           ))}
         </nav>
 
         <div className={styles.header__activities}>
           <LanguageChanger className={styles.header__language}/>
-          <div>Theme-changer</div>
+          <div>🌞 🌛</div>
         </div>
       </header>
   )
