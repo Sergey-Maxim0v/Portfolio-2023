@@ -5,15 +5,14 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 import {Context} from "../../context/context";
 import useLanguage from "../../hooks/useLanguage";
-import {LangEnum} from "../../constants/enums";
+import useTheme from "../../hooks/useTheme";
 
 const BaseLayout: FC<IBaseLayout> = ({children}) => {
-  const {actualLanguage, setActualLanguage} = useLanguage()
-
-  const setLang = (value: LangEnum) => setActualLanguage(value)
+  const {lang, setLang} = useLanguage()
+  const {theme, setTheme} = useTheme()
 
   return (
-      <Context.Provider value={{lang: actualLanguage as LangEnum, setLang}}>
+      <Context.Provider value={{lang, setLang, theme, setTheme}}>
         <Header/>
         <div className={classNames(styles.contentLayout, "container", "font__normal")}>
           {children}

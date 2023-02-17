@@ -3,7 +3,7 @@ export enum LangEnum {
   EN = "EN"
 }
 
-export enum themeEnum {
+export enum ThemeEnum {
   DARK = "dark",
   LIGHT = "light"
 }

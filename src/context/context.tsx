@@ -1,4 +1,11 @@
 import {createContext} from "react";
-import {LangEnum} from "../constants/enums";
+import {LangEnum, ThemeEnum} from "../constants/enums";
 
-export const Context = createContext({lang: LangEnum.RU, setLang: (val:LangEnum)=>{}})
+export const Context = createContext({
+  lang: LangEnum.RU,
+  setLang: (val: LangEnum) => {
+  },
+  theme: ThemeEnum.LIGHT,
+  setTheme: (val: ThemeEnum) => {
+  }
+})

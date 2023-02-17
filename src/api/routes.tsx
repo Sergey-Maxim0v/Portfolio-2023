@@ -8,7 +8,7 @@ export interface IRoute {
 
 export const ROUTES: { [key: string]: IRoute } = {
   home: {
-    path: `${BASE_URL}/`,
+    path: `${BASE_URL}`,
     titleRu: 'Главная',
     titleEn: 'Home'
   },

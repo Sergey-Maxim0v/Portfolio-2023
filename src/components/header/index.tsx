@@ -6,11 +6,11 @@ import LanguageChanger from "../language-changer";
 import {useContext} from "react";
 import {Context} from "../../context/context";
 import {LangEnum} from "../../constants/enums";
-
+import ThemeSwitcher from "../theme-switcher";
 
 const Header = () => {
   const location = useLocation();
-  const {lang} = useContext(Context)
+  const {lang} = useContext(Context);
 
   return (
       <header className={classNames(styles.header, "container", "font__semibold")}>
@@ -32,7 +32,7 @@ const Header = () => {
 
         <div className={styles.header__activities}>
           <LanguageChanger className={styles.header__language}/>
-          <div>🌞 🌛</div>
+          <ThemeSwitcher/>
         </div>
       </header>
   )
