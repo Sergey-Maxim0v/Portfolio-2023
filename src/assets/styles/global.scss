@@ -1,10 +1,14 @@
 @import './lib/_fluid-type.scss';
 
 html {
-    @include fluid-type(font-size, $b-tablet, $b-fhd, 14px, 20px);
+  @include fluid-type(font-size, $b-tablet, $b-fhd, 14px, 20px);
 
   @media (min-width: 1920px) {
-    font-size: calc((20 / 1920)* 100vw);
+    font-size: calc((20 / 1920) * 100vw);
+  }
+
+  & * {
+    transition: color 0.2s, background-color 0.2s;
   }
 }
 

@@ -9,6 +9,8 @@
   justify-content: center;
 
   &__button {
+    font-size: inherit;
+    font-weight: inherit;
     cursor: pointer;
   }
 

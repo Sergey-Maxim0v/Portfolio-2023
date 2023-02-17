@@ -34,12 +34,12 @@ const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
 
   return (
       <div className={classNames(className, styles.languageChanger)}>
-        <div
+        <button
             onClick={() => changeNextLanguage()}
             className={styles.languageChanger__button}
         >
-          <span>{actualValue.nameShort}</span>
-        </div>
+          {actualValue.nameShort}
+        </button>
 
         <div className={styles.languageChanger__content}>
           {Object.values(LANGUAGE_VALUES).map(language => (
