@@ -35,7 +35,7 @@
     }
   }
 
-  &__active{
+  &__active {
     color: red;
   }
 
@@ -45,5 +45,15 @@
       flex-direction: column;
       align-items: flex-start;
     }
+  }
+}
+
+body:global(.dark) .languageChanger {
+  &__content {
+    background-color: black;
+  }
+
+  &__active {
+    color: yellowgreen;
   }
 }
