@@ -15,7 +15,7 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
       <>
         <Header/>
         <div className={classNames(styles.contentLayout, "container", "font__normal")}>
-          {children} <br/>
+          {children}
         </div>
       </>
   )

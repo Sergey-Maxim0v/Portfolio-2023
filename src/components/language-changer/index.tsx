@@ -4,10 +4,10 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 import {LangEnum} from "../../constants/enums";
 import {LANGUAGE_VALUES} from "./constants";
-import useLocalStorage from "../../hooks/useLocalStorage";
+import useLanguage from "../../hooks/useLanguage";
 
 const LanguageChanger: FC<ILanguageChanger> = ({className}) => {
-  const [actualLanguage, setActualLanguage] = useLocalStorage<string>("lang", LangEnum.RU);
+  const {actualLanguage, setActualLanguage} = useLanguage()
 
   const actualValue = LANGUAGE_VALUES[actualLanguage];
 
