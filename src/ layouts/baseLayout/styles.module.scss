@@ -7,3 +7,11 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+body:global(.dark) .contentLayout {
+
+}
+
+body:global(.light) .contentLayout {
+
+}

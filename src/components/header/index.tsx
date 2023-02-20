@@ -20,7 +20,7 @@ const Header = () => {
                   key={key}
                   to={ROUTES[key].path}
                   className={classNames(
-                      styles.header__link,
+                      styles.header__link, styles.headerLink,
                       {[styles.headerLink__active]: location.pathname === ROUTES[key].path}
                   )}
               >

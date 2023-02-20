@@ -8,7 +8,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 0 0.2rem $c-gray;
   font-size: 1.2rem;
   line-height: 1.2rem;
 
@@ -37,17 +36,60 @@
   }
 }
 
-body:global(.dark) .header {
-  background-color: black;
-  color: white;
+body:global(.light) .header {
+  background-color: transparent;
+  color: $c-sea-1;
 
   & * {
-    color: white;
+    color: $c-sea-1;
   }
 
   & .headerLink {
+    &:hover {
+      color: $c-green-yellow-1;
+    }
+
     &__active {
-      color: yellowgreen;
+      color: $c-green-yellow-1;
+    }
+
+
+  }
+}
+
+body:global(.dark) .header {
+  background: transparent;
+  color: $c-sea-6;
+
+  & * {
+    color: $c-sea-6;
+  }
+
+  & .headerLink {
+    &:hover {
+      color: $c-orange-4;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.5rem;
+      background-color: transparent;
+      height: 0.1px;
+      border-radius: 50%;
+      transform: rotateX(80deg);
+    }
+
+
+    &__active {
+      position: relative;
+      color: $c-orange-4;
+
+      &:before {
+        box-shadow: 0 0 1rem $c-orange-4, 0 0 0.1rem $c-orange-4, 0 0 2rem $c-orange-4,;
+      }
     }
   }
 }

@@ -16,6 +16,15 @@ body {
   height: calc(100% - 3rem);
 }
 
+body.light{
+  //background: $gr-light-1;
+}
+
+body.dark{
+  background: $gr-dark-1;
+  color: $c-sea-6;
+}
+
 #root {
   height: 100%;
 }
