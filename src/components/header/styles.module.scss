@@ -31,6 +31,8 @@
 }
 
 .headerLink {
+  position: relative;
+
   &__active {
     color: $c-orange-3;
   }
@@ -46,14 +48,12 @@ body:global(.light) .header {
 
   & .headerLink {
     &:hover {
-      color: $c-green-yellow-1;
+      color: $c-orange-1;
     }
 
     &__active {
-      color: $c-green-yellow-1;
+      color: $c-orange-1;
     }
-
-
   }
 }
 
@@ -81,7 +81,6 @@ body:global(.dark) .header {
       border-radius: 50%;
       transform: rotateX(80deg);
     }
-
 
     &__active {
       position: relative;

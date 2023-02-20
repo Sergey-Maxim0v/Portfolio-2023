@@ -49,9 +49,23 @@
 
 body:global(.light) .languageChanger {
   &__content {
+    box-shadow: 0 0 3px $c-violet-2;
+  }
+
+  &__button{
+    &:hover{
+      color: $c-orange-1;
+    }
+  }
+
+  &__element{
+    &:hover{
+      color: $c-orange-1;
+    }
   }
 
   &__active {
+    color: $c-orange-1;
   }
 }
 
