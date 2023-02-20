@@ -23,7 +23,6 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 1rem;
-    box-shadow: 0 0 3px grey;
   }
 
   &__element {
@@ -48,12 +47,34 @@
   }
 }
 
-body:global(.dark) .languageChanger {
+body:global(.light) .languageChanger {
   &__content {
-    background-color: black;
   }
 
   &__active {
-    color: yellowgreen;
+  }
+}
+
+body:global(.dark) .languageChanger {
+  &__content {
+    background-color: $c-violet-1;
+    box-shadow: 0 0 3px $c-violet-4;
+  }
+
+  &__button{
+    &:hover{
+      color: $c-orange-3;
+    }
+  }
+
+  &__element{
+    &:hover{
+      color: $c-orange-3;
+    }
+  }
+
+  &__active {
+    color: $c-orange-3;
+    text-shadow: 0 0 0.5rem $c-violet-4;
   }
 }
