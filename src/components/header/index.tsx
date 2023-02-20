@@ -21,7 +21,7 @@ const Header = () => {
                   to={ROUTES[key].path}
                   className={classNames(
                       styles.header__link, styles.headerLink,
-                      {[styles.headerLink__active]: location.pathname === ROUTES[key].path}
+                      {[styles.headerLink__active]: location.pathname === ROUTES[key].path || location.pathname === ROUTES[key].path + '/'}
                   )}
               >
                 {lang === LangEnum.RU && ROUTES[key].titleRu}
