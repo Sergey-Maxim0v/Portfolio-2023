@@ -9,8 +9,8 @@ const Icon: FC<IIcon> = ({className, iconName}) => {
   const {theme} = useContext(Context)
 
   const gitColors = {
-    [ThemeEnum.LIGHT]: '#24292f',
-    [ThemeEnum.DARK]: '#FFFFFF'
+    [ThemeEnum.LIGHT]: '#434343',
+    [ThemeEnum.DARK]: '#F8F8FA'
   }
 
   return (
