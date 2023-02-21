@@ -73,24 +73,24 @@ body:global(.light) .languageChanger {
 
 body:global(.dark) .languageChanger {
   &__content {
-    background-color: $c-violet-1;
-    box-shadow: 0 0 3px $c-violet-4;
+    background-color: $c-sea-1;
+    box-shadow: 0 0 3px $c-sea-5;
   }
 
   &__button {
     &:hover {
-      color: $c-orange-3;
+      color: $c-sea-6;
     }
   }
 
   &__element {
     &:hover {
-      color: $c-orange-3;
+      color: $c-sea-6;
     }
   }
 
   &__active {
-    color: $c-orange-3;
+    color: $c-sea-6;
     text-shadow: 0 0 0.5rem $c-violet-4;
   }
 }

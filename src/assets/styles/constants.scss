@@ -48,13 +48,14 @@ $c-pink1: #942941;
 $c-pink2: #C82255;
 $c-pink3: #F6198D;
 
+// gradient
+$gr-dark-1: linear-gradient(to bottom, $c-gray-1 0%, $c-sea-1 1.8rem, $c-gray-1 4rem, $c-sea-1 50%, $c-gray-1 100%);
+$gr-dark-2: linear-gradient(0deg, $c-violet-1 0%, $c-violet-3 100%);
+$gr-dark-3: linear-gradient(180.81deg, #1F2122 0.69%, #162129 57.07%);
+
 // screen
 $b-mobile: 320px;
 $b-tablet: 768px;
 $b-desktop: 1024px;
 $b-fhd: 1920px;
 
-// gradient
-$gr-dark-1: linear-gradient(to bottom, $c-violet-1 0%, $c-violet-2 1.8rem, $c-violet-1 4rem, $c-violet-2 50%, $c-violet-1 100%);
-$gr-dark-2: linear-gradient(0deg, $c-violet-1 0%, $c-violet-3 100%);
-$gr-dark-3: linear-gradient(180.81deg, #1F2122 0.69%, #162129 57.07%);

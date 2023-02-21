@@ -68,35 +68,32 @@ body:global(.light) .header {
 
 body:global(.dark) .header {
   background: transparent;
-  color: $c-sea-6;
+  color: $c-gray-6;
 
   & * {
-    color: $c-sea-6;
+    color: $c-gray-6;
   }
 
   & .headerLink {
     &:hover {
-      color: $c-orange-4;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -0.5rem;
-      background-color: transparent;
-      height: 0.1px;
-      border-radius: 50%;
-      transform: rotateX(80deg);
+      color: $c-sea-6;
     }
 
     &__active {
       position: relative;
-      color: $c-orange-4;
+      color: $c-sea-6;
 
       &:before {
-        box-shadow: 0 0 1rem $c-orange-4, 0 0 0.1rem $c-orange-4, 0 0 2rem $c-orange-4,;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: transparent;
+        height: 0.1px;
+        border-radius: 50%;
+        transform: rotateX(80deg);
+        box-shadow: 0 0 1rem $c-sea-6, 0 0 0.1rem $c-sea-6, 0 0 2rem $c-sea-6,;
       }
     }
   }

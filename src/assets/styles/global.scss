@@ -13,17 +13,17 @@ html {
 }
 
 body {
-  height: calc(100% - 3rem);
+  height: calc(100% - 3.5rem);
 }
 
 body.light{
-  color: $c-sea-1;
+  color: $c-gray-3;
   background: $c-white;
 }
 
 body.dark{
   background: $gr-dark-1;
-  color: $c-sea-6;
+  color: $c-gray-6;
 }
 
 #root {
