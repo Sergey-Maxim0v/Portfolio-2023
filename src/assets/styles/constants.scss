@@ -1,7 +1,14 @@
 // colors
 $c-white: white;
-$c-gray: gray;
 $c-black: black;
+
+// Gray
+$c-gray-1: #000C17;
+$c-gray-2: #2B2B2B;
+$c-gray-3: #373737;
+$c-gray-4: #434343;
+$c-gray-5: #848484;
+$c-gray-6: #F8F8FA;
 
 // violet
 $c-violet-1: #1C1930;
@@ -23,13 +30,18 @@ $c-green-yellow-3: #9CC50F;
 $c-green-yellow-4: #C4E31E;
 $c-green-yellow-5: #F0F949;
 
+// green
+$c-green-1: #0C635F;
+$c-green-2: #03B3A1;
+
 // sea
 $c-sea-1: #172E4A;
-$c-sea-2: #17445A;
-$c-sea-3: #15606F;
-$c-sea-4: #1D8D8A;
-$c-sea-5: #3EE4C2;
-$c-sea-6: #3DF6E0;
+$c-sea-2: #1B3544;
+$c-sea-3: #17445A;
+$c-sea-4: #15606F;
+$c-sea-5: #1D8D8A;
+$c-sea-6: #3EE4C2;
+$c-sea-7: #3DF6E0;
 
 //pink
 $c-pink1: #942941;
@@ -43,5 +55,6 @@ $b-desktop: 1024px;
 $b-fhd: 1920px;
 
 // gradient
-$gr-dark-1: linear-gradient(to bottom, $c-violet-1 0%,$c-violet-2 1.8rem,$c-violet-1 4rem,$c-violet-2 50%,$c-violet-1 100%);
+$gr-dark-1: linear-gradient(to bottom, $c-violet-1 0%, $c-violet-2 1.8rem, $c-violet-1 4rem, $c-violet-2 50%, $c-violet-1 100%);
 $gr-dark-2: linear-gradient(0deg, $c-violet-1 0%, $c-violet-3 100%);
+$gr-dark-3: linear-gradient(180.81deg, #1F2122 0.69%, #162129 57.07%);

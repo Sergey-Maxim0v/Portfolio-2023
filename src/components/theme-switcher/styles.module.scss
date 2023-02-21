@@ -33,6 +33,10 @@
   }
 
   &:hover {
+    & *{
+      animation: none;
+    }
+
     #{$parent}__moon {
       fill: $c-orange-3;
     }

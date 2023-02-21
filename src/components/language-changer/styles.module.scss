@@ -52,14 +52,16 @@ body:global(.light) .languageChanger {
     box-shadow: 0 0 3px $c-violet-2;
   }
 
-  &__button{
-    &:hover{
+  &__button {
+    color: $c-gray-4;
+
+    &:hover {
       color: $c-orange-1;
     }
   }
 
-  &__element{
-    &:hover{
+  &__element {
+    &:hover {
       color: $c-orange-1;
     }
   }
@@ -75,14 +77,14 @@ body:global(.dark) .languageChanger {
     box-shadow: 0 0 3px $c-violet-4;
   }
 
-  &__button{
-    &:hover{
+  &__button {
+    &:hover {
       color: $c-orange-3;
     }
   }
 
-  &__element{
-    &:hover{
+  &__element {
+    &:hover {
       color: $c-orange-3;
     }
   }

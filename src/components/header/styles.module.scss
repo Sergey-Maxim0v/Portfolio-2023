@@ -12,7 +12,10 @@
   line-height: 1.2rem;
 
   &__list {
-
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
 
   &__link {
@@ -32,6 +35,10 @@
 
 .headerLink {
   position: relative;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  display: flex;
+  align-items: center;
 
   &__active {
     color: $c-orange-3;
@@ -43,7 +50,7 @@ body:global(.light) .header {
   color: $c-sea-1;
 
   & * {
-    color: $c-sea-1;
+    color: $c-gray-4;
   }
 
   & .headerLink {
@@ -53,6 +60,8 @@ body:global(.light) .header {
 
     &__active {
       color: $c-orange-1;
+
+      border-color: $c-orange-1;
     }
   }
 }
