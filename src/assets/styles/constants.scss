@@ -8,7 +8,8 @@ $c-gray-2: #2B2B2B;
 $c-gray-3: #373737;
 $c-gray-4: #434343;
 $c-gray-5: #848484;
-$c-gray-6: #F8F8FA;
+$c-gray-6: #e0e0e0;
+$c-gray-7: #F8F8FA;
 
 // violet
 $c-violet-1: #1C1930;
@@ -52,6 +53,8 @@ $c-pink3: #F6198D;
 $gr-dark-1: linear-gradient(to bottom, $c-gray-1 0%, $c-sea-1 1.8rem, $c-gray-1 4rem, $c-sea-1 50%, $c-gray-1 100%);
 $gr-dark-2: linear-gradient(0deg, $c-violet-1 0%, $c-violet-3 100%);
 $gr-dark-3: linear-gradient(180.81deg, #1F2122 0.69%, #162129 57.07%);
+
+$gr-light-1: linear-gradient(to bottom, $c-gray-6 0%, $c-gray-7 1.8rem, $c-gray-6 4rem, $c-gray-7 50%, $c-gray-6 100%);
 
 // screen
 $b-mobile: 320px;
