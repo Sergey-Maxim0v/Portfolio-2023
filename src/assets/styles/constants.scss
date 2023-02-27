@@ -62,3 +62,33 @@ $b-tablet: 768px;
 $b-desktop: 1024px;
 $b-fhd: 1920px;
 
+.shadow {
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0.3rem;
+    left: -0.2rem;
+    right: -0.2rem;
+    height: 4px;
+    border-radius: 50%;
+    background-color: currentColor;
+    transform: rotateX(50deg);
+    opacity: 0.2;
+    box-shadow: 0 0 1rem currentColor, 0 0 0.1rem currentColor, 0 0 2rem currentColor;
+
+    animation: animation_shadow_width 0.2s;
+  }
+}
+
+
+@keyframes animation_shadow_width {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.5) rotateX(50deg);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scaleX(1) rotateX(50deg);
+  }
+}

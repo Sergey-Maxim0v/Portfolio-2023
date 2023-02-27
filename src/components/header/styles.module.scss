@@ -91,19 +91,10 @@ body:global(.dark) .header {
     }
 
     &__active {
+      @extend .shadow;
+
       position: relative;
       color: $c-sea-6;
-
-      &:before {
-        left: -0.2rem;
-        right: -0.2rem;
-        height: 4px;
-        border-radius: 50%;
-        background-color: currentColor;
-        transform: rotateX(50deg);
-        opacity: 0.2;
-        box-shadow: 0 0 1rem currentColor, 0 0 0.1rem currentColor, 0 0 2rem currentColor;
-      }
     }
   }
 }
