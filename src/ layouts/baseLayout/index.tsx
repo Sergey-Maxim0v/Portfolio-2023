@@ -16,7 +16,7 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
       <Context.Provider value={{lang, setLang, theme, setTheme}}>
         <Header/>
 
-        <div className={classNames(styles.contentLayout, "container", "font__normal")}>
+        <div className={classNames(styles.contentLayout, "container", "font__normal", "scroll")}>
           {children}
         </div>
 
