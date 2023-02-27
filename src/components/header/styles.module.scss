@@ -72,6 +72,7 @@ body:global(.light) .header {
         height: 2px;
         background-color: currentColor;
         opacity: 0.8;
+        animation: animation_active_width 0.2s;
       }
     }
   }
@@ -96,5 +97,17 @@ body:global(.dark) .header {
       position: relative;
       color: $c-sea-6;
     }
+  }
+}
+
+@keyframes animation_active_width {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
