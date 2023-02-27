@@ -14,6 +14,7 @@ const HomeContent = () => {
           {lang === LangEnum.RU && 'Главная страница в разработке'}
           <br/>
         </div>
+    
     result.push(node)
   }
 
