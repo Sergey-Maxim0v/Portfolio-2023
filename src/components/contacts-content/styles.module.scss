@@ -1,6 +1,4 @@
 .contacts {
-  $parent: &;
-
   box-sizing: content-box;
   width: 100%;
   height: auto;
@@ -64,12 +62,6 @@
       color: inherit;
       transition: transform 0.2s;
     }
-
-    &:hover {
-      #{$parent}__icon {
-        transform: scale(1.05);
-      }
-    }
   }
 
   &__link {
@@ -101,7 +93,11 @@ body:global(.light) .contacts {
     &:hover {
       @extend .shadow;
 
-      color: $c-orange-1;
+      color: $c-gray-5;
+
+      .contacts__desc{
+        color: $c-orange-1;
+      }
     }
   }
 }
