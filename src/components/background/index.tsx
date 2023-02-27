@@ -4,6 +4,8 @@ const Background = () => {
 
   return (
       <div className={styles.background}>
+
+        <div className={styles.gradient}></div>
       </div>
   )
 }

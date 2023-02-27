@@ -13,16 +13,15 @@ html {
 }
 
 body {
-  height: calc(100% - 3.5rem);
+  height: 100%;
+  padding-top: 3.5rem;
 }
 
 body.light{
   color: $c-gray-3;
-  background:  $gr-light-1;
 }
 
 body.dark{
-  background: $gr-dark-1;
   color: $c-gray-6;
 }
 
