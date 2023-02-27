@@ -7,10 +7,14 @@ const HomeContent = () => {
 
   const result = []
 
-  for (let i = 0; i < 100; i++){
-    lang === LangEnum.EN && result.push('Page home under construction')
-    lang === LangEnum.RU && result.push('Главная страница в разработке')
-    result.push(<br/>)
+  for (let i = 0; i < 100; i++) {
+    const node =
+        <div key={i}>
+          {lang === LangEnum.EN && 'Page home under construction'}
+          {lang === LangEnum.RU && 'Главная страница в разработке'}
+          <br/>
+        </div>
+    result.push(node)
   }
 
   return (
