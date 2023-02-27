@@ -36,12 +36,20 @@
 .headerLink {
   position: relative;
   height: 100%;
-  border-bottom: 2px solid transparent;
   display: flex;
   align-items: center;
 
   &__active {
     color: $c-orange-3;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.3rem;
+      background-color: transparent;
+    }
   }
 }
 
@@ -61,7 +69,13 @@ body:global(.light) .header {
     &__active {
       color: $c-orange-1;
 
-      border-color: $c-orange-1;
+      &:before {
+        height: 0.1px;
+        border-radius: 50%;
+        transform: rotateX(80deg);
+        background-color: transparent;
+        box-shadow: 0 0 0.2rem currentColor, 0 0 0.4rem currentColor, 0 0 1rem currentColor, 0 0 2rem currentColor, 0 0 3rem currentColor;
+      }
     }
   }
 }
@@ -84,16 +98,10 @@ body:global(.dark) .header {
       color: $c-sea-6;
 
       &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: transparent;
         height: 0.1px;
         border-radius: 50%;
         transform: rotateX(80deg);
-        box-shadow: 0 0 1rem $c-sea-6, 0 0 0.1rem $c-sea-6, 0 0 2rem $c-sea-6,;
+        box-shadow: 0 0 1rem currentColor, 0 0 0.1rem currentColor, 0 0 2rem currentColor;
       }
     }
   }
