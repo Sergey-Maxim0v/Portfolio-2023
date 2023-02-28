@@ -47,7 +47,7 @@ export const CONTACTS: IContact[] = [
   {
     id: 'contact-7',
     nameEn: 'Vk',
-    nameRu: 'Вконтакте',
+    nameRu: 'ВКонтакте',
     link: 'https://vk.com/id88699816',
     icon: IconNameEnum.vk
   },
