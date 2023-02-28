@@ -9,8 +9,8 @@ export interface IRoute {
 export const ROUTES: { [key: string]: IRoute } = {
   home: {
     path: `${BASE_URL}`,
-    titleRu: 'Главная',
-    titleEn: 'Home'
+    titleRu: 'Обо мне',
+    titleEn: 'About me'
   },
   projects: {
     path: `${BASE_URL}/projects`,
