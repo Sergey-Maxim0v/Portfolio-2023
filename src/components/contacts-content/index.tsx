@@ -4,6 +4,7 @@ import {Context} from "../../context/context";
 import styles from "./styles.module.scss"
 import {CONTACTS} from "./constants";
 import Icon from "../icon";
+import classNames from "classnames";
 
 const ContactsContent = () => {
   const {lang} = useContext(Context)
@@ -24,24 +25,30 @@ const ContactsContent = () => {
         <nav className={styles.contacts__links}>
           <ul className={styles.contacts__list}>
 
-            {CONTACTS.map(contact => (
-                <li
-                    key={contact.id}
-                    className={styles.contacts__element}
-                >
-                  <a
-                      className={styles.contacts__link}
-                      href={contact.link}
-                  >
-                    <Icon className={styles.contacts__icon} iconName={contact.icon}/>
+            {CONTACTS.map((contact, index) => {
+              const randomAnimationClass = styles[`animation_${index + 1}`]
 
-                    <p className={styles.contacts__desc}>
-                      {lang === LangEnum.RU && contact.nameRu}
-                      {lang === LangEnum.EN && contact.nameEn}
-                    </p>
-                  </a>
-                </li>
-            ))}
+              return (
+                  <li
+                      key={contact.id}
+                      className={classNames(styles.contacts__element, randomAnimationClass)}
+                  >
+                    <a
+                        className={styles.contacts__link}
+                        href={contact.link}
+                    >
+                      <Icon
+                          className={styles.contacts__icon}
+                          iconName={contact.icon}/>
+
+                      <p className={styles.contacts__desc}>
+                        {lang === LangEnum.RU && contact.nameRu}
+                        {lang === LangEnum.EN && contact.nameEn}
+                      </p>
+                    </a>
+                  </li>
+              );
+            })}
 
           </ul>
         </nav>

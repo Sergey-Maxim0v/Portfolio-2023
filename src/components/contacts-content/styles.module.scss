@@ -95,7 +95,7 @@ body:global(.light) .contacts {
 
       color: $c-gray-5;
 
-      .contacts__desc{
+      .contacts__desc {
         color: $c-orange-1;
       }
     }
@@ -113,3 +113,106 @@ body:global(.dark) .contacts {
     }
   }
 }
+
+.animation_1 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_1 0.3s linear;
+    }
+  }
+}
+
+.animation_2 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_2 0.4s;
+    }
+  }
+}
+
+.animation_3 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_2 0.4s;
+    }
+  }
+}
+
+.animation_4 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_2 0.4s;
+    }
+  }
+}
+
+.animation_5 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_2 0.4s;
+    }
+  }
+}
+
+.animation_6 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_2 0.4s;
+    }
+  }
+}
+
+.animation_7 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_2 0.4s;
+    }
+  }
+}
+
+.animation_8 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_3 0.5s ease-out;
+    }
+  }
+}
+
+@keyframes animation_1 {
+  0% {
+    transform: none;
+  }
+
+  30% {
+    transform: rotateZ(10deg);
+  }
+
+  60% {
+    transform: rotateZ(-10deg);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes animation_2 {
+  0% {
+    transform: none;
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes animation_3 {
+  0% {
+    transform: none;
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
