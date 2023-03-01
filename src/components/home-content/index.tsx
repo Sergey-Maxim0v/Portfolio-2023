@@ -3,14 +3,12 @@ import {Context} from "../../context/context";
 import {LangEnum} from "../../constants/enums";
 import styles from "./styles.module.scss"
 import classNames from "classnames";
+import {BASE_URL} from "../../api/baseURL";
 
 const HomeContent = () => {
   const {lang} = useContext(Context)
 
-  const downloadResume = (lang: LangEnum) => {
-    // TODO
-    console.log(lang)
-  }
+  const linkPDF = lang === LangEnum.RU ? `${BASE_URL}/download/resume-ru.pdf` : `${BASE_URL}/download/resume-en.pdf`
 
   return (
       <div className={styles.home}>
@@ -50,13 +48,18 @@ const HomeContent = () => {
         </section>
 
         <section className={styles.home__resume}>
-          <button
-              className={styles.home__button}
-              onClick={() => downloadResume(lang)}
+          <a
+              href={linkPDF}
+              className="styles.home__link"
+              download
           >
-            {lang === LangEnum.EN && 'Download resume'}
-            {lang === LangEnum.RU && 'Скачать резюме'}
-          </button>
+            <button
+                className={styles.home__button}
+            >
+              {lang === LangEnum.EN && 'Download resume'}
+              {lang === LangEnum.RU && 'Скачать резюме'}
+            </button>
+          </a>
         </section>
 
         <section className={classNames(styles.home__section, styles.skills)}>
