@@ -1,3 +1,7 @@
+.nowrap {
+  white-space: nowrap;
+}
+
 .home {
   width: 100%;
   height: auto;
@@ -7,45 +11,74 @@
 
   }
 
-  &__name {
-
-  }
 
   &__section {
-
+    padding: 3rem 0;
   }
 
   &__subtitle {
   }
 
   &__text {
-
   }
 
-  &__resume {
 
+}
+
+.about {
+  min-height: calc(100vh - 6.5rem);
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    & span {
+      font-size: 5rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 5rem;
+    }
   }
+
+  &__description {
+    margin-bottom: 3rem;
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  &__name {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
 
   &__link {
     color: currentColor;
   }
 
-  &__button {
-    color: currentColor;
-  }
-}
-
-.about {
-  &__title {
-
-  }
-
-  &__photo {
-
-  }
-
-  &__text {
-
+  &__scroll {
+    position: absolute;
+    top: 100%;
+    transform: translateY(-3rem);
+    padding: 0 0 2rem 0.1rem;
+    border-left: 1px solid currentColor;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 0.45rem;
+    letter-spacing: -0.2rem;
+    font-weight: 700;
   }
 }
 

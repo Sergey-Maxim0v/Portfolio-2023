@@ -4,6 +4,7 @@ import {LangEnum} from "../../constants/enums";
 import styles from "./styles.module.scss"
 import classNames from "classnames";
 import {BASE_URL} from "../../api/baseURL";
+import GlowingButton from "../glowing-button";
 
 const HomeContent = () => {
   const {lang} = useContext(Context)
@@ -12,55 +13,60 @@ const HomeContent = () => {
 
   return (
       <div className={styles.home}>
-        <h1 className={styles.home__title}>
-              <span>
-                {lang === LangEnum.EN && 'Frontend-developer'}
-                {lang === LangEnum.RU && 'Frontend-разработчик'}
-              </span>
-        </h1>
-
         <section className={classNames(styles.home__section, styles.about)}>
-          <p className={styles.about__text}>
-            {lang === LangEnum.EN &&
-                `Hello! I'm `
-            }
-            {lang === LangEnum.RU &&
-                'Привет! Меня зовут '
-            }
+          <h1 className={classNames(styles.home__title, styles.about__title)}>
+            <span>
+              FRONTEND
+              {lang === LangEnum.EN && ' developer'}
+              {lang === LangEnum.RU && ' разработчик'}
+            </span>
+          </h1>
 
-            <span className={styles.home__name}>
-              {lang === LangEnum.EN && 'Sergey Maximov'}
-              {lang === LangEnum.RU && 'Сергей Максимов'}
-           </span>
-          </p>
+          <div className={styles.about__description}>
+            <p className={classNames(styles.home__text, styles.about__text)}>
+              {lang === LangEnum.EN &&
+                  `Hello! I'm `
+              }
+              {lang === LangEnum.RU &&
+                  `Привет! Меня зовут `
+              }
+              <span className={styles.about__name}>
+                {lang === LangEnum.EN && 'Sergey Maximov'}
+                {lang === LangEnum.RU && 'Сергей Максимов'}
+              </span>
+            </p>
 
-          <p className={classNames(styles.home__text, styles.about__text)}>
-            {lang === LangEnum.EN &&
-                'I like to resolve design problems, ' +
-                'create smart user interface and imagine useful interaction, ' +
-                'developing rich web experiences & web applications. '
-            }
-            {lang === LangEnum.RU &&
-                'Мне нравится решать сложные дизайнерские задачи ' +
-                'и разрабатывать интересный функционал для web-приложений. '
-            }
-          </p>
-        </section>
+            <p className={classNames(styles.home__text, styles.about__text)}>
+              {lang === LangEnum.EN &&
+                  <span>
+                    I&nbsp;like to&nbsp;resolve design problems,
+                    create smart user interface and imagine useful interaction,
+                    developing rich web experiences and&nbsp;web applications.
+                  </span>
+              }
+              {lang === LangEnum.RU &&
+                  <span>
+                    Мне нравится решать сложные дизайнерские задачи
+                    и&nbsp;разрабатывать интересный функционал для
+                    <span className={styles.nowrap}>web-приложений.</span>
+                  </span>
+              }
+            </p>
+          </div>
 
-        <section className={styles.home__resume}>
           <a
               href={linkPDF}
-              className="styles.home__link"
+              className={styles.about__link}
               download
           >
-            <button
-                className={styles.home__button}
-            >
-              {lang === LangEnum.EN && 'Download resume'}
-              {lang === LangEnum.RU && 'Скачать резюме'}
-            </button>
+            <GlowingButton textRu={'Скачать резюме'} textEn={'Download resume'}/>
           </a>
+
+          <div className={styles.about__scroll}>
+            scroll
+          </div>
         </section>
+
 
         <section className={classNames(styles.home__section, styles.skills)}>
           <h2 className={classNames(styles.home__subtitle, styles.skills__title)}>
