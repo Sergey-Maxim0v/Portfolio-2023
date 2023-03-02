@@ -19,9 +19,9 @@
 }
 
 body:global(.dark) .gradient {
-  background: $gr-dark-1;
+  background: $gr-dark-bg;
 }
 
 body:global(.light) .gradient {
-  background: $gr-light-1;
+  background: $gr-light-bg;
 }

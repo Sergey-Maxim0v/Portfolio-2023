@@ -3,7 +3,7 @@
   min-height: 2rem;
   height: auto;
   padding: 0.3rem 1.5rem;
-  border: none;
+  border: 1px solid transparent;
   outline: none;
   color: currentColor;
   background: transparent;
@@ -11,22 +11,24 @@
   position: relative;
   z-index: 0;
   border-radius: 0.7rem;
-  transition: transform 0.2s;
+  transition: transform 0.2s, border-color 0.2s;
+
+  &:hover {
+    border-color: currentColor;
+  }
 
   &:before {
     content: '';
     z-index: -1;
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
     position: absolute;
     top: -0.05rem;
     left: -0.2rem;
     height: calc(100% + 0.1rem);
     width: calc(100% + 0.4rem);
-    background-size: 400%;
     filter: blur(0.2rem);
     border-radius: 0.7rem;
     opacity: 0.7;
-    animation: glowing 20s linear infinite;
+    animation: glowing 5s linear infinite;
   }
 
   &:after {
@@ -41,7 +43,7 @@
     transition: background-color 0.2s;
   }
 
-  &:active{
+  &:active {
     transform: scale(0.95);
   }
 }
@@ -52,6 +54,8 @@ body:global(.light) .button {
   }
 
   &:before {
+    background: $gr-light-glow;
+    background-size: 400%;
   }
 
   &:after {
@@ -65,10 +69,12 @@ body:global(.light) .button {
 
 body:global(.dark) .button {
   &:hover {
-    color: $c-gray-1;
+    color: $c-gray-6;
   }
 
   &:before {
+    background: $gr-dark-glow;
+    background-size: 400%;
   }
 
   &:after {
