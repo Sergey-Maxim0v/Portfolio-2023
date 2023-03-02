@@ -79,6 +79,8 @@
     font-size: 0.45rem;
     letter-spacing: -0.2rem;
     font-weight: 700;
+    opacity: 1;
+    transition:opacity 0.2s;
   }
 }
 
@@ -102,4 +104,8 @@
   &__description {
 
   }
+}
+
+.hidden {
+  opacity: 0
 }

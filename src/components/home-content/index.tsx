@@ -5,9 +5,13 @@ import styles from "./styles.module.scss"
 import classNames from "classnames";
 import {BASE_URL} from "../../api/baseURL";
 import GlowingButton from "../glowing-button";
+import useGetScrollPageContent from "../../hooks/useGetScrollPageContent";
 
 const HomeContent = () => {
   const {lang} = useContext(Context)
+
+  // TODO: убрать useGetScrollPageContent, чтоб компонент не перерендерился.
+    const {top: scrollTop} = useGetScrollPageContent()
 
   const linkPDF = lang === LangEnum.RU ? `${BASE_URL}/download/resume-ru.pdf` : `${BASE_URL}/download/resume-en.pdf`
 
@@ -62,7 +66,7 @@ const HomeContent = () => {
             <GlowingButton textRu={'Скачать резюме'} textEn={'Download resume'}/>
           </a>
 
-          <div className={styles.about__scroll}>
+          <div className={classNames(styles.about__scroll, {[styles.hidden]: scrollTop > 100})}>
             scroll
           </div>
         </section>
