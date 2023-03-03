@@ -97,8 +97,8 @@
 body:global(.light) {
   & .title {
     background: $gr-light-title;
-    background-size: 200%;
-    animation: bg_animation 5s infinite;
+    background-size: 300%;
+    animation: bg_animation 12s infinite ease-in;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -107,8 +107,8 @@ body:global(.light) {
 body:global(.dark) {
   & .title {
     background: $gr-dark-title;
-    background-size: 200%;
-    animation: bg_animation 5s infinite ease-in;
+    background-size: 300%;
+    animation: bg_animation 15s infinite ease-in;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -145,6 +145,6 @@ body:global(.dark) {
     background-position: 0;
   }
   100% {
-    background-position: -200%;
+    background-position: -300%;
   }
 }
