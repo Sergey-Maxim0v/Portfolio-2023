@@ -5,6 +5,7 @@ import styles from "./styles.module.scss"
 import classNames from "classnames";
 import {BASE_URL} from "../../api/baseURL";
 import GlowingButton from "../glowing-button";
+import SkillsCloudBg from "../skills-space-bg";
 
 const HomeContent = () => {
   const {lang} = useContext(Context);
@@ -90,6 +91,8 @@ const HomeContent = () => {
           <div className={classNames(styles.about__scroll, {[styles.hidden]: isScroll})}>
             scroll
           </div>
+
+          <SkillsCloudBg/>
         </section>
 
         <section className={classNames(styles.home__section, styles.skills)}>
