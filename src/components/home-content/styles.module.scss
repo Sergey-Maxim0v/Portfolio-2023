@@ -94,6 +94,26 @@
   }
 }
 
+body:global(.light) {
+  & .title {
+    background: $gr-light-title;
+    background-size: 200%;
+    animation: bg_animation 5s infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+body:global(.dark) {
+  & .title {
+    background: $gr-dark-title;
+    background-size: 200%;
+    animation: bg_animation 5s infinite ease-in;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .skills {
 
   &__title {
@@ -118,4 +138,13 @@
 
 .hidden {
   opacity: 0
+}
+
+@keyframes bg_animation {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -200%;
+  }
 }

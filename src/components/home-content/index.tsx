@@ -10,7 +10,9 @@ const HomeContent = () => {
   const {lang} = useContext(Context);
   const [isScroll, setIsScroll] = useState(false);
 
-  const linkPDF = lang === LangEnum.RU ? `${BASE_URL}/download/resume-ru.pdf` : `${BASE_URL}/download/resume-en.pdf`
+  const linkPDF = lang === LangEnum.RU
+      ? `${BASE_URL}/download/resume-ru.pdf`
+      : `${BASE_URL}/download/resume-en.pdf`
 
   useEffect(() => {
     const onScroll = (event: Event) => {
@@ -129,7 +131,8 @@ const HomeContent = () => {
                 {lang === LangEnum.EN &&
                     'Experience in creating React applications of varying degrees of complexity. ' +
                     'Experience in creating SSR applications using Next.js ' +
-                    'Experience working with React libraries for building and interacting with tables and forms. ' +
+                    'Experience working with React libraries for building ' +
+                    'and interacting with tables and forms. ' +
                     'Experience working with React UI libraries (Material UI).'
                 }
                 {lang === LangEnum.RU &&
@@ -165,7 +168,7 @@ const HomeContent = () => {
               </h4>
               <p className={styles.skills__description}>
                 {lang === LangEnum.EN &&
-                    'Experience working with tools used in frontend development:: ' +
+                    'Experience working with tools used in frontend development: ' +
                     'Git, Yarn, NPM, Webpack, Vite, Eslint'
                 }
                 {lang === LangEnum.RU &&
