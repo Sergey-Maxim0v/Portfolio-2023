@@ -1,19 +1,39 @@
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Context} from "../../context/context";
 import {LangEnum} from "../../constants/enums";
 import styles from "./styles.module.scss"
 import classNames from "classnames";
 import {BASE_URL} from "../../api/baseURL";
 import GlowingButton from "../glowing-button";
-import useGetScrollPageContent from "../../hooks/useGetScrollPageContent";
 
 const HomeContent = () => {
-  const {lang} = useContext(Context)
-
-  // TODO: убрать useGetScrollPageContent, чтоб компонент не перерендерился.
-    const {top: scrollTop} = useGetScrollPageContent()
+  const {lang} = useContext(Context);
+  const [isScroll, setIsScroll] = useState(false);
 
   const linkPDF = lang === LangEnum.RU ? `${BASE_URL}/download/resume-ru.pdf` : `${BASE_URL}/download/resume-en.pdf`
+
+  useEffect(() => {
+    const onScroll = (event: Event) => {
+      if (!event || !event?.target) {
+        return;
+      }
+
+      const targetNode = event.target as HTMLElement
+
+      setIsScroll(targetNode.scrollTop > 200)
+    }
+
+    const containerNode = document.querySelector('[data-content-layout]')
+
+    if (!containerNode) {
+      return;
+    }
+
+    containerNode.addEventListener('scroll', (event) => onScroll(event))
+
+    return containerNode.removeEventListener('scroll', (event) => onScroll(event))
+  }, [])
+
 
   return (
       <div className={styles.home}>
@@ -66,7 +86,7 @@ const HomeContent = () => {
             <GlowingButton textRu={'Скачать резюме'} textEn={'Download resume'}/>
           </a>
 
-          <div className={classNames(styles.about__scroll, {[styles.hidden]: scrollTop > 100})}>
+          <div className={classNames(styles.about__scroll, {[styles.hidden]: isScroll})}>
             scroll
           </div>
         </section>
