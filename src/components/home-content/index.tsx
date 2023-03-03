@@ -90,7 +90,6 @@ const HomeContent = () => {
           </div>
         </section>
 
-
         <section className={classNames(styles.home__section, styles.skills)}>
           <h2 className={classNames(styles.home__subtitle, styles.skills__title)}>
             {lang === LangEnum.EN && 'Skills'}

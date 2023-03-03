@@ -10,10 +10,12 @@ import ThemeSwitcher from "../theme-switcher";
 
 const Header = () => {
   const location = useLocation();
-  const {lang} = useContext(Context);
+  const {lang, isLoadedPage} = useContext(Context);
 
   return (
-      <header className={classNames(styles.header, "container", "font__semibold")}>
+      <header className={
+        classNames(styles.header, {[styles.transition]: isLoadedPage}, "container", "font__semibold")
+      }>
         <nav className={styles.header__list}>
           {Object.keys(ROUTES).map(key => (
               <NavLink
@@ -21,7 +23,10 @@ const Header = () => {
                   to={ROUTES[key].path}
                   className={classNames(
                       styles.header__link, styles.headerLink,
-                      {[styles.headerLink__active]: location.pathname === ROUTES[key].path || location.pathname === ROUTES[key].path + '/'}
+                      {
+                        [styles.headerLink__active]:
+                        location.pathname === ROUTES[key].path || location.pathname === ROUTES[key].path + '/'
+                      }
                   )}
               >
                 {lang === LangEnum.RU && ROUTES[key].titleRu}

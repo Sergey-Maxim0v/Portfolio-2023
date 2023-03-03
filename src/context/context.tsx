@@ -7,5 +7,6 @@ export const Context = createContext({
   },
   theme: ThemeEnum.LIGHT,
   setTheme: (val: ThemeEnum) => {
-  }
+  },
+  isLoadedPage: false
 })

@@ -6,10 +6,6 @@ html {
   @media (min-width: 1920px) {
     font-size: calc((20 / 1920) * 100vw);
   }
-
-  & * {
-    transition: color 0.1s, background-color 0.2s, background 0.2s;
-  }
 }
 
 body {

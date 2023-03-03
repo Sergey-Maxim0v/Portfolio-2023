@@ -5,3 +5,9 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.transition {
+  & *{
+    transition: color 0.1s, background-color 0.2s;
+  }
+}

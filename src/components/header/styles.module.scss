@@ -52,6 +52,14 @@
   }
 }
 
+.transition {
+  transition: color 0.2s;
+
+  & * {
+    transition: color 0.2s;
+  }
+}
+
 body:global(.light) .header {
   background-color: transparent;
   color: $c-sea-1;
