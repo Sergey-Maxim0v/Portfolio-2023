@@ -2,13 +2,16 @@ import {RefObject, useEffect, useState} from "react";
 import {IElementsSpaceBG} from "../components/skills-space-bg/types";
 
 const animationAddedInterval: number = 5000
+const initialSizeState = {width: 0, height: 0}
 
 const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
   const [nodeList, setNodeList] = useState<IElementsSpaceBG[]>([])
-  const [containerSize, setContainerSize] = useState({width: 0, height: 0})
+  const [containerSize, setContainerSize] = useState(initialSizeState)
+  const [stop, setStop] = useState(false)
 
   const loadCallBack = () => {
     if (!containerRef.current) {
+      setContainerSize(initialSizeState)
       return
     }
     const {width, height} = containerRef.current.getBoundingClientRect()
@@ -17,6 +20,7 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
 
   const resizeCallBack = () => {
     if (!containerRef.current) {
+      setContainerSize(initialSizeState)
       return
     }
     const {width, height} = containerRef.current.getBoundingClientRect()
@@ -34,7 +38,7 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
     interval: Math.random() * animationAddedInterval
   })
 
-  const animationFunk = () => {
+  const animationRecursion = () => {
     const {callBack, interval} = getTimeout();
 
     const prom = new Promise((resolve) => {
@@ -45,7 +49,7 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
     })
 
     prom.then(() => {
-      animationFunk();
+      !stop && animationRecursion();
     })
   }
 
@@ -53,16 +57,16 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
     window.addEventListener('resize', () => resizeCallBack())
     window.addEventListener('load', () => loadCallBack())
 
+    animationRecursion()
+
     return () => {
       window.removeEventListener('load', () => loadCallBack())
       window.removeEventListener('resize', () => resizeCallBack())
+
+      // TODO: clearTimeout для всех setTimeout
+
+      setStop(true)
     }
-  }, [])
-
-  useEffect(() => {
-    animationFunk()
-
-    return // TODO: остановить все setTimeout
   }, [])
 
   return nodeList
