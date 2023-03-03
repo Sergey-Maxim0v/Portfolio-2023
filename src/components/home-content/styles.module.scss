@@ -34,20 +34,6 @@
   justify-content: center;
   position: relative;
 
-  &__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 3rem;
-
-    & span {
-      font-size: 5rem;
-      font-weight: 800;
-      text-align: center;
-      line-height: 5rem;
-    }
-  }
-
   &__description {
     margin-bottom: 3rem;
   }
@@ -80,7 +66,31 @@
     letter-spacing: -0.2rem;
     font-weight: 700;
     opacity: 1;
-    transition:opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  &__front {
+    margin-right: 1rem;
+    font-size: 6rem;
+    font-weight: 400;
+    text-align: center;
+    color: currentColor;
+  }
+
+  &__dev {
+    margin-left: auto;
+    height: auto;
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
   }
 }
 

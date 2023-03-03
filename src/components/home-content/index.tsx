@@ -34,16 +34,15 @@ const HomeContent = () => {
     return containerNode.removeEventListener('scroll', (event) => onScroll(event))
   }, [])
 
-
   return (
       <div className={styles.home}>
         <section className={classNames(styles.home__section, styles.about)}>
-          <h1 className={classNames(styles.home__title, styles.about__title)}>
-            <span>
-              FRONTEND
+          <h1 className={classNames(styles.home__title, styles.title)}>
+            <p className={classNames('font__rampart', styles.title__front)}>FRONTEND</p>
+            <p className={classNames(styles.title__dev)}>
               {lang === LangEnum.EN && ' developer'}
               {lang === LangEnum.RU && ' разработчик'}
-            </span>
+            </p>
           </h1>
 
           <div className={styles.about__description}>
@@ -63,15 +62,15 @@ const HomeContent = () => {
             <p className={classNames(styles.home__text, styles.about__text)}>
               {lang === LangEnum.EN &&
                   <span>
-                    I&nbsp;like to&nbsp;resolve design problems,
+                    I&nbsp;like to&nbsp;implement complex design ideas,
                     create smart user interface and imagine useful interaction,
                     developing rich web experiences and&nbsp;web applications.
                   </span>
               }
               {lang === LangEnum.RU &&
                   <span>
-                    Мне нравится решать сложные дизайнерские задачи
-                    и&nbsp;разрабатывать интересный функционал для
+                    Мне нравится воплощать сложные дизайнерские идеи
+                    и&nbsp;разрабатывать интересный функционал для&nbsp;
                     <span className={styles.nowrap}>web-приложений.</span>
                   </span>
               }
