@@ -15,9 +15,8 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
   const [isLoadedPage, setIsLoadedPage] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('load', () => {
-      setIsLoadedPage(true)
-    })
+    window.addEventListener('load', () => setIsLoadedPage(true))
+    return window.removeEventListener('load', () => setIsLoadedPage(true))
   }, [])
 
   return (
