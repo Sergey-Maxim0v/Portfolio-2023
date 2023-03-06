@@ -1,13 +1,20 @@
 import {RefObject, useEffect, useState} from "react";
 import {IElementsSpaceBG} from "../components/skills-space-bg/types";
+import useDebounce from "./useDebonce";
+
+export interface IContainerSize {
+  width: number,
+  height: number
+}
 
 const animationAddedInterval: number = 5000
-const initialSizeState = {width: 0, height: 0}
+const initialSizeState: IContainerSize = {width: 0, height: 0}
 
 const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
   const [nodeList, setNodeList] = useState<IElementsSpaceBG[]>([])
-  const [containerSize, setContainerSize] = useState(initialSizeState)
-  const [stop, setStop] = useState(false)
+  const [containerSize, setContainerSize] = useState<IContainerSize>(initialSizeState)
+  const [stop, setStop] = useState(false);
+  const debouncedContainerSize = useDebounce<IContainerSize>(containerSize, 100)
 
   const loadCallBack = () => {
     if (!containerRef.current) {
@@ -23,7 +30,6 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
       setContainerSize(initialSizeState)
       return
     }
-    // TODO: debounce resize
     const {width, height} = containerRef.current.getBoundingClientRect()
     setContainerSize({width, height})
   }
