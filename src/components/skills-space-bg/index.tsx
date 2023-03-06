@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 import {LegacyRef, useContext, useRef} from "react";
 import {IElementsSpaceBG} from "./types";
-import useSpaseAnimation from "../../hooks/useSpaseAnimation";
+import useSpaceAnimation from "../../hooks/useSpaceAnimation";
 import {Context} from "../../context/context";
 
 const nodes: IElementsSpaceBG[] = [
@@ -29,8 +29,8 @@ const nodes: IElementsSpaceBG[] = [
 const SkillsCloudBg = () => {
   const containerRef: LegacyRef<HTMLDivElement> | null = useRef(null);
   const {scrollNode} = useContext(Context)
-  console.log(scrollNode)
-  const nodeList = useSpaseAnimation(containerRef, scrollNode)
+
+  const nodeList = useSpaceAnimation({containerNode: containerRef.current, scrollNode})
 
   return (
       <div

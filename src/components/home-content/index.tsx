@@ -32,7 +32,7 @@ const HomeContent = () => {
       return;
     }
 
-    containerNode.addEventListener('scroll', (event) => onScroll(event))
+    containerNode?.addEventListener('scroll', (event) => onScroll(event))
 
     return containerNode.removeEventListener('scroll', (event) => onScroll(event))
   }, [])
