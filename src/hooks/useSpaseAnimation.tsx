@@ -23,6 +23,7 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
       setContainerSize(initialSizeState)
       return
     }
+    // TODO: debounce resize
     const {width, height} = containerRef.current.getBoundingClientRect()
     setContainerSize({width, height})
   }
@@ -30,7 +31,7 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
   const elementsFunk = () => {
     // TODO: функция добавления элемента в рандомных координатах и добавления координат движения.
     //  После анимации удалить из возвращаемого массива.
-    console.log('elementsFunk')
+    console.log('TODO: elementsFunk')
   }
 
   const getTimeout = () => ({
