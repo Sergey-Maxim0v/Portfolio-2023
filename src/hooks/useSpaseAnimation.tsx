@@ -10,10 +10,9 @@ export interface IContainerSize {
 const animationAddedInterval: number = 5000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
-const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
+const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>, scrollNode: HTMLElement | null) => {
   const [nodeList, setNodeList] = useState<IElementsSpaceBG[]>([])
   const [containerSize, setContainerSize] = useState<IContainerSize>(initialSizeState)
-  const [stop, setStop] = useState(false);
   const debouncedContainerSize = useDebounce<IContainerSize>(containerSize, 100)
 
   const loadCallBack = () => {
@@ -55,9 +54,7 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
       }, interval)
     })
 
-    prom.then(() => {
-      !stop && animationRecursion();
-    })
+    prom.then(() => animationRecursion())
   }
 
   useEffect(() => {
@@ -71,8 +68,6 @@ const useSpaseAnimation = (containerRef: RefObject<HTMLDivElement>) => {
       window.removeEventListener('resize', () => resizeCallBack())
 
       // TODO: clearTimeout для всех setTimeout
-
-      setStop(true)
     }
   }, [])
 

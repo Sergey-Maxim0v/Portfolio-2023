@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from "react";
+import {FC, LegacyRef, useEffect, useRef, useState} from "react";
 import Header from "../../components/header";
 import {IBaseLayout} from "./types";
 import classNames from "classnames";
@@ -11,8 +11,10 @@ import Background from "../../components/background";
 const BaseLayout: FC<IBaseLayout> = ({children}) => {
   const {lang, setLang} = useLanguage()
   const {theme, setTheme} = useTheme()
-
   const [isLoadedPage, setIsLoadedPage] = useState(false)
+  const scrollRef: LegacyRef<HTMLDivElement> | null = useRef(null);
+
+  const contextValue = {lang, setLang, theme, setTheme, isLoadedPage, scrollNode: scrollRef.current}
 
   useEffect(() => {
     window.addEventListener('load', () => setIsLoadedPage(true))
@@ -20,10 +22,11 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
   }, [])
 
   return (
-      <Context.Provider value={{lang, setLang, theme, setTheme, isLoadedPage}}>
+      <Context.Provider value={contextValue}>
         <Header/>
 
         <div
+            ref={scrollRef}
             className={classNames(
                 styles.contentLayout,
                 {[styles.transition]: isLoadedPage},
