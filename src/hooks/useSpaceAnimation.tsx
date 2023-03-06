@@ -1,6 +1,7 @@
-import {useEffect, useRef, useState} from "react";
+import {RefObject, useContext, useEffect, useRef, useState} from "react";
 import {IElementsSpaceBG} from "../components/skills-space-bg/types";
 import useDebounce from "./useDebonce";
+import {Context} from "../context/context";
 
 export interface IContainerSize {
   width: number,
@@ -8,19 +9,19 @@ export interface IContainerSize {
 }
 
 export interface IUseSpaceAnimation {
-  containerNode: HTMLDivElement | null
-  scrollNode: HTMLElement | null
+  containerRef: RefObject<HTMLDivElement>
 }
 
 const animationAddedInterval: number = 1000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
-const useSpaceAnimation = ({containerNode, scrollNode}: IUseSpaceAnimation) => {
+const useSpaceAnimation = ({containerRef}: IUseSpaceAnimation) => {
+  const {scrollRef} = useContext(Context)
   const [nodeList, setNodeList] = useState<IElementsSpaceBG[]>([])
   const [containerSize, setContainerSize] = useState<IContainerSize>(initialSizeState)
   const debouncedContainerSize = useDebounce<IContainerSize>(containerSize, 100)
 
-  const stopRef = useRef(false)
+  const stopAnimationRef = useRef(false)
 
   const scrollCallBack = (event: Event) => {
     if (!event || !event?.target) {
@@ -28,32 +29,33 @@ const useSpaceAnimation = ({containerNode, scrollNode}: IUseSpaceAnimation) => {
     }
     const targetNode = event.target as HTMLElement
 
-    if (targetNode.scrollTop > containerSize.height / 2) {
-      stopRef.current = true
+    if (!stopAnimationRef.current && targetNode.scrollTop > containerSize.height / 2) {
+      stopAnimationRef.current = true
       return
     }
 
-    if (targetNode.scrollTop <= containerSize.height / 2 && stopRef.current) {
-      stopRef.current = false
+    if (stopAnimationRef.current && targetNode.scrollTop <= containerSize.height / 2) {
+      stopAnimationRef.current = false
       animationRecursion()
+      return
     }
   }
 
   const loadCallBack = () => {
-    if (!containerNode) {
+    if (!containerRef.current) {
       setContainerSize(initialSizeState)
       return
     }
-    const {width, height} = containerNode.getBoundingClientRect()
+    const {width, height} = containerRef.current.getBoundingClientRect()
     setContainerSize({width, height})
   }
 
   const resizeCallBack = () => {
-    if (!containerNode) {
+    if (!containerRef.current) {
       setContainerSize(initialSizeState)
       return
     }
-    const {width, height} = containerNode.getBoundingClientRect()
+    const {width, height} = containerRef.current.getBoundingClientRect()
     setContainerSize({width, height})
   }
 
@@ -69,7 +71,7 @@ const useSpaceAnimation = ({containerNode, scrollNode}: IUseSpaceAnimation) => {
   })
 
   const animationRecursion = () => {
-    if (!containerNode || stopRef.current) {
+    if (!containerRef.current || stopAnimationRef.current) {
       return
     }
 
@@ -86,23 +88,19 @@ const useSpaceAnimation = ({containerNode, scrollNode}: IUseSpaceAnimation) => {
   }
 
   useEffect(() => {
-    if (!scrollNode) {
-      return
-    }
-    scrollNode.addEventListener('scroll', (event) => scrollCallBack(event))
-    window.addEventListener('resize', () => resizeCallBack())
+
     window.addEventListener('load', () => loadCallBack())
-    stopRef.current = false
+    window.addEventListener('resize', () => resizeCallBack())
+    scrollRef.current?.addEventListener('scroll', (event) => scrollCallBack(event))
 
     animationRecursion()
 
     return () => {
-      scrollNode.removeEventListener('scroll', (event) => scrollCallBack(event))
-      window.removeEventListener('load', () => loadCallBack())
+      scrollRef.current?.removeEventListener('scroll', (event) => scrollCallBack(event))
       window.removeEventListener('resize', () => resizeCallBack())
-      stopRef.current = true
+      window.removeEventListener('load', () => loadCallBack())
     }
-  }, [scrollNode])
+  }, [])
 
   return nodeList
 }

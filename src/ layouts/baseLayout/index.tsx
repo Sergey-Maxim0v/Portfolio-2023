@@ -1,9 +1,9 @@
-import {FC, LegacyRef, useEffect, useRef, useState} from "react";
+import {FC, LegacyRef, RefObject, useEffect, useRef, useState} from "react";
 import Header from "../../components/header";
 import {IBaseLayout} from "./types";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import {Context} from "../../context/context";
+import {Context, IContext} from "../../context/context";
 import useLanguage from "../../hooks/useLanguage";
 import useTheme from "../../hooks/useTheme";
 import Background from "../../components/background";
@@ -12,9 +12,9 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
   const {lang, setLang} = useLanguage()
   const {theme, setTheme} = useTheme()
   const [isLoadedPage, setIsLoadedPage] = useState(false)
-  const scrollRef: LegacyRef<HTMLDivElement> | null = useRef(null);
+  const scrollRef: RefObject<HTMLDivElement> = useRef(null);
 
-  const contextValue = {lang, setLang, theme, setTheme, isLoadedPage, scrollNode: scrollRef.current}
+  const contextValue: IContext = {lang, setLang, theme, setTheme, isLoadedPage, scrollRef}
 
   useEffect(() => {
     window.addEventListener('load', () => setIsLoadedPage(true))
@@ -34,7 +34,6 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
                 "font__normal",
                 "scroll"
             )}
-            data-content-layout={true}
         >
           {children}
         </div>

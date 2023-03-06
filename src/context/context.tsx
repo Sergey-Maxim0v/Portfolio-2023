@@ -1,4 +1,4 @@
-import {createContext} from "react";
+import {createContext, RefObject} from "react";
 import {LangEnum, ThemeEnum} from "../constants/enums";
 
 export interface IContext {
@@ -7,7 +7,7 @@ export interface IContext {
   theme: ThemeEnum,
   setTheme: (val: ThemeEnum) => void,
   isLoadedPage: boolean,
-  scrollNode: null | HTMLDivElement
+  scrollRef: RefObject<HTMLDivElement>
 }
 
 export const Context = createContext<IContext>({
@@ -18,5 +18,5 @@ export const Context = createContext<IContext>({
   setTheme: () => {
   },
   isLoadedPage: false,
-  scrollNode: null
+  scrollRef: {current: null}
 })

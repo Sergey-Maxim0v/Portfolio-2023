@@ -1,8 +1,7 @@
 import styles from './styles.module.scss'
-import {LegacyRef, useContext, useRef} from "react";
+import {LegacyRef, useRef} from "react";
 import {IElementsSpaceBG} from "./types";
 import useSpaceAnimation from "../../hooks/useSpaceAnimation";
-import {Context} from "../../context/context";
 
 const nodes: IElementsSpaceBG[] = [
   //  TODO: вынести в отдельный файл экспортируемый массив элементов
@@ -27,10 +26,9 @@ const nodes: IElementsSpaceBG[] = [
 ]
 
 const SkillsCloudBg = () => {
-  const containerRef: LegacyRef<HTMLDivElement> | null = useRef(null);
-  const {scrollNode} = useContext(Context)
+  const containerRef: LegacyRef<HTMLDivElement> = useRef(null);
 
-  const nodeList = useSpaceAnimation({containerNode: containerRef.current, scrollNode})
+  const nodeList = useSpaceAnimation({containerRef})
 
   return (
       <div

@@ -8,7 +8,7 @@ import GlowingButton from "../glowing-button";
 import SkillsCloudBg from "../skills-space-bg";
 
 const HomeContent = () => {
-  const {lang} = useContext(Context);
+  const {lang, scrollRef} = useContext(Context);
   const [isScroll, setIsScroll] = useState(false);
 
   const linkPDF = lang === LangEnum.RU
@@ -26,16 +26,15 @@ const HomeContent = () => {
       setIsScroll(targetNode.scrollTop > 200)
     }
 
-    const containerNode = document.querySelector('[data-content-layout]')
 
-    if (!containerNode) {
+    if (!scrollRef.current) {
       return;
     }
 
-    containerNode?.addEventListener('scroll', (event) => onScroll(event))
+    scrollRef.current.addEventListener('scroll', (event) => onScroll(event))
 
-    return containerNode.removeEventListener('scroll', (event) => onScroll(event))
-  }, [])
+    return scrollRef.current.removeEventListener('scroll', (event) => onScroll(event))
+  }, [scrollRef])
 
   return (
       <div className={styles.home}>
