@@ -1,7 +1,7 @@
 import {Dispatch, ReactElement, RefObject, SetStateAction, useContext, useEffect, useRef} from "react";
 import {Context} from "../context/context";
 import SpaceRandomElement from "../components/space-random-element";
-import {ISpaceAnimationElement} from "../components/skills-space-bg/types";
+import {ISpaceAnimationElement, ISpaceElementStyle} from "../components/skills-space-bg/types";
 
 export interface IContainerSize {
   width: number,
@@ -16,6 +16,9 @@ export interface IUseSpaceAnimation {
 
 const animationAddedInterval: number = 1000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
+
+// TODO: colors ---------------------------------------------------------------------------------
+const colorList = ['red', 'blue', 'green', 'yellow',]
 
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
   const {scrollRef} = useContext(Context)
@@ -61,13 +64,14 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
 
   const getKey = (): ISpaceAnimationElement["key"] => "" + Math.random() + "__" + Math.random()
 
-  const getStyle = (): ISpaceAnimationElement["style"] => {
+  const getStyle = (): ISpaceElementStyle => {
     const top = Math.floor(Math.random() * containerSizeRef.current.height / 2) * (Math.random() > 0.5 ? 1 : -1)
     const left = Math.floor(Math.random() * containerSizeRef.current.width / 2) * (Math.random() > 0.5 ? 1 : -1)
 
-    // TODO: random color --------------------------------------------------------------------------------
+    const colorIndex = Math.round((colorList.length - 1) * Math.random())
+    const color = colorList[colorIndex]
 
-    return {transform: `translate(${left}px, ${top}px)`}
+    return {transform: `translate(${left}px, ${top}px)`, color}
   }
 
   const elementsFunk = () => {
