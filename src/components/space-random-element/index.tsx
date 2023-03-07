@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 const SpaceRandomElement = (): ReactElement => {
   const elementList: ISpaceElement[] = [
     {
-      element: <p style={{transform: 'translate(50%, 50%)'}} className={styles.element}>test-1</p>,
+      element: <p className={styles.element}>test-1</p>,
       key: "test-1"
     },
     {

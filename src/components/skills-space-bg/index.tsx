@@ -18,6 +18,7 @@ const SkillsSpaceBg = () => {
       >
         {elementList.map(element => (
             <div
+                className={styles.element}
                 key={element.key}
                 style={element.style}
             >

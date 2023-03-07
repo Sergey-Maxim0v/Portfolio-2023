@@ -65,7 +65,9 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     const top = Math.floor(Math.random() * containerSizeRef.current.height / 2) * (Math.random() > 0.5 ? 1 : -1)
     const left = Math.floor(Math.random() * containerSizeRef.current.width / 2) * (Math.random() > 0.5 ? 1 : -1)
 
-    return {transform: `translate(${top}px, ${left}px)`}
+    // TODO: random color --------------------------------------------------------------------------------
+
+    return {transform: `translate(${left}px, ${top}px)`}
   }
 
   const elementsFunk = () => {
@@ -76,8 +78,6 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     setElementList(prev => prev.concat({node: element, style, key}))
 
     setTimeout(() => setElementList(prev => prev.filter(el => el.node !== element)), 3000)
-
-    //  TODO: удаление элементов после анимации ----------------------------------------
   }
 
   const getTimeout = () => ({

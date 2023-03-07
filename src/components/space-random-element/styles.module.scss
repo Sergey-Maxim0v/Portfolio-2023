@@ -1,12 +1,5 @@
 .element {
-  $animationTime: 3s;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  animation: elementAnimation $animationTime linear;
-  transition: transform $animationTime linear;
-  opacity: 0;
+  animation: elementAnimation 3s linear;
 }
 
 @keyframes elementAnimation {
