@@ -6,6 +6,8 @@ import styles from './styles.module.scss'
 
 
 // TODO: props.transform ---------------------------------------------------------------
+// SEE: https://developer.mozilla.org/ru/docs/Web/API/Element/animate
+// SEE: https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats
 const elementAnimation = (props: { transform: string }) => keyframes`
   0% {
     transform: translate(-50%, -50%);
