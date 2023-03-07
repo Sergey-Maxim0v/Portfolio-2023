@@ -77,6 +77,8 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
 
     setElementList(prev => prev.concat({node: element, style, key}))
 
+    setTimeout(() => setElementList(prev => prev.filter(el => el.node !== element)), 3000)
+
     //  TODO: удаление элементов после анимации ----------------------------------------
   }
 
