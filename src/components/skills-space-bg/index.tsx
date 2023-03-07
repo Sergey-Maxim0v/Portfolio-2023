@@ -1,49 +1,31 @@
 import styles from './styles.module.scss'
-import {LegacyRef, useRef} from "react";
-import {IElementsSpaceBG} from "./types";
+import {LegacyRef, useRef, useState} from "react";
+import {ISpaceAnimationElement} from "./types";
 import useSpaceAnimation from "../../hooks/useSpaceAnimation";
 
-const nodes: IElementsSpaceBG[] = [
-  //  TODO: вынести в отдельный файл экспортируемый массив элементов
-  {
-    element: (
-        <span>test1</span>
-    ),
-    key: 'key_1'
-  },
-  {
-    element: (
-        <span>test2</span>
-    ),
-    key: 'key_2'
-  },
-  {
-    element: (
-        <span>test4</span>
-    ),
-    key: 'key_3'
-  }
-]
+"../../hooks/useSpaceAnimation";
 
-const SkillsCloudBg = () => {
+const SkillsSpaceBg = () => {
   const containerRef: LegacyRef<HTMLDivElement> = useRef(null);
+  const [elementList, setElementList] = useState<ISpaceAnimationElement []>([])
 
-  const nodeList = useSpaceAnimation({containerRef})
+  useSpaceAnimation({containerRef, elementList, setElementList})
 
   return (
       <div
           ref={containerRef}
           className={styles.space}
       >
-        {nodeList.map((node, index) => (
+        {elementList.map(element => (
             <div
-                key={index + node.key}
+                key={element.key}
+                style={element.style}
             >
-              {node.element}
+              {element.node}
             </div>
         ))}
       </div>
   )
 }
 
-export default SkillsCloudBg
+export default SkillsSpaceBg

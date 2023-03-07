@@ -1,7 +1,8 @@
-import {RefObject, useContext, useEffect, useRef, useState} from "react";
-import {IElementsSpaceBG} from "../components/skills-space-bg/types";
+import {Dispatch, ReactElement, RefObject, SetStateAction, useContext, useEffect, useRef, useState} from "react";
 import useDebounce from "./useDebonce";
 import {Context} from "../context/context";
+import SpaceRandomElement from "../components/space-random-element";
+import {ISpaceAnimationElement} from "../components/skills-space-bg/types";
 
 export interface IContainerSize {
   width: number,
@@ -10,14 +11,15 @@ export interface IContainerSize {
 
 export interface IUseSpaceAnimation {
   containerRef: RefObject<HTMLDivElement>
+  elementList: ISpaceAnimationElement[]
+  setElementList: Dispatch<SetStateAction<ISpaceAnimationElement[]>>
 }
 
 const animationAddedInterval: number = 1000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
-const useSpaceAnimation = ({containerRef}: IUseSpaceAnimation) => {
+const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
   const {scrollRef} = useContext(Context)
-  const [nodeList, setNodeList] = useState<IElementsSpaceBG[]>([])
   const [containerSize, setContainerSize] = useState<IContainerSize>(initialSizeState)
   const debouncedContainerSize = useDebounce<IContainerSize>(containerSize, 100)
 
@@ -59,10 +61,23 @@ const useSpaceAnimation = ({containerRef}: IUseSpaceAnimation) => {
     setContainerSize({width, height})
   }
 
+  const getKey = (): ISpaceAnimationElement["key"] => "" + Math.random() + "__" + Math.random()
+
+  const getStyle = (): ISpaceAnimationElement["style"] => {
+    const top = Math.floor(Math.random() * 300) * (Math.random() > 0.5 ? 1 : -1)
+    const left = Math.floor(Math.random() * 700) * (Math.random() > 0.5 ? 1 : -1)
+
+    return {transform: `translate(${top}px, ${left}px)`}
+  }
+
   const elementsFunk = () => {
-    // TODO: функция добавления элемента в рандомных координатах и добавления координат движения.
-    //  После анимации удалить из возвращаемого массива.
-    console.log('TODO: elementsFunk')
+    const element: ReactElement = SpaceRandomElement()
+    const key = getKey()
+    const style = getStyle()
+
+    setElementList(prev => prev.concat({node: element, style, key}))
+
+    //  TODO: удаление элементов после анимации ----------------------------------------
   }
 
   const getTimeout = () => ({
@@ -88,7 +103,6 @@ const useSpaceAnimation = ({containerRef}: IUseSpaceAnimation) => {
   }
 
   useEffect(() => {
-
     window.addEventListener('load', () => loadCallBack())
     window.addEventListener('resize', () => resizeCallBack())
     scrollRef.current?.addEventListener('scroll', (event) => scrollCallBack(event))
@@ -102,7 +116,7 @@ const useSpaceAnimation = ({containerRef}: IUseSpaceAnimation) => {
     }
   }, [])
 
-  return nodeList
+  return elementList
 }
 
 export default useSpaceAnimation
