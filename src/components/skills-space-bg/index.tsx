@@ -1,9 +1,15 @@
-import styles from './styles.module.scss'
 import {LegacyRef, useRef, useState} from "react";
 import {ISpaceAnimationElement} from "./types";
 import useSpaceAnimation from "../../hooks/useSpaceAnimation";
+import styled from "styled-components";
+import styles from './styles.module.scss'
 
-"../../hooks/useSpaceAnimation";
+const SpaceElementWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
 
 const SkillsSpaceBg = () => {
   const containerRef: LegacyRef<HTMLDivElement> = useRef(null);
@@ -17,13 +23,12 @@ const SkillsSpaceBg = () => {
           className={styles.space}
       >
         {elementList.map(element => (
-            <div
-                className={styles.element}
+            <SpaceElementWrapper
                 key={element.key}
                 style={element.style}
             >
               {element.node}
-            </div>
+            </SpaceElementWrapper>
         ))}
       </div>
   )

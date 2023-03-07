@@ -12,7 +12,7 @@
 
 ---
 <div align="center">
-React, Vite, Typescript
+React, Vite, Typescript, Styled Components
 </div>
 
 ---
