@@ -1,5 +1,4 @@
-import {Dispatch, ReactElement, RefObject, SetStateAction, useContext, useEffect, useRef, useState} from "react";
-import useDebounce from "./useDebonce";
+import {Dispatch, ReactElement, RefObject, SetStateAction, useContext, useEffect, useRef} from "react";
 import {Context} from "../context/context";
 import SpaceRandomElement from "../components/space-random-element";
 import {ISpaceAnimationElement} from "../components/skills-space-bg/types";
@@ -20,8 +19,7 @@ const initialSizeState: IContainerSize = {width: 0, height: 0}
 
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
   const {scrollRef} = useContext(Context)
-  const [containerSize, setContainerSize] = useState<IContainerSize>(initialSizeState)
-  const debouncedContainerSize = useDebounce<IContainerSize>(containerSize, 100)
+  const containerSizeRef = useRef(initialSizeState)
 
   const stopAnimationRef = useRef(false)
 
@@ -31,12 +29,12 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     }
     const targetNode = event.target as HTMLElement
 
-    if (!stopAnimationRef.current && targetNode.scrollTop > containerSize.height / 2) {
+    if (!stopAnimationRef.current && targetNode.scrollTop > containerSizeRef.current.height / 2) {
       stopAnimationRef.current = true
       return
     }
 
-    if (stopAnimationRef.current && targetNode.scrollTop <= containerSize.height / 2) {
+    if (stopAnimationRef.current && targetNode.scrollTop <= containerSizeRef.current.height / 2) {
       stopAnimationRef.current = false
       animationRecursion()
       return
@@ -45,27 +43,27 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
 
   const loadCallBack = () => {
     if (!containerRef.current) {
-      setContainerSize(initialSizeState)
+      containerSizeRef.current = initialSizeState
       return
     }
     const {width, height} = containerRef.current.getBoundingClientRect()
-    setContainerSize({width, height})
+    containerSizeRef.current = {width, height}
   }
 
   const resizeCallBack = () => {
     if (!containerRef.current) {
-      setContainerSize(initialSizeState)
+      containerSizeRef.current = initialSizeState
       return
     }
     const {width, height} = containerRef.current.getBoundingClientRect()
-    setContainerSize({width, height})
+    containerSizeRef.current = {width, height}
   }
 
   const getKey = (): ISpaceAnimationElement["key"] => "" + Math.random() + "__" + Math.random()
 
   const getStyle = (): ISpaceAnimationElement["style"] => {
-    const top = Math.floor(Math.random() * 300) * (Math.random() > 0.5 ? 1 : -1)
-    const left = Math.floor(Math.random() * 700) * (Math.random() > 0.5 ? 1 : -1)
+    const top = Math.floor(Math.random() * containerSizeRef.current.height / 2) * (Math.random() > 0.5 ? 1 : -1)
+    const left = Math.floor(Math.random() * containerSizeRef.current.width / 2) * (Math.random() > 0.5 ? 1 : -1)
 
     return {transform: `translate(${top}px, ${left}px)`}
   }
