@@ -18,5 +18,12 @@ export enum IconNameEnum {
   next = 'next',
   html = 'html',
   CSS = 'CSS',
-  sass = 'sass'
+  sass = 'sass',
+  less = 'less',
+  tailwind = 'tailwind',
+  nj = 'nj',
+  webpack = 'webpack',
+  npm = 'npm',
+  yarn = 'yarn',
+  figma = 'figma'
 }

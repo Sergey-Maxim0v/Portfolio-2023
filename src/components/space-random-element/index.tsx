@@ -3,48 +3,31 @@ import styles from './styles.module.scss'
 import Icon from "../icon";
 import {IconNameEnum} from "../icon/types";
 
+const keyList = [
+  IconNameEnum.github,
+  IconNameEnum.react,
+  IconNameEnum.ts,
+  IconNameEnum.js,
+  IconNameEnum.next,
+  IconNameEnum.html,
+  IconNameEnum.CSS,
+  IconNameEnum.sass,
+  IconNameEnum.less,
+  IconNameEnum.tailwind,
+  IconNameEnum.nj,
+  IconNameEnum.webpack,
+  IconNameEnum.gitlab,
+  IconNameEnum.npm,
+  IconNameEnum.figma,
+]
 
 const SpaceRandomElement = (): ISpaceElement => {
-  const elementList: ISpaceElement[] = [
-    {
-      element: <Icon className={styles.element} iconName={IconNameEnum.github}/>,
-      key: "github"
-    },
-    {
-      element: <Icon className={styles.rotate} iconName={IconNameEnum.react}/>,
-      key: "react"
-    },
-    {
-      element: <Icon className={styles.element} iconName={IconNameEnum.ts}/>,
-      key: "ts"
-    },
-    {
-      element: <Icon className={styles.element} iconName={IconNameEnum.js}/>,
-      key: "js"
-    },
-    {
-      element: <Icon className={styles.element} iconName={IconNameEnum.next}/>,
-      key: "next"
-    },
-    {
-      element: <Icon className={styles.element} iconName={IconNameEnum.html}/>,
-      key: "html"
-    },
-    {
-      element: <Icon className={styles.element} iconName={IconNameEnum.CSS}/>,
-      key: "CSS"
-    },
-    {
-      element: <Icon className={styles.element} iconName={IconNameEnum.sass}/>,
-      key: "sass"
-    }
-  ]
 
   const randomNumb = Math.random()
-  const index = Math.round((elementList.length - 1) * randomNumb)
-  const element = elementList[index]
+  const index = Math.round((keyList.length - 1) * randomNumb)
+  const element = <Icon className={styles.element} iconName={keyList[index]}/>
 
-  return {element: element.element, key: element.key}
+  return {element: element, key: keyList[index]}
 }
 
 
