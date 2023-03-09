@@ -1,6 +1,6 @@
 .element {
   animation: elementAnimation 3s linear;
-  opacity: 0.7;
+  opacity: 0;
 }
 
 @keyframes elementAnimation {
@@ -12,10 +12,10 @@
     opacity: 0
   }
   10% {
-    opacity: 0.7
+    opacity: 0.8
   }
   70% {
-    opacity: 0.7
+    opacity: 0.8
   }
   100% {
     opacity: 0;
