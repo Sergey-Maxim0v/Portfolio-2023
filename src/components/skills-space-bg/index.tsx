@@ -46,16 +46,17 @@ const SkillsSpaceBg = () => {
           ref={containerRef}
           className={styles.space}
       >
-        {elementList.map(element => (
-            <SpaceElementWrapper
-                key={element.key}
-                top={element.top}
-                left={element.left}
-                color={element.color}
-            >
-              {element.node}
-            </SpaceElementWrapper>
-        ))}
+        {elementList.map(element =>
+            (
+                <SpaceElementWrapper
+                    key={element.key}
+                    top={element.top}
+                    left={element.left}
+                    color={element.color}
+                >
+                  {element.node}
+                </SpaceElementWrapper>
+            ))}
       </div>
   )
 }

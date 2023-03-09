@@ -22,6 +22,8 @@ const colorList = ['#434343', '#848484', '#641894', '#742DBC', '#BC6DFF', '#BA3C
   , '#F9E501', '#185D35', '#649009', '#9CC50F', '#C4E31E', '#F0F949', '#0C635F', '#03B3A1', '#15606F'
   , '#1D8D8A', '#3EE4C2', '#17445A', '#942941', '#C82255', '#F6198D']
 
+const keySet = new Set()
+
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
   const {scrollRef} = useContext(Context)
   const containerSizeRef = useRef(initialSizeState)
@@ -87,6 +89,8 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     const key = getKey(elementKey)
     const {top, left, color} = getStyles()
 
+    keySet.add(key)
+
     setElementList(prev => prev.concat({node: element, top, left, color, key}))
 
     setTimeout(() =>
@@ -112,7 +116,7 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
       }, interval)
     })
 
-    prom.then(() => animationRecursion())
+    keySet.size < 198 && prom.then(() => animationRecursion())
   }
 
   useEffect(() => {
