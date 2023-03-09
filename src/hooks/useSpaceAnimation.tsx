@@ -72,8 +72,6 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     const top = Math.floor(Math.random() * containerSizeRef.current.width / 2)
         * (Math.random() > 0.5 ? 1 : -1)
 
-    console.log(containerSizeRef.current.height)
-
     const colorIndex = Math.round((colorList.length - 1) * Math.random())
     const color = colorList[colorIndex]
 
