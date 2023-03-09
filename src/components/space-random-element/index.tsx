@@ -1,8 +1,7 @@
 import {ISpaceElement} from "./types";
-import {ReactElement} from "react";
 import styles from './styles.module.scss'
 
-const SpaceRandomElement = (): ReactElement => {
+const SpaceRandomElement = (): ISpaceElement => {
   const elementList: ISpaceElement[] = [
     {
       element: <p className={styles.element}>test-1</p>,
@@ -30,7 +29,7 @@ const SpaceRandomElement = (): ReactElement => {
   const index = Math.round((elementList.length - 1) * randomNumb)
   const element = elementList[index]
 
-  return element.element
+  return {element: element.element, key: element.key}
 }
 
 

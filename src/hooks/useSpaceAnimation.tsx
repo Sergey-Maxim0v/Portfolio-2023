@@ -1,4 +1,4 @@
-import {Dispatch, ReactElement, RefObject, SetStateAction, useContext, useEffect, useRef} from "react";
+import {Dispatch, RefObject, SetStateAction, useContext, useEffect, useRef} from "react";
 import {Context} from "../context/context";
 import SpaceRandomElement from "../components/space-random-element";
 import {ISpaceAnimationElement, ISpaceElementStyle} from "../components/skills-space-bg/types";
@@ -14,7 +14,8 @@ export interface IUseSpaceAnimation {
   setElementList: Dispatch<SetStateAction<ISpaceAnimationElement[]>>
 }
 
-const animationAddedInterval: number = 1000
+const ANIMATION_ADDED_INTERVAL: number = 1000
+const ANIMATION_TIME = 3000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
 // TODO: colors ---------------------------------------------------------------------------------
@@ -62,31 +63,37 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     containerSizeRef.current = {width, height}
   }
 
-  const getKey = (): ISpaceAnimationElement["key"] => "" + Math.random() + "__" + Math.random()
+  const getKey = (elementKey: string): ISpaceAnimationElement["key"] =>
+      elementKey + "__" + Math.random() * 100 + Math.random() * 100
 
-  const getStyle = (): ISpaceElementStyle => {
-    const top = Math.floor(Math.random() * containerSizeRef.current.height / 2) * (Math.random() > 0.5 ? 1 : -1)
-    const left = Math.floor(Math.random() * containerSizeRef.current.width / 2) * (Math.random() > 0.5 ? 1 : -1)
+  const getStyles = (): ISpaceElementStyle => {
+    const left = Math.floor(Math.random() * containerSizeRef.current.height / 2)
+        * (Math.random() > 0.5 ? 1 : -1)
+    const top = Math.floor(Math.random() * containerSizeRef.current.width / 2)
+        * (Math.random() > 0.5 ? 1 : -1)
+
+    console.log(containerSizeRef.current.height)
 
     const colorIndex = Math.round((colorList.length - 1) * Math.random())
     const color = colorList[colorIndex]
 
-    return {transform: `translate(${left}px, ${top}px)`, color}
+    return {top, left, color}
   }
 
   const elementsFunk = () => {
-    const element: ReactElement = SpaceRandomElement()
-    const key = getKey()
-    const style = getStyle()
+    const {element, key: elementKey} = SpaceRandomElement()
+    const key = getKey(elementKey)
+    const {top, left, color} = getStyles()
 
-    setElementList(prev => prev.concat({node: element, style, key}))
+    setElementList(prev => prev.concat({node: element, top, left, color, key}))
 
-    setTimeout(() => setElementList(prev => prev.filter(el => el.node !== element)), 3000)
+    setTimeout(() =>
+        setElementList(prev => prev.filter(el => el.node !== element)), ANIMATION_TIME)
   }
 
   const getTimeout = () => ({
     callBack: elementsFunk,
-    interval: Math.random() * animationAddedInterval
+    interval: Math.random() * ANIMATION_ADDED_INTERVAL
   })
 
   const animationRecursion = () => {

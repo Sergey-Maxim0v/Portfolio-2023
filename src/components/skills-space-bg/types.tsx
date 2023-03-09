@@ -8,14 +8,13 @@ export interface IElementsSpaceBG {
 export interface ISpaceAnimationElement {
   node: ReactElement,
   key: string
-  style: ISpaceElementStyle
-}
-
-export interface ISpaceElementStyle {
-  transform: string,
+  top: number
+  left: number
   color: string
 }
 
-export interface ISpaceElementWrapper {
-  customStyle: ISpaceElementStyle
+export interface ISpaceElementStyle {
+  color: string
+  top: number
+  left: number
 }
