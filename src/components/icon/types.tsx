@@ -11,5 +11,12 @@ export enum IconNameEnum {
   github = 'github',
   gitlab = 'gitlab',
   vk = 'vk',
-  codewars = 'codewars'
+  codewars = 'codewars',
+  react = 'react',
+  ts = 'ts',
+  js = 'js',
+  next = 'next',
+  html = 'html',
+  CSS = 'CSS',
+  sass = 'sass'
 }

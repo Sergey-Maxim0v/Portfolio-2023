@@ -1,28 +1,42 @@
 import {ISpaceElement} from "./types";
 import styles from './styles.module.scss'
+import Icon from "../icon";
+import {IconNameEnum} from "../icon/types";
+
 
 const SpaceRandomElement = (): ISpaceElement => {
-  //TODO: elements ----------------------------------------------------------------
   const elementList: ISpaceElement[] = [
     {
-      element: <p className={styles.element}>test-1</p>,
-      key: "test-1"
+      element: <Icon className={styles.element} iconName={IconNameEnum.github}/>,
+      key: "github"
     },
     {
-      element: <p className={styles.element}>test-2</p>,
-      key: "test-2"
+      element: <Icon className={styles.rotate} iconName={IconNameEnum.react}/>,
+      key: "react"
     },
     {
-      element: <p className={styles.element}>test-3</p>,
-      key: "test-3"
+      element: <Icon className={styles.element} iconName={IconNameEnum.ts}/>,
+      key: "ts"
     },
     {
-      element: <p className={styles.element}>test-4</p>,
-      key: "test-4"
+      element: <Icon className={styles.element} iconName={IconNameEnum.js}/>,
+      key: "js"
     },
     {
-      element: <p className={styles.element}>test-5</p>,
-      key: "test-5"
+      element: <Icon className={styles.element} iconName={IconNameEnum.next}/>,
+      key: "next"
+    },
+    {
+      element: <Icon className={styles.element} iconName={IconNameEnum.html}/>,
+      key: "html"
+    },
+    {
+      element: <Icon className={styles.element} iconName={IconNameEnum.CSS}/>,
+      key: "CSS"
+    },
+    {
+      element: <Icon className={styles.element} iconName={IconNameEnum.sass}/>,
+      key: "sass"
     }
   ]
 
