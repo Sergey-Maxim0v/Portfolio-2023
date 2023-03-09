@@ -25,5 +25,6 @@ export enum IconNameEnum {
   webpack = 'webpack',
   npm = 'npm',
   yarn = 'yarn',
-  figma = 'figma'
+  figma = 'figma',
+  vite = 'vite'
 }
