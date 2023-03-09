@@ -22,7 +22,6 @@ const SpaceElementWrapper = styled.div<ISpaceElementStyle>`
   left: 50%;
   height: 3rem;
   width: auto;
-  //border: 1px solid red;
   transition: transform 3s;
 
   ${props => props.top && props.left

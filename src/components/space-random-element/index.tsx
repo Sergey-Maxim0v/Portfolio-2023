@@ -1,7 +1,7 @@
 import {ISpaceElement} from "./types";
-import styles from './styles.module.scss'
 import Icon from "../icon";
 import {IconNameEnum} from "../icon/types";
+import styles from './styles.module.scss'
 
 const keyList = [
   IconNameEnum.github,
@@ -22,7 +22,6 @@ const keyList = [
 ]
 
 const SpaceRandomElement = (): ISpaceElement => {
-
   const randomNumb = Math.random()
   const index = Math.round((keyList.length - 1) * randomNumb)
   const element = <Icon className={styles.element} iconName={keyList[index]}/>
