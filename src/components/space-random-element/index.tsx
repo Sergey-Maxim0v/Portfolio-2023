@@ -2,6 +2,7 @@ import {ISpaceElement} from "./types";
 import styles from './styles.module.scss'
 
 const SpaceRandomElement = (): ISpaceElement => {
+  //TODO: elements ----------------------------------------------------------------
   const elementList: ISpaceElement[] = [
     {
       element: <p className={styles.element}>test-1</p>,

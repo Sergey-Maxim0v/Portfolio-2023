@@ -4,19 +4,18 @@ import useSpaceAnimation from "../../hooks/useSpaceAnimation";
 import styled, {css, Keyframes, keyframes} from "styled-components";
 import styles from './styles.module.scss'
 
-const elementAnimation = ({top, left}: { top: number, left: number }): Keyframes => {
-  const transform: string = `translate(${top}px, ${left}px)`
+const elementAnimation = ({top, left}: { top: number, left: number }): Keyframes =>
+    keyframes`
+      0% {
+        transform: translate(-50%, -50%);
+      }
+      100% {
+        transform: translate(${top}px, ${left}px);
+      }
+    `
 
-  return keyframes`
-    0% {
-      transform: translate(-50%, -50%);
-    }
-    100% {
-      transform: ${transform};
-    }
-  `;
-}
-
+// TODO: Over 200 classes were generated for component styled.div with the id of "sc-beySbM".
+//  Consider using the attrs method, together with a style object for frequently changed styles.
 const SpaceElementWrapper = styled.div<ISpaceElementStyle>`
   position: absolute;
   top: 50%;
@@ -33,7 +32,6 @@ const SpaceElementWrapper = styled.div<ISpaceElementStyle>`
           : css`color: currentColor`
   };
 `
-
 
 const SkillsSpaceBg = () => {
   const containerRef: LegacyRef<HTMLDivElement> = useRef(null);

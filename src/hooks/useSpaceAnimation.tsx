@@ -14,12 +14,13 @@ export interface IUseSpaceAnimation {
   setElementList: Dispatch<SetStateAction<ISpaceAnimationElement[]>>
 }
 
-const ANIMATION_ADDED_INTERVAL: number = 1000
+const ANIMATION_ADDED_INTERVAL: number = 500
 const ANIMATION_TIME = 3000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
-// TODO: colors ---------------------------------------------------------------------------------
-const colorList = ['red', 'blue', 'green', 'yellow',]
+const colorList = ['#434343', '#848484', '#641894', '#742DBC', '#BC6DFF', '#BA3C15', '#FBA71C', '#F9C909'
+  , '#F9E501', '#185D35', '#649009', '#9CC50F', '#C4E31E', '#F0F949', '#0C635F', '#03B3A1', '#15606F'
+  , '#1D8D8A', '#3EE4C2', '#17445A', '#942941', '#C82255', '#F6198D']
 
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
   const {scrollRef} = useContext(Context)
