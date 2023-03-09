@@ -68,9 +68,12 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
       elementKey + "__" + Math.random() * 100 + Math.random() * 100
 
   const getStyles = (): ISpaceElementStyle => {
-    const left = Math.floor(Math.random() * containerSizeRef.current.height / 2)
+    const top =
+        Math.floor(Math.random() * containerSizeRef.current.height / 2)
         * (Math.random() > 0.5 ? 1 : -1)
-    const top = Math.floor(Math.random() * containerSizeRef.current.width / 2)
+
+    const left =
+        Math.floor(Math.random() * containerSizeRef.current.width / 2)
         * (Math.random() > 0.5 ? 1 : -1)
 
     const colorIndex = Math.round((colorList.length - 1) * Math.random())

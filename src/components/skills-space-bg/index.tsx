@@ -10,7 +10,7 @@ const elementAnimation = ({top, left}: { top: number, left: number }): Keyframes
         transform: translate(-50%, -50%);
       }
       100% {
-        transform: translate(${top}px, ${left}px);
+        transform: translate(${left}px, ${top}px);
       }
     `
 
