@@ -115,24 +115,78 @@ body:global(.dark) {
 }
 
 .skills {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &__titleRow {
+    margin-bottom: 1rem;
   }
 
   &__content {
-
   }
 
   &__element {
+    width: 100%;
+    margin-bottom: 1rem;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__subtitle {
-
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
   }
 
   &__description {
 
+  }
+}
+
+body:global(.light) .skills {
+
+  &__title {
+    color: $c-gray-4;
+  }
+
+  &__subtitle {
+    color: $c-gray-3
+  }
+
+  &__description {
+    color: $c-gray-5
+  }
+}
+
+body:global(.dark) .skills {
+  &__title {
+    color: $c-gray-6;
+  }
+
+  &__subtitle {
+    color: $c-gray-7
+  }
+
+  &__description {
+    color: $c-gray-6
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > * {
+    margin: 0 3rem;
   }
 }
 

@@ -96,7 +96,7 @@ const HomeContent = () => {
         </section>
 
         <section className={classNames(styles.home__section, styles.skills)}>
-          <PageCard>
+          <PageCard className={styles.skills__titleRow}>
             <h2 className={classNames(styles.home__subtitle, styles.skills__title)}>
               {lang === LangEnum.EN && 'Skills'}
               {lang === LangEnum.RU && 'Навыки'}
@@ -183,6 +183,10 @@ const HomeContent = () => {
               </p>
             </PageCard>
           </div>
+        </section>
+
+        <section className={classNames(styles.home__section, styles.buttons)}>
+          <p>// TODO: buttons</p>
         </section>
       </div>
   );
