@@ -25,9 +25,9 @@ const getSpaceKeyframeList = (sizeObj: IContainerSize): Keyframes[] => {
   const topList = getList(sizeObj.height)
 
   const leftSide = sizeObj.width * -0.45
-  const rightSide = sizeObj.width * 0.45
+  const rightSide = sizeObj.width * 0.4
   const topSide = sizeObj.height * -0.45
-  const bottomSide = sizeObj.height * -0.45
+  const bottomSide = sizeObj.height * 0.4
 
   topList.forEach(top=> {
     result.push(getSpaceKeyframe({top, left: leftSide}));

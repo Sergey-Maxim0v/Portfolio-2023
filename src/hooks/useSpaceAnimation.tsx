@@ -113,8 +113,9 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
   }, [])
 
   useEffect(() => {
+    console.log(keyframeList.length);
     keyframeList.length && animationRecursion()
-  }, [keyframeList.length])
+  }, [keyframeList])
 
   return elementList
 }
