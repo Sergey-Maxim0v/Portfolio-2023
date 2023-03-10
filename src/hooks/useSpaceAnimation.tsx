@@ -16,7 +16,7 @@ export interface IUseSpaceAnimation {
   setElementList: Dispatch<SetStateAction<ISpaceAnimationElement[]>>
 }
 
-const ANIMATION_ADDED_INTERVAL: number = 500
+const ANIMATION_ADDED_INTERVAL: number = 1000
 const ANIMATION_TIME = 3000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
