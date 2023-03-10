@@ -41,7 +41,6 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
 
     if (stopAnimationRef.current && targetNode.scrollTop <= containerSize.height / 2) {
       stopAnimationRef.current = false
-      animationRecursion()
       return
     }
   }
@@ -84,17 +83,21 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
   })
 
   const animationRecursion = () => {
-    if (!containerRef.current || stopAnimationRef.current || !keyframeList.length) {
+    if (!containerRef.current || !keyframeList.length) {
       return
     }
 
     const {callBack, interval} = getTimeout();
 
     const prom = new Promise((resolve) => {
-      setTimeout(() => {
-        callBack()
-        resolve(null)
-      }, interval)
+      !stopAnimationRef.current
+          ? setTimeout(() => {
+            callBack()
+            resolve(null)
+          }, interval)
+          : setTimeout(() => {
+            resolve(null)
+          }, 500)
     })
 
     prom.then(() => animationRecursion())
@@ -113,7 +116,6 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
   }, [])
 
   useEffect(() => {
-    console.log(keyframeList.length);
     keyframeList.length && animationRecursion()
   }, [keyframeList])
 
