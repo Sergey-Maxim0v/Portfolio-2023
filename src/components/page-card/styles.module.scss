@@ -1,0 +1,17 @@
+.card {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+}
+
+body:global(.light) .card {
+  background-color: $c-white;
+}
+
+body:global(.dark) .card {
+  background-color: $c-sea-1;
+  border-color: $c-gray-1;
+}
+

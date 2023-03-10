@@ -6,6 +6,7 @@ import classNames from "classnames";
 import {BASE_URL} from "../../api/baseURL";
 import GlowingButton from "../glowing-button";
 import SkillsSpaceBg from "../skills-space-bg";
+import PageCard from "../page-card";
 
 const HomeContent = () => {
   const {lang, scrollRef} = useContext(Context);
@@ -95,13 +96,15 @@ const HomeContent = () => {
         </section>
 
         <section className={classNames(styles.home__section, styles.skills)}>
-          <h2 className={classNames(styles.home__subtitle, styles.skills__title)}>
-            {lang === LangEnum.EN && 'Skills'}
-            {lang === LangEnum.RU && 'Навыки'}
-          </h2>
+          <PageCard>
+            <h2 className={classNames(styles.home__subtitle, styles.skills__title)}>
+              {lang === LangEnum.EN && 'Skills'}
+              {lang === LangEnum.RU && 'Навыки'}
+            </h2>
+          </PageCard>
 
           <div className={styles.skills__content}>
-            <div className={styles.skills__element}>
+            <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
                 TypeScrip, JavaScript
               </h4>
@@ -123,9 +126,9 @@ const HomeContent = () => {
                     'и принципов создания современных крупных Web-приложений. '
                 }
               </p>
-            </div>
+            </PageCard>
 
-            <div className={styles.skills__element}>
+            <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
                 React, Next.js
               </h4>
@@ -144,9 +147,9 @@ const HomeContent = () => {
                     'Опыт работы с  React библиотеками UI (Material UI). '
                 }
               </p>
-            </div>
+            </PageCard>
 
-            <div className={styles.skills__element}>
+            <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
                 HTML, CSS, SASS, Tailwind, Nunjucks
               </h4>
@@ -162,9 +165,9 @@ const HomeContent = () => {
                     'Знание CSS фреймворков. '
                 }
               </p>
-            </div>
+            </PageCard>
 
-            <div className={styles.skills__element}>
+            <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
                 Environments
               </h4>
@@ -178,7 +181,7 @@ const HomeContent = () => {
                     'Git, Yarn, NPM, Webpack, Vite, Eslint'
                 }
               </p>
-            </div>
+            </PageCard>
           </div>
         </section>
       </div>
