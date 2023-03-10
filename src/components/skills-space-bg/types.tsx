@@ -1,4 +1,5 @@
 import {ReactElement} from "react";
+import {Keyframes} from "styled-components";
 
 export interface IElementsSpaceBG {
   element: JSX.Element,
@@ -8,11 +9,10 @@ export interface IElementsSpaceBG {
 export interface ISpaceAnimationElement {
   node: ReactElement,
   key: string
-  top: number
-  left: number
+  keyframe: Keyframes
 }
 
-export interface ISpaceElementStyle {
-  top: number
-  left: number
+export interface ISpaceStyledComponent{
+  keyframe: Keyframes
 }
+

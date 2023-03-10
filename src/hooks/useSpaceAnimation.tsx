@@ -1,7 +1,9 @@
-import {Dispatch, RefObject, SetStateAction, useContext, useEffect, useRef} from "react";
+import {Dispatch, RefObject, SetStateAction, useContext, useEffect, useMemo, useRef, useState} from "react";
 import {Context} from "../context/context";
 import SpaceRandomElement from "../components/space-random-element";
-import {ISpaceAnimationElement, ISpaceElementStyle} from "../components/skills-space-bg/types";
+import {ISpaceAnimationElement} from "../components/skills-space-bg/types";
+import getSpaceKeyframeList from "../components/utils/getSpaceKeyframeList";
+import getRandomIndex from "../components/utils/getRandomIndex";
 
 export interface IContainerSize {
   width: number,
@@ -20,7 +22,9 @@ const initialSizeState: IContainerSize = {width: 0, height: 0}
 
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
   const {scrollRef} = useContext(Context)
-  const containerSizeRef = useRef(initialSizeState)
+  const [containerSize, setContainerSize] = useState(initialSizeState)
+
+  const keyframeList = useMemo(() => getSpaceKeyframeList(containerSize), [containerSize])
 
   const stopAnimationRef = useRef(false)
 
@@ -30,12 +34,12 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     }
     const targetNode = event.target as HTMLElement
 
-    if (!stopAnimationRef.current && targetNode.scrollTop > containerSizeRef.current.height / 2) {
+    if (!stopAnimationRef.current && targetNode.scrollTop > containerSize.height / 2) {
       stopAnimationRef.current = true
       return
     }
 
-    if (stopAnimationRef.current && targetNode.scrollTop <= containerSizeRef.current.height / 2) {
+    if (stopAnimationRef.current && targetNode.scrollTop <= containerSize.height / 2) {
       stopAnimationRef.current = false
       animationRecursion()
       return
@@ -44,43 +48,31 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
 
   const loadCallBack = () => {
     if (!containerRef.current) {
-      containerSizeRef.current = initialSizeState
+      setContainerSize(initialSizeState)
       return
     }
     const {width, height} = containerRef.current.getBoundingClientRect()
-    containerSizeRef.current = {width, height}
+    setContainerSize({width, height})
   }
 
   const resizeCallBack = () => {
     if (!containerRef.current) {
-      containerSizeRef.current = initialSizeState
+      setContainerSize(initialSizeState)
       return
     }
     const {width, height} = containerRef.current.getBoundingClientRect()
-    containerSizeRef.current = {width, height}
+    setContainerSize({width, height})
   }
 
   const getKey = (elementKey: string): ISpaceAnimationElement["key"] =>
       elementKey + "__" + Math.random() * 100 + Math.random() * 100
 
-  const getStyles = (): ISpaceElementStyle => {
-    const top =
-        Math.floor(Math.random() * containerSizeRef.current.height / 2)
-        * (Math.random() > 0.5 ? 1 : -1)
-
-    const left =
-        Math.floor(Math.random() * containerSizeRef.current.width / 2)
-        * (Math.random() > 0.5 ? 1 : -1)
-
-    return {top, left}
-  }
-
   const elementsFunk = () => {
     const {element, key: elementKey} = SpaceRandomElement()
     const key = getKey(elementKey)
-    const {top, left} = getStyles()
+    const keyframe = keyframeList[getRandomIndex(keyframeList)]
 
-    setElementList(prev => prev.concat({node: element, top, left, key}))
+    setElementList(prev => prev.concat({node: element, key, keyframe}))
 
     setTimeout(() =>
         setElementList(prev => prev.filter(el => el.node !== element)), ANIMATION_TIME)
@@ -92,7 +84,7 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
   })
 
   const animationRecursion = () => {
-    if (!containerRef.current || stopAnimationRef.current) {
+    if (!containerRef.current || stopAnimationRef.current || !keyframeList.length) {
       return
     }
 
@@ -113,14 +105,16 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
     window.addEventListener('resize', () => resizeCallBack())
     scrollRef.current?.addEventListener('scroll', (event) => scrollCallBack(event))
 
-    animationRecursion()
-
     return () => {
       scrollRef.current?.removeEventListener('scroll', (event) => scrollCallBack(event))
       window.removeEventListener('resize', () => resizeCallBack())
       window.removeEventListener('load', () => loadCallBack())
     }
   }, [])
+
+  useEffect(() => {
+    keyframeList.length && animationRecursion()
+  }, [keyframeList.length])
 
   return elementList
 }

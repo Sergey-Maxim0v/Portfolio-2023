@@ -43,5 +43,4 @@ const SpaceRandomElement = (): ISpaceElement => {
   return {element: element, key: keyList[index]}
 }
 
-
 export default SpaceRandomElement

@@ -1,22 +1,10 @@
 import {LegacyRef, useRef, useState} from "react";
-import {ISpaceAnimationElement, ISpaceElementStyle} from "./types";
+import {ISpaceAnimationElement, ISpaceStyledComponent} from "./types";
 import useSpaceAnimation from "../../hooks/useSpaceAnimation";
-import styled, {css, Keyframes, keyframes} from "styled-components";
+import styled, {css} from "styled-components";
 import styles from './styles.module.scss'
 
-const elementAnimation = ({top, left}: { top: number, left: number }): Keyframes =>
-    keyframes`
-      0% {
-        transform: translate(-50%, -50%);
-      }
-      100% {
-        transform: translate(${left}px, ${top}px);
-      }
-    `
-
-// TODO: Over 200 classes were generated for component styled.div with the id of "sc-beySbM".
-//  Consider using the attrs method, together with a style object for frequently changed styles.
-const SpaceElementWrapper = styled.div<ISpaceElementStyle>`
+const SpaceElementWrapper = styled.div<ISpaceStyledComponent>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,8 +12,8 @@ const SpaceElementWrapper = styled.div<ISpaceElementStyle>`
   width: auto;
   transition: transform 3s;
 
-  ${props => props.top && props.left
-          ? css`animation: ${elementAnimation({top: props.top, left: props.left})} 3s linear`
+  ${props => props.keyframe
+          ? css`animation: ${props.keyframe} 3s linear`
           : css`display: none`
   };
 `
@@ -45,8 +33,7 @@ const SkillsSpaceBg = () => {
             (
                 <SpaceElementWrapper
                     key={element.key}
-                    top={element.top}
-                    left={element.left}
+                    keyframe={element.keyframe}
                 >
                   {element.node}
                 </SpaceElementWrapper>
