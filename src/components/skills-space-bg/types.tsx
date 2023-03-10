@@ -10,11 +10,9 @@ export interface ISpaceAnimationElement {
   key: string
   top: number
   left: number
-  color: string
 }
 
 export interface ISpaceElementStyle {
-  color: string
   top: number
   left: number
 }

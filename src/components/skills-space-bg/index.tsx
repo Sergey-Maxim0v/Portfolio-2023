@@ -28,11 +28,6 @@ const SpaceElementWrapper = styled.div<ISpaceElementStyle>`
           ? css`animation: ${elementAnimation({top: props.top, left: props.left})} 3s linear`
           : css`display: none`
   };
-
-  ${props => props.color
-          ? css`color: ${props.color}`
-          : css`color: currentColor`
-  };
 `
 
 const SkillsSpaceBg = () => {
@@ -52,7 +47,6 @@ const SkillsSpaceBg = () => {
                     key={element.key}
                     top={element.top}
                     left={element.left}
-                    color={element.color}
                 >
                   {element.node}
                 </SpaceElementWrapper>

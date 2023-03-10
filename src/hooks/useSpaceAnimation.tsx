@@ -18,12 +18,6 @@ const ANIMATION_ADDED_INTERVAL: number = 500
 const ANIMATION_TIME = 3000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
-const colorList = ['#434343', '#848484', '#641894', '#742DBC', '#BC6DFF', '#BA3C15', '#FBA71C', '#F9C909'
-  , '#F9E501', '#185D35', '#649009', '#9CC50F', '#C4E31E', '#F0F949', '#0C635F', '#03B3A1', '#15606F'
-  , '#1D8D8A', '#3EE4C2', '#17445A', '#942941', '#C82255', '#F6198D']
-
-const keySet = new Set()
-
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
   const {scrollRef} = useContext(Context)
   const containerSizeRef = useRef(initialSizeState)
@@ -78,20 +72,15 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
         Math.floor(Math.random() * containerSizeRef.current.width / 2)
         * (Math.random() > 0.5 ? 1 : -1)
 
-    const colorIndex = Math.round((colorList.length - 1) * Math.random())
-    const color = colorList[colorIndex]
-
-    return {top, left, color}
+    return {top, left}
   }
 
   const elementsFunk = () => {
     const {element, key: elementKey} = SpaceRandomElement()
     const key = getKey(elementKey)
-    const {top, left, color} = getStyles()
+    const {top, left} = getStyles()
 
-    keySet.add(key)
-
-    setElementList(prev => prev.concat({node: element, top, left, color, key}))
+    setElementList(prev => prev.concat({node: element, top, left, key}))
 
     setTimeout(() =>
         setElementList(prev => prev.filter(el => el.node !== element)), ANIMATION_TIME)
@@ -116,7 +105,7 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
       }, interval)
     })
 
-    keySet.size < 198 && prom.then(() => animationRecursion())
+    prom.then(() => animationRecursion())
   }
 
   useEffect(() => {
