@@ -1,4 +1,4 @@
-import {Dispatch, RefObject, SetStateAction, useEffect, useMemo, useRef, useState} from "react";
+import {Dispatch, RefObject, SetStateAction, useEffect, useMemo, useRef} from "react";
 import SpaceRandomElement from "../components/space-random-element";
 import {ISpaceAnimationElement} from "../components/skills-space-bg/types";
 import getSpaceKeyframeList from "../components/utils/getSpaceKeyframeList";
@@ -16,34 +16,13 @@ export interface IUseSpaceAnimation {
   setElementList: Dispatch<SetStateAction<ISpaceAnimationElement[]>>
 }
 
-const ANIMATION_ADDED_INTERVAL: number = 1000
+const ANIMATION_ADDED_INTERVAL: number = 700
 const ANIMATION_TIME = 3000
-const initialSizeState: IContainerSize = {width: 0, height: 0}
 
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
-  const [containerSize, setContainerSize] = useState(initialSizeState)
-
-  const keyframeList = useMemo(() => getSpaceKeyframeList(containerSize), [containerSize])
+  const keyframeList = useMemo(() => getSpaceKeyframeList(containerRef), [containerRef.current])
 
   const stopAnimationRef = useRef(false)
-
-  const loadCallBack = () => {
-    if (!containerRef.current) {
-      setContainerSize(initialSizeState)
-      return
-    }
-    const {width, height} = containerRef.current.getBoundingClientRect()
-    setContainerSize({width, height})
-  }
-
-  const resizeCallBack = () => {
-    if (!containerRef.current) {
-      setContainerSize(initialSizeState)
-      return
-    }
-    const {width, height} = containerRef.current.getBoundingClientRect()
-    setContainerSize({width, height})
-  }
 
   const getKey = (elementKey: string): ISpaceAnimationElement["key"] =>
       elementKey + "__" + Math.random() * 100 + Math.random() * 100
@@ -86,19 +65,11 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
   }
 
   useEffect(() => {
-    window.addEventListener('load', () => loadCallBack())
-    window.addEventListener('resize', () => resizeCallBack())
-
     containerRef.current && onIntersection({
       element: containerRef.current,
       visibleCallback: () => stopAnimationRef.current = false,
       hiddenCallback: () => stopAnimationRef.current = true
     })
-
-    return () => {
-      window.removeEventListener('resize', () => resizeCallBack())
-      window.removeEventListener('load', () => loadCallBack())
-    }
   }, [])
 
   useEffect(() => {

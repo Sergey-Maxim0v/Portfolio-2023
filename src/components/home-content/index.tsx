@@ -28,7 +28,6 @@ const HomeContent = () => {
       setIsScroll(targetNode.scrollTop > 200)
     }
 
-
     if (!scrollRef.current) {
       return;
     }

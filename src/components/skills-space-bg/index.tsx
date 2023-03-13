@@ -22,6 +22,9 @@ const SkillsSpaceBg = () => {
   const containerRef: LegacyRef<HTMLDivElement> = useRef(null);
   const [elementList, setElementList] = useState<ISpaceAnimationElement []>([])
 
+  // TODO: containerRef.current
+  // console.log(1, containerRef.current)
+
   useSpaceAnimation({containerRef, elementList, setElementList})
 
   return (

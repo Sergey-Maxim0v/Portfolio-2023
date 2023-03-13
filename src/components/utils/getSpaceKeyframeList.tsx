@@ -1,24 +1,26 @@
 import {Keyframes} from "styled-components";
-import {IContainerSize} from "../../hooks/useSpaceAnimation";
 import getSpaceKeyframe from "./getSpaceKeyframe";
+import {RefObject} from "react";
 
 const getNumberList = (n: number): number[] => [0, n * 0.1, n * 0.2, n * 0.3, n * 0.4,
   n * -0.1, n * -0.2, n * -0.3, n * -0.4]
 
-const getSpaceKeyframeList = (sizeObj: IContainerSize): Keyframes[] => {
-  if (!sizeObj.width || !sizeObj.height) {
+const getSpaceKeyframeList = (containerRef: RefObject<HTMLDivElement>): Keyframes[] => {
+  if (!containerRef.current) {
     return []
   }
 
+  const {width, height} = containerRef.current.getBoundingClientRect()
+
   const result: Keyframes[] = []
 
-  const leftList = getNumberList(sizeObj.width)
-  const topList = getNumberList(sizeObj.height)
+  const leftList = getNumberList(width)
+  const topList = getNumberList(height)
 
-  const leftSide = sizeObj.width * -0.45
-  const rightSide = sizeObj.width * 0.4
-  const topSide = sizeObj.height * -0.45
-  const bottomSide = sizeObj.height * 0.4
+  const leftSide = width * -0.45
+  const rightSide = width * 0.4
+  const topSide = height * -0.45
+  const bottomSide = height * 0.4
 
   topList.forEach(top => {
     result.push(getSpaceKeyframe({top, left: leftSide}));
