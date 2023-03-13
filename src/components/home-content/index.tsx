@@ -8,6 +8,7 @@ import GlowingButton from "../glowing-button";
 import SkillsSpaceBg from "../skills-space-bg";
 import PageCard from "../page-card";
 import {ROUTES} from "../../api/routes";
+import {NavLink} from "react-router-dom";
 
 const HomeContent = () => {
   const {lang, scrollRef} = useContext(Context);
@@ -186,18 +187,18 @@ const HomeContent = () => {
         </section>
 
         <section className={classNames(styles.home__section, styles.buttons)}>
-          <a
-              href={ROUTES.projects.path}
+          <NavLink
+              to={ROUTES.projects.path}
               className={styles.buttons__element}
           >
             <GlowingButton textRu={'Мои работы'} textEn={'My works'}/>
-          </a>
-          <a
-              href={ROUTES.contacts.path}
+          </NavLink>
+          <NavLink
+              to={ROUTES.contacts.path}
               className={styles.buttons__element}
           >
             <GlowingButton textRu={'Контакты'} textEn={'Contacts'}/>
-          </a>
+          </NavLink>
         </section>
       </div>
   );
