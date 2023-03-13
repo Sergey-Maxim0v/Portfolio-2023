@@ -1,9 +1,9 @@
-import {Dispatch, RefObject, SetStateAction, useContext, useEffect, useMemo, useRef, useState} from "react";
-import {Context} from "../context/context";
+import {Dispatch, RefObject, SetStateAction, useEffect, useMemo, useRef, useState} from "react";
 import SpaceRandomElement from "../components/space-random-element";
 import {ISpaceAnimationElement} from "../components/skills-space-bg/types";
 import getSpaceKeyframeList from "../components/utils/getSpaceKeyframeList";
 import getRandomIndex from "../components/utils/getRandomIndex";
+import onIntersection from "../components/utils/onIntersection";
 
 export interface IContainerSize {
   width: number,
@@ -21,29 +21,11 @@ const ANIMATION_TIME = 3000
 const initialSizeState: IContainerSize = {width: 0, height: 0}
 
 const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpaceAnimation) => {
-  const {scrollRef} = useContext(Context)
   const [containerSize, setContainerSize] = useState(initialSizeState)
 
   const keyframeList = useMemo(() => getSpaceKeyframeList(containerSize), [containerSize])
 
   const stopAnimationRef = useRef(false)
-
-  const scrollCallBack = (event: Event) => {
-    if (!event || !event?.target) {
-      return;
-    }
-    const targetNode = event.target as HTMLElement
-
-    if (!stopAnimationRef.current && targetNode.scrollTop > containerSize.height / 2) {
-      stopAnimationRef.current = true
-      return
-    }
-
-    if (stopAnimationRef.current && targetNode.scrollTop <= containerSize.height / 2) {
-      stopAnimationRef.current = false
-      return
-    }
-  }
 
   const loadCallBack = () => {
     if (!containerRef.current) {
@@ -106,10 +88,14 @@ const useSpaceAnimation = ({containerRef, elementList, setElementList}: IUseSpac
   useEffect(() => {
     window.addEventListener('load', () => loadCallBack())
     window.addEventListener('resize', () => resizeCallBack())
-    scrollRef.current?.addEventListener('scroll', (event) => scrollCallBack(event))
+
+    containerRef.current && onIntersection({
+      element: containerRef.current,
+      visibleCallback: () => stopAnimationRef.current = false,
+      hiddenCallback: () => stopAnimationRef.current = true
+    })
 
     return () => {
-      scrollRef.current?.removeEventListener('scroll', (event) => scrollCallBack(event))
       window.removeEventListener('resize', () => resizeCallBack())
       window.removeEventListener('load', () => loadCallBack())
     }
