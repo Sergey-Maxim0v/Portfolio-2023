@@ -1,4 +1,4 @@
-import {LegacyRef, useRef, useState} from "react";
+import {RefObject, useRef, useState} from "react";
 import {ISpaceAnimationElement, ISpaceStyledComponent} from "./types";
 import useSpaceAnimation from "../../hooks/useSpaceAnimation";
 import styled, {css} from "styled-components";
@@ -19,11 +19,8 @@ const SpaceElementWrapper = styled.div<ISpaceStyledComponent>`
 `
 
 const SkillsSpaceBg = () => {
-  const containerRef: LegacyRef<HTMLDivElement> = useRef(null);
+  const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [elementList, setElementList] = useState<ISpaceAnimationElement []>([])
-
-  // TODO: containerRef.current
-  // console.log(1, containerRef.current)
 
   useSpaceAnimation({containerRef, elementList, setElementList})
 
