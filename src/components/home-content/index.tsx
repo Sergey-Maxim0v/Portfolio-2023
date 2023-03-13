@@ -7,6 +7,7 @@ import {BASE_URL} from "../../api/baseURL";
 import GlowingButton from "../glowing-button";
 import SkillsSpaceBg from "../skills-space-bg";
 import PageCard from "../page-card";
+import {ROUTES} from "../../api/routes";
 
 const HomeContent = () => {
   const {lang, scrollRef} = useContext(Context);
@@ -186,7 +187,18 @@ const HomeContent = () => {
         </section>
 
         <section className={classNames(styles.home__section, styles.buttons)}>
-          <p>// TODO: buttons</p>
+          <a
+              href={ROUTES.projects.path}
+              className={styles.buttons__element}
+          >
+            <GlowingButton textRu={'Мои работы'} textEn={'My works'}/>
+          </a>
+          <a
+              href={ROUTES.contacts.path}
+              className={styles.buttons__element}
+          >
+            <GlowingButton textRu={'Контакты'} textEn={'Contacts'}/>
+          </a>
         </section>
       </div>
   );

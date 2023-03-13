@@ -184,9 +184,11 @@ body:global(.dark) .skills {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 
-  & > * {
-    margin: 0 3rem;
+  &__element {
+    margin: 1rem 1.5rem;
+    color: currentColor;
   }
 }
 
