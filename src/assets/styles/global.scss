@@ -47,6 +47,15 @@ body.dark {
     background-color: transparent;
   }
 
+  body.light &::-webkit-scrollbar-track {
+    background-color: rgba(0, 12, 23, 0.1);
+    border-radius: 0.5rem;
+  }
+
+  body.dark &::-webkit-scrollbar-track {
+    background-color: rgba(0, 12, 23, 0.3);
+  }
+
   body.light &::-webkit-scrollbar-thumb {
     border-width: 0.15rem;
     border-color: $c-gray-5;
@@ -56,6 +65,7 @@ body.dark {
   body.dark &::-webkit-scrollbar-thumb {
     border-color: $c-gray-5;
     border-width: 0.1rem;
+    background-color: $c-sea-1;
   }
 }
 
