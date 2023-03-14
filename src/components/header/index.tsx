@@ -4,6 +4,7 @@ import {useContext} from "react";
 import {Context} from "../../context/context";
 import useMedia from "../../hooks/useMedia";
 import HeaderDesktopContent from "../header-desktop-content";
+import HeaderMobileContent from "../header-mobile-content";
 
 const Header = () => {
   const {isLoadedPage} = useContext(Context);
@@ -14,8 +15,10 @@ const Header = () => {
         classNames(styles.header, {[styles.transition]: isLoadedPage}, "container", "font__semibold")
       }>
         {isDesktop && <HeaderDesktopContent/>}
+
         {isTablet && <HeaderDesktopContent/>}
-        {isMobile && <HeaderDesktopContent/>}
+
+        {isMobile && <HeaderMobileContent/>}
       </header>
   )
 }
