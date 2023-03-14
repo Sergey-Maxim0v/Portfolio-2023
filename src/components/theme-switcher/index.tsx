@@ -1,10 +1,12 @@
 import {ThemeEnum} from "../../constants/enums";
-import {useContext} from "react";
+import {FC, useContext} from "react";
 import styles from "./styles.module.scss"
 import {Context} from "../../context/context";
 import useWindowTheme from "../../hooks/useWindowTheme";
+import {IThemeSwitcher} from "./types";
+import classNames from "classnames";
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher: FC<IThemeSwitcher> = ({className}) => {
   const {theme, setTheme} = useContext(Context)
 
   useWindowTheme()
@@ -13,7 +15,7 @@ const ThemeSwitcher = () => {
 
   return (
       <button
-          className={styles.themeSwitcher}
+          className={classNames(styles.themeSwitcher, className)}
           onClick={() => onClick()}
       >
         <svg className={styles.themeSwitcher__moon} width="800px" height="800px" viewBox="0 0 24 24"
