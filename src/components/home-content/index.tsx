@@ -9,6 +9,8 @@ import SkillsSpaceBg from "../skills-space-bg";
 import PageCard from "../page-card";
 import {ROUTES} from "../../api/routes";
 import {NavLink} from "react-router-dom";
+import Icon from "../icon";
+import {IconNameEnum} from "../icon/types";
 
 const HomeContent = () => {
   const {lang, scrollRef} = useContext(Context);
@@ -40,6 +42,7 @@ const HomeContent = () => {
 
   return (
       <div className={styles.home}>
+        {/* Section 1 */}
         <section className={classNames(styles.home__section, styles.about)}>
           <h1 className={classNames(styles.home__title, styles.title)}>
             <p className={classNames('font__rampart', styles.title__front)}>FRONTEND</p>
@@ -96,6 +99,7 @@ const HomeContent = () => {
           <SkillsSpaceBg/>
         </section>
 
+        {/* Section 2 */}
         <section className={classNames(styles.home__section, styles.skills)}>
           <PageCard className={styles.skills__titleRow}>
             <h2 className={classNames(styles.home__subtitle, styles.skills__title)}>
@@ -107,7 +111,15 @@ const HomeContent = () => {
           <div className={styles.skills__content}>
             <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
-                TypeScrip, JavaScript
+                <div className={styles.skills__subtitleElement}>
+                  <span>TypeScrip</span>
+                  <Icon iconName={IconNameEnum.ts} className={classNames(styles.skills__icon, styles.icon__ts)}/>
+                  <span>, </span>
+                </div>
+                <div className={styles.skills__subtitleElement}>
+                  <span>JavaScript</span>
+                  <Icon iconName={IconNameEnum.js} className={styles.skills__icon}/>
+                </div>
               </h4>
               <p className={styles.skills__description}>
                 {lang === LangEnum.EN &&
@@ -131,7 +143,17 @@ const HomeContent = () => {
 
             <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
-                React, Next.js
+                <div className={styles.skills__subtitleElement}>
+                  <span>React</span>
+                  <Icon iconName={IconNameEnum.react}
+                        className={classNames(styles.skills__icon, styles.icon__react)}/>
+                  <span>, </span>
+                </div>
+                <div className={styles.skills__subtitleElement}>
+                  <span>Next.js</span>
+                  <Icon iconName={IconNameEnum.next}
+                        className={classNames(styles.skills__icon, styles.icon__next)}/>
+                </div>
               </h4>
               <p className={styles.skills__description}>
                 {lang === LangEnum.EN &&
@@ -152,7 +174,34 @@ const HomeContent = () => {
 
             <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
-                HTML, CSS, SASS, Tailwind, Nunjucks
+                <div className={styles.skills__subtitleElement}>
+                  <span>HTML</span>
+                  <Icon iconName={IconNameEnum.html} className={styles.skills__icon}/>
+                  <span>, </span>
+                </div>
+                <div className={styles.skills__subtitleElement}>
+                  <span>CSS</span>
+                  <Icon iconName={IconNameEnum.css}
+                        className={classNames(styles.skills__icon, styles.icon__css)}/>
+                  <span>, </span>
+                </div>
+                <div className={styles.skills__subtitleElement}>
+                  <span> SASS</span>
+                  <Icon iconName={IconNameEnum.sass}
+                        className={classNames(styles.skills__icon, styles.icon__sass)}/>
+                  <span>, </span>
+                </div>
+                <div className={styles.skills__subtitleElement}>
+                  <span> Tailwind CSS</span>
+                  <Icon iconName={IconNameEnum.tailwind2}
+                        className={classNames(styles.skills__icon, styles.icon__tailwind)}/>
+                  <span>, </span>
+                </div>
+                <div className={styles.skills__subtitleElement}>
+                  <span> Nunjucks</span>
+                  <Icon iconName={IconNameEnum.nj}
+                        className={classNames(styles.skills__icon, styles.icon__nj)}/>
+                </div>
               </h4>
               <p className={styles.skills__description}>
                 {lang === LangEnum.EN &&
@@ -170,7 +219,9 @@ const HomeContent = () => {
 
             <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
-                Environments
+                <div className={styles.skills__subtitleElement}>
+                  Environments
+                </div>
               </h4>
               <p className={styles.skills__description}>
                 {lang === LangEnum.EN &&
@@ -186,6 +237,7 @@ const HomeContent = () => {
           </div>
         </section>
 
+        {/* Section 3 */}
         <section className={classNames(styles.home__section, styles.buttons)}>
           <NavLink
               to={ROUTES.projects.path}

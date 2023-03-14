@@ -26,5 +26,7 @@ export enum IconNameEnum {
   npm = 'npm',
   yarn = 'yarn',
   figma = 'figma',
+  css = 'css',
+  tailwind2 = 'tailwind2',
   vite = 'vite'
 }

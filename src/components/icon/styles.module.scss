@@ -46,7 +46,7 @@
   }
 
   &__react {
-    animation: reactAnimation 6s linear;
+    animation: reactAnimation 4s linear infinite;
   }
 }
 
@@ -61,9 +61,9 @@
 
 @keyframes reactAnimation {
   0% {
-    transform: scale(0);
+    transform: scale(1.2);
   }
   100% {
-    transform: scale(1.5) rotate(720deg);
+    transform: scale(1.2) rotate(360deg);
   }
 }
