@@ -13,11 +13,13 @@ const router = createBrowserRouter([
   },
   {
     path: ROUTES.projects.path,
-    element: <Projects/>
+    element: <Projects/>,
+    errorElement: <ErrorPage/>
   },
   {
     path: ROUTES.contacts.path,
-    element: <Contacts/>
+    element: <Contacts/>,
+    errorElement: <ErrorPage/>
   }
 ]);
 
