@@ -8,9 +8,7 @@
   min-height: 100%;
 
   &__title {
-
   }
-
 
   &__section {
     padding: 3rem 0;
@@ -20,9 +18,8 @@
   }
 
   &__text {
+    line-height: 1.4rem;
   }
-
-
 }
 
 .about {
@@ -178,7 +175,7 @@ body:global(.dark) {
   }
 
   &__description {
-
+    line-height: 1.4rem;
   }
 }
 
