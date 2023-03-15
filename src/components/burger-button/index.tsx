@@ -9,7 +9,7 @@ const BurgerButton: FC<IBurgerButton> = ({className, callBack}) => {
   const onClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     setIsActive(prev => !prev)
-    // callBack()
+    callBack()
   }
 
   // TODO: https://codepen.io/brenden/pen/VLjKMQ
@@ -19,9 +19,7 @@ const BurgerButton: FC<IBurgerButton> = ({className, callBack}) => {
           className={classNames(styles.burger, className, {[styles.active]: isActive})}
           onClick={(event) => onClick(event)}
       >
-        <div className={classNames(styles.line1, styles.line)}></div>
-        <div className={classNames(styles.line2, styles.line)}></div>
-        <div className={classNames(styles.line3, styles.line)}></div>
+        <div className={styles.burger__element}></div>
       </button>
   )
 }

@@ -1,4 +1,4 @@
 export interface IBurgerButton {
-  className: string,
+  className?: string,
   callBack: () => void
 }
