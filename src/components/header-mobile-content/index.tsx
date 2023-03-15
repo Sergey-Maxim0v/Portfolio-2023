@@ -11,7 +11,7 @@ const HeaderMobileContent = () => {
 
   return (
       <div className={styles.headerMobile}>
-        <BurgerButton callBack={onClickBurger}/>
+        <BurgerButton active={isOpenModal} callBack={onClickBurger}/>
       </div>
   )
 }
