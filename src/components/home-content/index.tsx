@@ -112,7 +112,7 @@ const HomeContent = () => {
             <PageCard className={styles.skills__element}>
               <h4 className={styles.skills__subtitle}>
                 <div className={styles.skills__subtitleElement}>
-                  <span>TypeScrip</span>
+                  <span>TypeScript</span>
                   <Icon iconName={IconNameEnum.ts} className={classNames(styles.skills__icon, styles.icon__ts)}/>
                   <span>, </span>
                 </div>
