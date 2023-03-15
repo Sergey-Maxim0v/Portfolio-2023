@@ -1,6 +1,6 @@
 .button {
   width: auto;
-  min-height: 2rem;
+  min-height: 2.5rem;
   height: auto;
   padding: 0.3rem 1.5rem;
   border: 1px solid transparent;
@@ -12,6 +12,7 @@
   z-index: 0;
   border-radius: 0.7rem;
   transition: transform 0.2s, border-color 0.2s;
+  font-size: 1.05rem;
 
   &:hover {
     border-color: currentColor;
