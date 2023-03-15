@@ -1,0 +1,49 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2rem;
+  color: currentColor;
+  font-weight: 600;
+
+  * {
+    color: currentColor;
+  }
+
+  &__list {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__link {
+    margin-bottom: 1rem;
+  }
+
+  &__activities {
+    display: flex;
+    align-items: center;
+  }
+
+  &__language {
+    margin-right: 1rem;
+  }
+}
+
+body:global(.light) {
+  .modalLink {
+    &__active {
+      color: $c-orange-1;
+    }
+  }
+}
+
+body:global(.dark) {
+  .modalLink {
+    &__active {
+      color: $c-sea-6;
+    }
+  }
+}

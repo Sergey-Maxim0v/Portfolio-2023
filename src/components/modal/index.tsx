@@ -2,6 +2,7 @@ import {useContext, useEffect, useState} from "react";
 import {Context} from "../../context/context";
 import classNames from "classnames";
 import styles from './styles.module.scss'
+import ModalContent from "../modal-content";
 
 const Modal = () => {
   const {isOpenModal, setIsOpenModal} = useContext(Context)
@@ -41,7 +42,7 @@ const Modal = () => {
                   )
                 }
             >
-
+              <ModalContent className={styles.modal__content}/>
             </div>
         }
       </>
