@@ -1,4 +1,4 @@
-$burger-size: 1.2rem;
+$burger-size: 1.4rem;
 $animation-duration: 400ms;
 $line-height: calc($burger-size / 5);
 
@@ -25,6 +25,7 @@ $line-height: calc($burger-size / 5);
       position: absolute;
       left: 0;
       right: 0;
+      top: 0;
       width: 100%;
       height: $line-height;
       border-radius: calc($line-height / 2);
@@ -33,11 +34,11 @@ $line-height: calc($burger-size / 5);
     }
 
     &:before {
-      top: calc($line-height * -2);
+      transform: translateY(calc($line-height * -2));
     }
 
     &:after {
-      top: calc($line-height * 2);
+      transform: translateY(calc($line-height * 2));
     }
   }
 
@@ -47,8 +48,7 @@ $line-height: calc($burger-size / 5);
 
       &:before,
       &:after {
-        top: 0;
-        transform: rotate(90deg);
+        transform: rotate(90deg) translateY(0);
       }
 
       &:after {

@@ -1,4 +1,4 @@
-import {FC, LegacyRef, RefObject, useEffect, useRef, useState} from "react";
+import {FC, RefObject, useEffect, useRef, useState} from "react";
 import Header from "../../components/header";
 import {IBaseLayout} from "./types";
 import classNames from "classnames";
@@ -11,10 +11,15 @@ import Background from "../../components/background";
 const BaseLayout: FC<IBaseLayout> = ({children}) => {
   const {lang, setLang} = useLanguage()
   const {theme, setTheme} = useTheme()
-  const [isLoadedPage, setIsLoadedPage] = useState(false)
-  const scrollRef: RefObject<HTMLDivElement> = useRef(null);
 
-  const contextValue: IContext = {lang, setLang, theme, setTheme, isLoadedPage, scrollRef}
+  const [isLoadedPage, setIsLoadedPage] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
+  const scrollRef: RefObject<HTMLDivElement> = useRef(null)
+
+  const contextValue: IContext = {
+    lang, setLang, theme, setTheme, isLoadedPage, scrollRef, isOpenModal, setIsOpenModal
+  }
 
   useEffect(() => {
     window.addEventListener('load', () => setIsLoadedPage(true))

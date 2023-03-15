@@ -8,6 +8,8 @@ export interface IContext {
   setTheme: (val: ThemeEnum) => void,
   isLoadedPage: boolean,
   scrollRef: RefObject<HTMLDivElement>
+  isOpenModal: boolean,
+  setIsOpenModal: (val: boolean) => void
 }
 
 export const Context = createContext<IContext>({
@@ -18,5 +20,8 @@ export const Context = createContext<IContext>({
   setTheme: () => {
   },
   isLoadedPage: false,
-  scrollRef: {current: null}
+  scrollRef: {current: null},
+  isOpenModal: false,
+  setIsOpenModal: () => {
+  }
 })
