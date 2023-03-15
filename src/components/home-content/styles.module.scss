@@ -83,6 +83,10 @@
     font-weight: 400;
     text-align: center;
     color: currentColor;
+
+    @media (max-width: $b-tablet) {
+      font-size: min(calc(100vw / 7), 6rem);
+    }
   }
 
   &__dev {
@@ -91,6 +95,10 @@
     font-size: 3rem;
     font-weight: 800;
     text-align: center;
+
+    @media (max-width: $b-tablet) {
+      font-size: min(calc(100vw / 7), 3rem);
+    }
   }
 }
 
