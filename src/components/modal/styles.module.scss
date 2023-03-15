@@ -1,11 +1,12 @@
+$close-transform: translate(50%, -50%) scale(0);
+
 .modal {
   z-index: 1000;
   position: absolute;
   top: 3.5rem;
-  left: 0;
   right: 0;
-  bottom: 0;
-  padding-bottom: 3.5rem;
+  border-radius: 0 0 0 3rem;
+  padding: 2rem 8vw 2rem 2rem;
   overflow: hidden;
   display: flex;
   align-items: flex-start;
@@ -36,49 +37,42 @@ body:global(.dark) .modal {
 }
 
 .open {
-  animation: open-animation 0.4s ease-in-out;
-
-  .modal__content {
-    animation: open-animation 0.4s ease-in-out;
-  }
+  animation: open-animation 0.4s linear;
 }
 
 .close {
-  transform: scale(0);
-  animation: close-animation 0.4s ease-in-out;
-
-  .modal__content {
-    transform: scale(0);
-    animation: close-animation 0.4s ease-in-out;
-  }
+  transform: $close-transform;
+  animation: close-animation 0.4s linear;
 }
 
 @keyframes open-animation {
   0% {
-    transform: scale(0);
-    border-radius: 50%;
+    transform: $close-transform;
+    opacity: 0;
     color: transparent;
   }
-  50% {
-    border-radius: 50%;
+  30% {
+    color: transparent;
+    opacity: 0;
   }
   100% {
-    transform: scale(1);
+    transform: none;
     color: currentColor;
   }
 }
 
 @keyframes close-animation {
   0% {
-    transform: scale(1);
+    transform: none;
     color: currentColor;
   }
-  50% {
-    border-radius: 50%;
+  70% {
+    color: transparent;
+    opacity: 0;
   }
   100% {
-    transform: scale(0);
-    border-radius: 50%;
+    transform: $close-transform;
+    opacity: 0;
     color: transparent;
   }
 }

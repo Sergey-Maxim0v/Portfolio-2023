@@ -37,8 +37,7 @@ const Modal = () => {
                   classNames(
                       {[styles.open]: isOpenModal},
                       {[styles.close]: !isOpenModal},
-                      styles.modal,
-                      'container'
+                      styles.modal
                   )
                 }
             >
