@@ -4,9 +4,14 @@ import classNames from "classnames";
 import styles from './styles.module.scss'
 
 const Modal = () => {
-  const {isOpenModal} = useContext(Context)
+  const {isOpenModal, setIsOpenModal} = useContext(Context)
 
   const [isModal, setIsModal] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setIsOpenModal(false))
+    return () => window.removeEventListener('resize', () => setIsOpenModal(false))
+  }, [])
 
   useEffect(() => {
     if (isOpenModal) {
