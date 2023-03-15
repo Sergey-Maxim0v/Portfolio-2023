@@ -7,6 +7,7 @@ import {Context, IContext} from "../../context/context";
 import useLanguage from "../../hooks/useLanguage";
 import useTheme from "../../hooks/useTheme";
 import Background from "../../components/background";
+import Modal from "../../components/modal";
 
 const BaseLayout: FC<IBaseLayout> = ({children}) => {
   const {lang, setLang} = useLanguage()
@@ -44,6 +45,7 @@ const BaseLayout: FC<IBaseLayout> = ({children}) => {
         </div>
 
         <Background/>
+        <Modal/>
       </Context.Provider>
   )
 }
