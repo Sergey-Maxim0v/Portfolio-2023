@@ -8,7 +8,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "src/assets/styles/constants.scss";`
+        additionalData: `
+        @import "src/assets/styles/constants.scss";
+        @import "src/assets/styles/typography.scss";
+        @import "src/assets/styles/global.scss";
+        `
       }
     }
   },

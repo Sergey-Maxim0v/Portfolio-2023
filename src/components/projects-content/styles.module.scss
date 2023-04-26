@@ -1,0 +1,24 @@
+.projectsContent {
+  &__section {
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+  }
+
+  &__title {
+    @extend .font__semibold;
+
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    @extend .font__medium;
+
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
