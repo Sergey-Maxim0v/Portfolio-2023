@@ -8,46 +8,49 @@ import useLanguage from "../../hooks/useLanguage";
 import useTheme from "../../hooks/useTheme";
 import Background from "../../components/background";
 import Modal from "../../components/modal";
+import PreloadFonts from "../../components/preload-fonts";
 
 const BaseLayout: FC<IBaseLayout> = ({children}) => {
-  const {lang, setLang} = useLanguage()
-  const {theme, setTheme} = useTheme()
+    const {lang, setLang} = useLanguage()
+    const {theme, setTheme} = useTheme()
 
-  const [isLoadedPage, setIsLoadedPage] = useState(false)
-  const [isOpenModal, setIsOpenModal] = useState(false)
+    const [isLoadedPage, setIsLoadedPage] = useState(false)
+    const [isOpenModal, setIsOpenModal] = useState(false)
 
-  const scrollRef: RefObject<HTMLDivElement> = useRef(null)
+    const scrollRef: RefObject<HTMLDivElement> = useRef(null)
 
-  const contextValue: IContext = {
-    lang, setLang, theme, setTheme, isLoadedPage, scrollRef, isOpenModal, setIsOpenModal
-  }
+    const contextValue: IContext = {
+        lang, setLang, theme, setTheme, isLoadedPage, scrollRef, isOpenModal, setIsOpenModal
+    }
 
-  useEffect(() => {
-    window.addEventListener('load', () => setIsLoadedPage(true))
-    return window.removeEventListener('load', () => setIsLoadedPage(true))
-  }, [])
+    useEffect(() => {
+        window.addEventListener('load', () => setIsLoadedPage(true))
+        return window.removeEventListener('load', () => setIsLoadedPage(true))
+    }, [])
 
-  return (
-      <Context.Provider value={contextValue}>
-        <Header/>
+    return (
+        <Context.Provider value={contextValue}>
+            <PreloadFonts/>
 
-        <div
-            ref={scrollRef}
-            className={classNames(
-                styles.contentLayout,
-                {[styles.transition]: isLoadedPage},
-                "container",
-                "font__normal",
-                "scroll"
-            )}
-        >
-          {children}
-        </div>
+            <Header/>
 
-        <Background/>
-        <Modal/>
-      </Context.Provider>
-  )
+            <div
+                ref={scrollRef}
+                className={classNames(
+                    styles.contentLayout,
+                    {[styles.transition]: isLoadedPage},
+                    "container",
+                    "font__normal",
+                    "scroll"
+                )}
+            >
+                {children}
+            </div>
+
+            <Background/>
+            <Modal/>
+        </Context.Provider>
+    )
 }
 
 export default BaseLayout
