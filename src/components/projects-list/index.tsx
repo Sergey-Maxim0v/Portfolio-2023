@@ -7,7 +7,7 @@ const ProjectsList = () => {
         <div
             className={styles.projectsList}
         >
-            {PROJECTS_LIST.map(project =>
+            {PROJECTS_LIST.reverse().map(project =>
                 <ProjectElement
                     key={project.id}
                     project={project}
