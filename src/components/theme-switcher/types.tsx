@@ -1,3 +1,3 @@
 export interface IThemeSwitcher {
-  className?: string
+  className?: string;
 }

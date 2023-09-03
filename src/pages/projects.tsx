@@ -3,10 +3,10 @@ import ProjectsContent from "../components/projects-content";
 
 const Projects = () => {
   return (
-      <BaseLayout>
-        <ProjectsContent/>
-      </BaseLayout>
-  )
-}
+    <BaseLayout>
+      <ProjectsContent />
+    </BaseLayout>
+  );
+};
 
-export default Projects
+export default Projects;

@@ -1,25 +1,25 @@
-import {BASE_URL} from "./baseURL";
+import { BASE_URL } from "./baseURL";
 
 export interface IRoute {
-  readonly path: string
-  readonly titleRu: string
-  readonly titleEn: string
+  readonly path: string;
+  readonly titleRu: string;
+  readonly titleEn: string;
 }
 
 export const ROUTES: { [key: string]: IRoute } = {
   home: {
     path: `${BASE_URL}`,
-    titleRu: 'Обо мне',
-    titleEn: 'About me'
+    titleRu: "Обо мне",
+    titleEn: "About me",
   },
   projects: {
     path: `${BASE_URL}/projects`,
-    titleRu: 'Проекты',
-    titleEn: 'Projects'
+    titleRu: "Проекты",
+    titleEn: "Projects",
   },
   contacts: {
     path: `${BASE_URL}/contacts`,
-    titleRu: 'Контакты',
-    titleEn: 'Contacts'
-  }
-}
+    titleRu: "Контакты",
+    titleEn: "Contacts",
+  },
+};

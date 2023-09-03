@@ -1,9 +1,9 @@
-import {IconNameEnum} from "../icon/types";
+import { IconNameEnum } from "../icon/types";
 
 export interface IContact {
-  id: string,
-  nameRu: string,
-  nameEn: string,
-  link: string,
-  icon: IconNameEnum
+  id: string;
+  nameRu: string;
+  nameEn: string;
+  link: string;
+  icon: IconNameEnum;
 }

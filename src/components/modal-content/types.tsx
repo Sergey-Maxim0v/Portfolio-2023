@@ -1,3 +1,3 @@
 export interface IModalContent {
-  className: string
+  className: string;
 }

@@ -1,38 +1,36 @@
-import {LangEnum} from "../../constants/enums";
-import {useContext} from "react";
-import {Context} from "../../context/context";
+import { LangEnum } from "../../constants/enums";
+import { useContext } from "react";
+import { Context } from "../../context/context";
 import ProjectsList from "../projects-list";
 import ProjectsSlider from "../projects-slider";
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 
 const ProjectsContent = () => {
-    const {lang} = useContext(Context)
+  const { lang } = useContext(Context);
 
-    return (
-        <>
-            <section className={styles.projectsContent__section}>
-                <h2 className={styles.projectsContent__title}>
-                    {lang === LangEnum.EN && 'Commercial projects'}
-                    {lang === LangEnum.RU && 'Коммерческие проекты'}
-                </h2>
+  return (
+    <>
+      <section className={styles.projectsContent__section}>
+        <h2 className={styles.projectsContent__title}>
+          {lang === LangEnum.EN && "Commercial projects"}
+          {lang === LangEnum.RU && "Коммерческие проекты"}
+        </h2>
 
-                <ProjectsList/>
-            </section>
+        <ProjectsList />
+      </section>
 
-            <section className={styles.projectsContent__section}>
-                <h2 className={styles.projectsContent__title}>
-                    {lang === LangEnum.EN && 'Training projects'}
-                    {lang === LangEnum.RU && 'Тренировочные проекты'}
-                </h2>
+      <section className={styles.projectsContent__section}>
+        <h2 className={styles.projectsContent__title}>
+          {lang === LangEnum.EN && "Training projects"}
+          {lang === LangEnum.RU && "Тренировочные проекты"}
+        </h2>
 
-                <p className={styles.projectsContent__desc}>
-                    Web is fun!
-                </p>
+        <p className={styles.projectsContent__desc}>Web is fun!</p>
 
-                <ProjectsSlider/>
-            </section>
-        </>
-    );
-}
+        <ProjectsSlider />
+      </section>
+    </>
+  );
+};
 
-export default ProjectsContent
+export default ProjectsContent;

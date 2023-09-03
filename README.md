@@ -8,14 +8,17 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Sergey-Maxim0v/Portfolio-2023)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/Sergey-Maxim0v/Portfolio-2023)
+
 </div>
 
 ---
+
 <div align="center">
 React, Vite, Typescript, Styled Components
 </div>
 
 ---
+
 <div align="center">
 
 npm run dev

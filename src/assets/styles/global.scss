@@ -1,4 +1,4 @@
-@import './lib/_fluid-type.scss';
+@import "./lib/_fluid-type.scss";
 
 html {
   @include fluid-type(font-size, $b-tablet, $b-fhd, 16px, 20px);
@@ -69,5 +69,3 @@ body.dark {
     background-color: $c-sea-1;
   }
 }
-
-

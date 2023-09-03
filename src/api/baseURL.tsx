@@ -1,1 +1,1 @@
-export const BASE_URL = "/Portfolio-2023"
+export const BASE_URL = "/Portfolio-2023";

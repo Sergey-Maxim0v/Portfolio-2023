@@ -7,10 +7,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  transition: color 0.1s, background-color 0.2s;
+  transition:
+    color 0.1s,
+    background-color 0.2s;
 
-  & *{
-    transition: color 0.1s, background-color 0.2s, background 0.2s;
+  & * {
+    transition:
+      color 0.1s,
+      background-color 0.2s,
+      background 0.2s;
   }
 }
 

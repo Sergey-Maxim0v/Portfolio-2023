@@ -20,8 +20,9 @@ $line-height: calc($burger-size / 5);
     border-radius: calc($line-height / 2);
     transition: all $animation-duration ease;
 
-    &:before, &:after {
-      content: '';
+    &:before,
+    &:after {
+      content: "";
       position: absolute;
       left: 0;
       right: 0;
@@ -30,7 +31,9 @@ $line-height: calc($burger-size / 5);
       height: $line-height;
       border-radius: calc($line-height / 2);
       background-color: currentColor;
-      transition: transform $animation-duration ease, top $animation-duration ease;
+      transition:
+        transform $animation-duration ease,
+        top $animation-duration ease;
     }
 
     &:before {

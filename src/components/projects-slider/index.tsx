@@ -1,9 +1,5 @@
-const ProjectsSlider = () =>{
-    return(
-        <>
-        // TODO: ProjectsSlider
-        </>
-    )
-}
+const ProjectsSlider = () => {
+  return <>// TODO: ProjectsSlider</>;
+};
 
-export default ProjectsSlider
+export default ProjectsSlider;

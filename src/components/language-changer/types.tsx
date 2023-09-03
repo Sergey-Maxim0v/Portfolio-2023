@@ -1,12 +1,11 @@
-import {LangEnum} from "../../constants/enums";
+import { LangEnum } from "../../constants/enums";
 
 export interface ILanguageChanger {
-  className: string
+  className: string;
 }
 
 export interface ILanguageValue {
-  name: string,
-  nameShort: string,
-  value: LangEnum,
+  name: string;
+  nameShort: string;
+  value: LangEnum;
 }
-

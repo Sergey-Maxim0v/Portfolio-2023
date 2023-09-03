@@ -30,14 +30,13 @@
     margin-bottom: 0.3rem;
 
     &:last-child {
-      margin-bottom: 0
+      margin-bottom: 0;
     }
   }
 
   &__active {
     color: red;
   }
-
 
   &:hover {
     @media (min-width: $b-tablet) {

@@ -1,16 +1,11 @@
-import styles from './styles.module.scss'
-import {useContext} from "react";
-import {Context} from "../../context/context";
+import styles from "./styles.module.scss";
 
 const Background = () => {
-  const {isLoadedPage} = useContext(Context);
-
   return (
-      <div className={styles.background}>
+    <div className={styles.background}>
+      <div className={styles.gradient}></div>
+    </div>
+  );
+};
 
-        <div className={styles.gradient}></div>
-      </div>
-  )
-}
-
-export default Background
+export default Background;

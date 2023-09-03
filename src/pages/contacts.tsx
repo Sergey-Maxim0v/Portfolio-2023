@@ -3,10 +3,10 @@ import ContactsContent from "../components/contacts-content";
 
 const Contacts = () => {
   return (
-      <BaseLayout>
-        <ContactsContent/>
-      </BaseLayout>
-  )
-}
+    <BaseLayout>
+      <ContactsContent />
+    </BaseLayout>
+  );
+};
 
-export default Contacts
+export default Contacts;

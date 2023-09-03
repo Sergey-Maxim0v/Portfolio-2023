@@ -1,6 +1,6 @@
-import {IProject} from "../../constants/projects-list";
+import { IProject } from "../../constants/projects-list";
 
 export interface IProjectElement {
-    className?: string
-    project: IProject
+  className?: string;
+  project: IProject;
 }

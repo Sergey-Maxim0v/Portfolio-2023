@@ -46,7 +46,6 @@
     font-weight: 700;
   }
 
-
   &__link {
     color: currentColor;
   }
@@ -180,17 +179,16 @@ body:global(.dark) {
 }
 
 body:global(.light) .skills {
-
   &__title {
     color: $c-gray-4;
   }
 
   &__subtitle {
-    color: $c-gray-3
+    color: $c-gray-3;
   }
 
   &__description {
-    color: $c-gray-5
+    color: $c-gray-5;
   }
 }
 
@@ -200,11 +198,11 @@ body:global(.dark) .skills {
   }
 
   &__subtitle {
-    color: $c-gray-7
+    color: $c-gray-7;
   }
 
   &__description {
-    color: $c-gray-6
+    color: $c-gray-6;
   }
 }
 
@@ -222,7 +220,7 @@ body:global(.dark) .skills {
   }
 
   &__sass {
-    color: #CF649A;
+    color: #cf649a;
   }
 
   &__tailwind {
@@ -249,7 +247,7 @@ body:global(.dark) .skills {
 }
 
 .hidden {
-  opacity: 0
+  opacity: 0;
 }
 
 @keyframes bg_animation {

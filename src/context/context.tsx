@@ -1,27 +1,24 @@
-import {createContext, RefObject} from "react";
-import {LangEnum, ThemeEnum} from "../constants/enums";
+import { createContext, RefObject } from "react";
+import { LangEnum, ThemeEnum } from "../constants/enums";
 
 export interface IContext {
-  lang: LangEnum,
-  setLang: (val: LangEnum) => void,
-  theme: ThemeEnum,
-  setTheme: (val: ThemeEnum) => void,
-  isLoadedPage: boolean,
-  scrollRef: RefObject<HTMLDivElement>
-  isOpenModal: boolean,
-  setIsOpenModal: (val: boolean) => void
+  lang: LangEnum;
+  setLang: (val: LangEnum) => void;
+  theme: ThemeEnum;
+  setTheme: (val: ThemeEnum) => void;
+  isLoadedPage: boolean;
+  scrollRef: RefObject<HTMLDivElement>;
+  isOpenModal: boolean;
+  setIsOpenModal: (val: boolean) => void;
 }
 
 export const Context = createContext<IContext>({
   lang: LangEnum.RU,
-  setLang: () => {
-  },
+  setLang: () => {},
   theme: ThemeEnum.LIGHT,
-  setTheme: () => {
-  },
+  setTheme: () => {},
   isLoadedPage: false,
-  scrollRef: {current: null},
+  scrollRef: { current: null },
   isOpenModal: false,
-  setIsOpenModal: () => {
-  }
-})
+  setIsOpenModal: () => {},
+});

@@ -1,6 +1,6 @@
-import {ReactElement} from "react";
+import { ReactElement } from "react";
 
 export interface ISpaceElement {
-  element: ReactElement,
-  key: string
+  element: ReactElement;
+  key: string;
 }
