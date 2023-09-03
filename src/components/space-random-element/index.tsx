@@ -4,24 +4,15 @@ import { IconNameEnum } from "../icon/types";
 import styles from "./styles.module.scss";
 import getRandomIndex from "../utils/getRandomIndex";
 
-const keyList = [
-  IconNameEnum.github,
-  IconNameEnum.react,
-  IconNameEnum.ts,
-  IconNameEnum.js,
-  IconNameEnum.next,
-  IconNameEnum.html,
-  IconNameEnum.CSS,
-  IconNameEnum.sass,
-  IconNameEnum.less,
-  IconNameEnum.tailwind,
-  IconNameEnum.nj,
-  IconNameEnum.webpack,
-  IconNameEnum.gitlab,
-  IconNameEnum.npm,
-  IconNameEnum.figma,
-  IconNameEnum.vite,
-];
+const keyList = Object.keys(IconNameEnum).filter(
+  (el) =>
+    el !== IconNameEnum.phone &&
+    el !== IconNameEnum.tg &&
+    el !== IconNameEnum.whatsapp &&
+    el !== IconNameEnum.email &&
+    el !== IconNameEnum.vk &&
+    el !== IconNameEnum.codewars,
+);
 
 const colorList = [
   "#434343",
@@ -57,7 +48,10 @@ const SpaceRandomElement = (): ISpaceElement => {
 
   const element = (
     <div style={{ width: "100%", height: "100%", color: color }}>
-      <Icon className={styles.element} iconName={keyList[index]} />
+      <Icon
+        className={styles.element}
+        iconName={keyList[index] as IconNameEnum}
+      />
     </div>
   );
 
