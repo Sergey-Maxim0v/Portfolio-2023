@@ -73,9 +73,9 @@ export const PROJECTS_LIST: IProject[] = [
       "(на момент начала работы приложение падало из-за ошибок), " +
       "скорректировал стили согласно пожеланиям заказчика",
     myWorkEn:
-      "исправили и настроили приложение " +
-      "(на момент начала работы приложение вылетало из-за ошибок), " +
-      "настроили стили согласно пожеланиям заказчика",
+      "fixed and configured the application " +
+      "(at the time of the start of work, the application was crashing due to errors), " +
+      "adjusted the styles according to the wishes of the customer",
   },
   {
     id: "project__rkdr",

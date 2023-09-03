@@ -19,7 +19,7 @@ const onIntersection = ({
   const options = {
     root: null,
     rootMargin: rootMargin ?? "0px",
-    threshold: threshold ?? 0.3,
+    threshold: threshold ?? 0.4,
   };
 
   const observer = new IntersectionObserver((entries) => {
