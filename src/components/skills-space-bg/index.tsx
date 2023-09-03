@@ -28,8 +28,6 @@ const SkillsSpaceBg = () => {
 
   useSpaceAnimation({ containerRef, elementList, setElementList });
 
-  console.log(elementList.length);
-
   return (
     <div ref={containerRef} className={styles.space}>
       {elementList.map((element) => (

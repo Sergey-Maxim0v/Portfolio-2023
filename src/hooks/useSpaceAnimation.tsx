@@ -44,10 +44,6 @@ const useSpaceAnimation = ({
   const keyframeListRef = useRef<Keyframes[]>([]);
   const stopAnimationRef = useRef(false);
 
-  useEffect(() => {
-    keyframeListRef.current = getSpaceKeyframeList(containerRef);
-  }, [containerRef.current, debouncedContainerHeight, debouncedContainerWidth]);
-
   const getKey = (elementKey: string): ISpaceAnimationElement["key"] =>
     elementKey + "__" + Math.random() * 100 + Math.random() * 100;
 
@@ -60,6 +56,10 @@ const useSpaceAnimation = ({
   };
 
   const elementsFunk = () => {
+    if (stopAnimationRef.current) {
+      return;
+    }
+
     const { element, key: elementKey } = SpaceRandomElement();
     const key = getKey(elementKey);
     const keyframe =
@@ -79,45 +79,49 @@ const useSpaceAnimation = ({
   });
 
   const animationRecursion = () => {
-    if (!containerRef.current || !keyframeListRef.current.length) {
+    if (
+      !containerRef.current ||
+      !keyframeListRef.current.length ||
+      stopAnimationRef.current
+    ) {
       return;
     }
 
     const { callBack, interval } = getTimeout();
 
     const prom = new Promise((resolve) => {
-      !stopAnimationRef.current
-        ? setTimeout(() => {
-            callBack();
-            resolve(null);
-          }, interval)
-        : setTimeout(() => {
-            resolve(null);
-          }, 500);
+      setTimeout(() => {
+        callBack();
+        resolve(null);
+      }, interval);
     });
 
     prom.then(() => animationRecursion());
   };
 
   useEffect(() => {
-    window.addEventListener("resize", () => onResize());
+    keyframeListRef.current = getSpaceKeyframeList(containerRef);
+  }, [containerRef.current, debouncedContainerHeight, debouncedContainerWidth]);
 
-    // TODO: вынести логику остановки если не видно
+  useEffect(() => {
+    window.addEventListener("resize", () => onResize());
 
     containerRef.current &&
       onIntersection({
         element: containerRef.current,
-        visibleCallback: () => (stopAnimationRef.current = false),
-        hiddenCallback: () => (stopAnimationRef.current = true),
+        visibleCallback: () => {
+          stopAnimationRef.current = false;
+          !elementList.length && animationRecursion();
+        },
+        hiddenCallback: () => {
+          stopAnimationRef.current = true;
+          setElementList([]);
+        },
       });
 
     return () => {
       window.removeEventListener("resize", () => setElementList([]));
     };
-  }, []);
-
-  useEffect(() => {
-    keyframeListRef.current.length ? animationRecursion() : setElementList([]);
   }, []);
 
   return elementList;
