@@ -56,7 +56,7 @@ export const PROJECTS_LIST: IProject[] = [
         descriptionEn: '// TODO', // TODO: en
         myWorkRu: 'исправил и настроил приложение ' +
             '(на момент начала работы приложение падало из-за ошибок), ' +
-            'скорректировал стили согласно плжеланиям заказчика',
+            'скорректировал стили согласно пожеланиям заказчика',
         myWorkEn: '// TODO ' // TODO: en
     },
     {
@@ -67,9 +67,9 @@ export const PROJECTS_LIST: IProject[] = [
         developers: 3,
         time: 3,
         technologies: 'Nunjucks, JS, SCSS, GSAP',
-        descriptionRu: 'Сайт на 1C-Bitrix для гос. учереждения',
+        descriptionRu: 'Сайт на 1C-Bitrix для гос. учреждения',
         descriptionEn: '// TODO', // TODO: en
-        myWorkRu: 'написал вестку, написал скрипты работы интерактивных элементов ' +
+        myWorkRu: 'написал верстку, написал скрипты работы интерактивных элементов ' +
             '(модалки, аккордеоны, выпадающие меню...), написал простые анимации',
         myWorkEn: '// TODO ' // TODO: en
     },
@@ -83,9 +83,22 @@ export const PROJECTS_LIST: IProject[] = [
         technologies: 'Nunjucks, JS, SCSS, GSAP',
         descriptionRu: 'Новый сайт на 1C-Bitrix для производителя пластиковых окон',
         descriptionEn: '// TODO', // TODO: en
-        myWorkRu: 'написал вестку, написал скрипты работы интерактивных элементов ' +
+        myWorkRu: 'Написал верстку, написал скрипты работы интерактивных элементов ' +
             '(модалки, аккордеоны, выпадающие меню...), написал простые анимации',
         myWorkEn: '// TODO ' // TODO: en
     },
-//    TODO: описать PRO-32 demo, закомитить. пометку что показывать только с 1 октября 2023
+    // TODO: скрыто до 01.10.2023
+    // {
+    //     id: 'pro32-demo-endpoint',
+    //     title: 'Pro32-demo',
+    //     date: '2023',
+    //     photos: [],
+    //     developers: 1,
+    //     time: 1,
+    //     technologies: 'React, MobX, Styled Components',
+    //     descriptionRu: 'Демо приложения для лендинга.',
+    //     descriptionEn: 'Demo app for Landing',
+    //     myWorkRu: 'Написал демо: верстка, логики, ui-kit компоненты (аккордеоны, кнопки, формы).',
+    //     myWorkEn: 'Wrote a demo: layout, logics, ui-kit components (accordions, buttons, forms).'
+    // },
 ]
