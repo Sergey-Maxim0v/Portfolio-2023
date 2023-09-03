@@ -159,15 +159,14 @@ const HomeContent = () => {
                 {lang === LangEnum.EN &&
                     'Experience in creating React applications of varying degrees of complexity. ' +
                     'Experience in creating SSR applications using Next.js ' +
-                    'Experience working with React libraries for building ' +
-                    'and interacting with tables and forms. ' +
-                    'Experience working with React UI libraries (Material UI).'
+                    'Experience with other libraries: ' +
+                    'MobX, Material UI, Styled Components and others.'
                 }
                 {lang === LangEnum.RU &&
                     'Опыт создания приложений на React разной степени сложности. ' +
                     'Опыт создания SSR приложений с использованием Next.js. ' +
-                    'Опыт работы с React библиотеками работы с таблицами, формами. ' +
-                    'Опыт работы с  React библиотеками UI (Material UI). '
+                    'Опыт работы с разными библиотеками: ' +
+                    'MobX, Material UI, Styled Components и другие'
                 }
               </p>
             </PageCard>
