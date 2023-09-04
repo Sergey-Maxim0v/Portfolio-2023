@@ -48,9 +48,7 @@ const HomeContent = () => {
       {/* Section 1 */}
       <section className={classNames(styles.home__section, styles.about)}>
         <h1 className={classNames(styles.home__title, styles.title)}>
-          <p className={classNames("font__rampart", styles.title__front)}>
-            FRONTEND
-          </p>
+          <p className={`"font__rampart", ${styles.title__front}`}>FRONTEND</p>
           <p className={classNames(styles.title__dev)}>
             {lang === LangEnum.EN && " developer"}
             {lang === LangEnum.RU && " разработчик"}
