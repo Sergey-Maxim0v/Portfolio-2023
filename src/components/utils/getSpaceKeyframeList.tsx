@@ -35,11 +35,17 @@ const getSpaceKeyframeList = (
 
   topList.forEach((top) => {
     result.push(getSpaceKeyframe({ top, left: leftSide }));
-    result.push(getSpaceKeyframe({ top, left: rightSide }));
   });
 
   leftList.forEach((left) => {
     result.push(getSpaceKeyframe({ top: topSide, left }));
+  });
+
+  topList.forEach((top) => {
+    result.push(getSpaceKeyframe({ top, left: rightSide }));
+  });
+
+  leftList.forEach((left) => {
     result.push(getSpaceKeyframe({ top: bottomSide, left }));
   });
 
