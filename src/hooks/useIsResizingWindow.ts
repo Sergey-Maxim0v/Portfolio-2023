@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 
 const useIsResizingWindow = (delay: number = 300): boolean => {
   const [isResizing, setIsResizing] = useState(false);
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [windowSize, setWindowSize] = useState<{
+    width: number;
+    height: number;
+  }>();
 
   useEffect(() => {
     const onResize = () =>
@@ -18,7 +21,7 @@ const useIsResizingWindow = (delay: number = 300): boolean => {
       setIsResizing(false);
     }, delay);
 
-    setIsResizing(true);
+    windowSize && setIsResizing(true);
 
     return () => {
       clearTimeout(handler);
