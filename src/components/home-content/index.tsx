@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { lazy, useContext, useEffect, useState, Suspense } from "react";
 import { Context } from "../../context/context";
 import { LangEnum } from "../../constants/enums";
 import styles from "./styles.module.scss";
@@ -9,8 +9,9 @@ import BackgroundSkillsSpace from "../background-skills-space";
 import PageCard from "../page-card";
 import { ROUTES } from "../../api/routes";
 import { NavLink } from "react-router-dom";
-import Icon from "../icon";
 import { IconNameEnum } from "../icon/types";
+
+const Icon = lazy(() => import("../icon"));
 
 const HomeContent = () => {
   const { lang, scrollRef } = useContext(Context);
@@ -116,18 +117,22 @@ const HomeContent = () => {
             <h4 className={styles.skills__subtitle}>
               <div className={styles.skills__subtitleElement}>
                 <span>TypeScript</span>
-                <Icon
-                  iconName={IconNameEnum.ts}
-                  className={classNames(styles.skills__icon, styles.icon__ts)}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.ts}
+                    className={classNames(styles.skills__icon, styles.icon__ts)}
+                  />
+                </Suspense>
                 <span>, </span>
               </div>
               <div className={styles.skills__subtitleElement}>
                 <span>JavaScript</span>
-                <Icon
-                  iconName={IconNameEnum.js}
-                  className={styles.skills__icon}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.js}
+                    className={styles.skills__icon}
+                  />
+                </Suspense>
               </div>
             </h4>
             <p className={styles.skills__description}>
@@ -152,21 +157,28 @@ const HomeContent = () => {
             <h4 className={styles.skills__subtitle}>
               <div className={styles.skills__subtitleElement}>
                 <span>React</span>
-                <Icon
-                  iconName={IconNameEnum.react}
-                  className={classNames(
-                    styles.skills__icon,
-                    styles.icon__react,
-                  )}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.react}
+                    className={classNames(
+                      styles.skills__icon,
+                      styles.icon__react,
+                    )}
+                  />
+                </Suspense>
                 <span>, </span>
               </div>
               <div className={styles.skills__subtitleElement}>
                 <span>Next.js</span>
-                <Icon
-                  iconName={IconNameEnum.next}
-                  className={classNames(styles.skills__icon, styles.icon__next)}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.next}
+                    className={classNames(
+                      styles.skills__icon,
+                      styles.icon__next,
+                    )}
+                  />
+                </Suspense>
               </div>
             </h4>
             <p className={styles.skills__description}>
@@ -187,45 +199,61 @@ const HomeContent = () => {
             <h4 className={styles.skills__subtitle}>
               <div className={styles.skills__subtitleElement}>
                 <span>HTML</span>
-                <Icon
-                  iconName={IconNameEnum.html}
-                  className={styles.skills__icon}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.html}
+                    className={styles.skills__icon}
+                  />
+                </Suspense>
                 <span>, </span>
               </div>
               <div className={styles.skills__subtitleElement}>
                 <span>CSS</span>
-                <Icon
-                  iconName={IconNameEnum.css}
-                  className={classNames(styles.skills__icon, styles.icon__css)}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.css}
+                    className={classNames(
+                      styles.skills__icon,
+                      styles.icon__css,
+                    )}
+                  />
+                </Suspense>
                 <span>, </span>
               </div>
               <div className={styles.skills__subtitleElement}>
                 <span> SASS</span>
-                <Icon
-                  iconName={IconNameEnum.sass}
-                  className={classNames(styles.skills__icon, styles.icon__sass)}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.sass}
+                    className={classNames(
+                      styles.skills__icon,
+                      styles.icon__sass,
+                    )}
+                  />
+                </Suspense>
                 <span>, </span>
               </div>
               <div className={styles.skills__subtitleElement}>
                 <span> Tailwind CSS</span>
-                <Icon
-                  iconName={IconNameEnum.tailwind2}
-                  className={classNames(
-                    styles.skills__icon,
-                    styles.icon__tailwind,
-                  )}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.tailwind2}
+                    className={classNames(
+                      styles.skills__icon,
+                      styles.icon__tailwind,
+                    )}
+                  />
+                </Suspense>
                 <span>, </span>
               </div>
               <div className={styles.skills__subtitleElement}>
                 <span> Nunjucks</span>
-                <Icon
-                  iconName={IconNameEnum.nj}
-                  className={classNames(styles.skills__icon, styles.icon__nj)}
-                />
+                <Suspense>
+                  <Icon
+                    iconName={IconNameEnum.nj}
+                    className={classNames(styles.skills__icon, styles.icon__nj)}
+                  />
+                </Suspense>
               </div>
             </h4>
             <p className={styles.skills__description}>
