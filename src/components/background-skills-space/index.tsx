@@ -1,9 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 
 import styles from "./styles.module.scss";
-import SkillsSpaceAnimation from "./components/skills-space-animation";
 import onIntersection from "../../utils/onIntersection";
 import useIsResizingWindow from "../../hooks/useIsResizingWindow";
+
+const SkillsSpaceAnimation = lazy(
+  () => import("./components/skills-space-animation"),
+);
 
 const BackgroundSkillsSpace = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,7 +26,11 @@ const BackgroundSkillsSpace = () => {
 
   return (
     <div ref={containerRef} className={styles.row}>
-      {isVisibleContainer && !isResizing && <SkillsSpaceAnimation />}
+      {isVisibleContainer && !isResizing && (
+        <Suspense>
+          <SkillsSpaceAnimation />
+        </Suspense>
+      )}
     </div>
   );
 };
