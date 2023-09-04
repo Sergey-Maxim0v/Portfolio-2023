@@ -1,26 +1,7 @@
 import { RefObject, useRef } from "react";
-import useSpaceAnimation from "../../hooks/useSpaceAnimation";
-import styled, { css } from "styled-components";
+import useSpaceAnimation from "../../../../hooks/useSpaceAnimation";
 import styles from "./styles.module.scss";
-import { ISpaceStyledComponent } from "./types";
-
-const SpaceElementWrapper = styled.div<ISpaceStyledComponent>`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 3rem;
-  width: auto;
-  transition: transform 3s;
-
-  ${(props) =>
-    props.keyframe
-      ? css`
-          animation: ${props.keyframe} 3s linear;
-        `
-      : css`
-          display: none;
-        `};
-`;
+import SpaceElementWrapper from "../space-element-wrapper";
 
 const SkillsSpaceAnimation = () => {
   const containerRef: RefObject<HTMLDivElement> = useRef(null);

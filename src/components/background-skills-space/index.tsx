@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./styles.module.scss";
-import SkillsSpaceAnimation from "../skills-space-animation";
-import onIntersection from "../utils/onIntersection";
+import SkillsSpaceAnimation from "./components/skills-space-animation";
+import onIntersection from "../../utils/onIntersection";
 
 const BackgroundSkillsSpace = () => {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -1,8 +1,8 @@
 import { ISpaceElement } from "./types";
-import Icon from "../icon";
-import { IconNameEnum } from "../icon/types";
+import Icon from "../../../icon";
+import { IconNameEnum } from "../../../icon/types";
 import styles from "./styles.module.scss";
-import getRandomIndex from "../utils/getRandomIndex";
+import getRandomIndex from "../../../../utils/getRandomIndex";
 
 const keyList = Object.keys(IconNameEnum).filter(
   (el) =>

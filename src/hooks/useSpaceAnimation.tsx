@@ -1,9 +1,9 @@
 import { RefObject, useEffect, useMemo, useState } from "react";
-import SpaceRandomElement from "../components/space-random-element";
-import getSpaceKeyframeList from "../components/utils/getSpaceKeyframeList";
+import SpaceRandomElement from "../components/background-skills-space/components/space-random-element";
+import getSpaceKeyframeList from "../components/background-skills-space/utils/getSpaceKeyframeList";
 import useDebounce from "./useDebonce";
 import { Keyframes } from "styled-components";
-import { ISpaceAnimationElement } from "../components/skills-space-animation/types";
+import { ISpaceAnimationElement } from "../components/background-skills-space/components/skills-space-animation/types";
 
 export interface IContainerSize {
   width: number;

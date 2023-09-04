@@ -1,10 +1,6 @@
 import { Keyframes } from "styled-components";
 import { ReactElement } from "react";
 
-export interface ISpaceStyledComponent {
-  keyframe: Keyframes;
-}
-
 export interface ISpaceAnimationElement {
   node: ReactElement;
   key: string;
