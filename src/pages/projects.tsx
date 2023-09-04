@@ -1,7 +1,7 @@
 import BaseLayout from "../ layouts/baseLayout";
 import ProjectsContent from "../components/projects-content";
 import { getPageTitle } from "../utils/getPageTitle";
-import HelmetPageTitle from "../components/helmetPageTitle";
+import HelmetPageTitle from "../components/helmet-page-title";
 
 const PAGE_TITLE_EN = getPageTitle("Projects");
 const PAGE_TITLE_RU = getPageTitle("Проекты");

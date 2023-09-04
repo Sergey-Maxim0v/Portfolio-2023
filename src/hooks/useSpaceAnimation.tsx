@@ -7,12 +7,12 @@ import {
   useState,
 } from "react";
 import SpaceRandomElement from "../components/space-random-element";
-import { ISpaceAnimationElement } from "../components/skills-space-bg/types";
 import getSpaceKeyframeList from "../components/utils/getSpaceKeyframeList";
 import getRandomIndex from "../components/utils/getRandomIndex";
 import onIntersection from "../components/utils/onIntersection";
 import useDebounce from "./useDebonce";
 import { Keyframes } from "styled-components";
+import { ISpaceAnimationElement } from "../components/skills-space-animation/types";
 
 export interface IContainerSize {
   width: number;

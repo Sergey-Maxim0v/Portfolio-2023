@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { BASE_URL } from "../../api/baseURL";
 import GlowingButton from "../glowing-button";
-import SkillsSpaceBg from "../skills-space-bg";
+import BackgroundSkillsSpace from "../background-skills-space";
 import PageCard from "../page-card";
 import { ROUTES } from "../../api/routes";
 import { NavLink } from "react-router-dom";
@@ -97,7 +97,7 @@ const HomeContent = () => {
           scroll
         </div>
 
-        <SkillsSpaceBg />
+        <BackgroundSkillsSpace />
       </section>
 
       {/* Section 2 */}

@@ -1,6 +1,6 @@
 import { useRouteError } from "react-router-dom";
 import BaseLayout from "../ layouts/baseLayout";
-import HelmetPageTitle from "../components/helmetPageTitle";
+import HelmetPageTitle from "../components/helmet-page-title";
 import { getPageTitle } from "../utils/getPageTitle";
 
 const PAGE_TITLE_EN = getPageTitle("Error");

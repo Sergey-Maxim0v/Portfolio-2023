@@ -1,8 +1,8 @@
 import { RefObject, useRef, useState } from "react";
-import { ISpaceAnimationElement, ISpaceStyledComponent } from "./types";
 import useSpaceAnimation from "../../hooks/useSpaceAnimation";
 import styled, { css } from "styled-components";
 import styles from "./styles.module.scss";
+import { ISpaceAnimationElement, ISpaceStyledComponent } from "./types";
 
 const SpaceElementWrapper = styled.div<ISpaceStyledComponent>`
   position: absolute;
@@ -22,7 +22,7 @@ const SpaceElementWrapper = styled.div<ISpaceStyledComponent>`
         `};
 `;
 
-const SkillsSpaceBg = () => {
+const SkillsSpaceAnimation = () => {
   const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [elementList, setElementList] = useState<ISpaceAnimationElement[]>([]);
 
@@ -39,4 +39,4 @@ const SkillsSpaceBg = () => {
   );
 };
 
-export default SkillsSpaceBg;
+export default SkillsSpaceAnimation;
