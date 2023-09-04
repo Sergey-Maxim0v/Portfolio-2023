@@ -12,13 +12,21 @@ const PAGE_TITLE_RU = getPageTitle("Обо мне");
 const Home = () => {
   const { lang } = useContext(Context);
 
+  const getCurrentPageTitle = () => {
+    switch (lang) {
+      case LangEnum.EN:
+        return PAGE_TITLE_EN;
+      case LangEnum.RU:
+        return PAGE_TITLE_RU;
+      default:
+        return "";
+    }
+  };
+
   return (
     <BaseLayout>
       <Helmet>
-        <title>
-          {lang === LangEnum.EN && PAGE_TITLE_EN}
-          {lang === LangEnum.RU && PAGE_TITLE_RU}
-        </title>
+        <title>{getCurrentPageTitle()}</title>
       </Helmet>
 
       <HomeContent />
