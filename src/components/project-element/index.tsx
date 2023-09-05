@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import { LangEnum } from "../../constants/enums";
 import { Context } from "../../context/context";
 import getWordDependingNumber from "../../utils/getWordDependingNumber";
+import PageCard from "../page-card";
 
 const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
   const { lang } = useContext(Context);
@@ -67,11 +68,11 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
   };
 
   return (
-    <div className={classNames(styles.projectElement, className)}>
-      <p className="">
+    <PageCard className={classNames(styles.projectElement, className)}>
+      <h4 className={styles.title}>
         {project.title}
         <span className="">{` ( ${project.date} )`}</span>
-      </p>
+      </h4>
 
       <p className="">
         {lang === LangEnum.RU && `${project.descriptionRu}`}
@@ -79,33 +80,51 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
       </p>
 
       <p className="">
-        {lang === LangEnum.RU && `Стек технологий: ${project.technologies}.`}
-        {lang === LangEnum.EN && `Technology stack: ${project.technologies}.`}
+        <span className={styles.subtitle}>
+          {lang === LangEnum.RU && `Стек технологий: `}
+          {lang === LangEnum.EN && `Technology stack: `}
+        </span>
+
+        {project.technologies}
+
+        <span>.</span>
       </p>
 
       <p className="">
-        {lang === LangEnum.RU &&
-          `Команда: ${project.developers} ${getTeamWord(project.developers)}.`}
-        {lang === LangEnum.EN &&
-          `Team of ${project.developers} ${getTeamWord(project.developers)}.`}
+        <span className={styles.subtitle}>
+          {lang === LangEnum.RU && `Команда: `}
+          {lang === LangEnum.EN && `Team of `}
+        </span>
+
+        <span>{project.developers}</span>
+
+        <span>{getTeamWord(project.developers)}</span>
+
+        <span>.</span>
       </p>
 
       <p className="">
-        {lang === LangEnum.RU &&
-          `Работал  над проектом: ${project.time} ${getMonthWord(
-            project.time,
-          )}.`}
-        {lang === LangEnum.EN &&
-          `Worked on the project for ${project.time} ${getMonthWord(
-            project.time,
-          )}.`}
+        <span className={styles.subtitle}>
+          {lang === LangEnum.RU && `Работал  над проектом: `}
+          {lang === LangEnum.EN && `Worked on the project for `}
+        </span>
+
+        <span>{project.time}</span>
+
+        <span> </span>
+
+        <span>{getMonthWord(project.time)}</span>
       </p>
 
       <p className="">
-        {lang === LangEnum.RU && `Выполненные работы: ${project.myWorkRu}.`}
-        {lang === LangEnum.EN && `completed works: ${project.myWorkEn}.`}
+        <span className={styles.subtitle}>
+          {lang === LangEnum.RU && `Выполненные работы: `}
+          {lang === LangEnum.EN && `Completed works: `}
+        </span>
+
+        <span>{project.myWorkRu}</span>
       </p>
-    </div>
+    </PageCard>
   );
 };
 

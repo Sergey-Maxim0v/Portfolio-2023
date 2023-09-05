@@ -1,5 +1,6 @@
 export interface IProject {
   id: string;
+  number: number;
   title: string;
   date: string;
   photos: string[];
@@ -15,6 +16,7 @@ export interface IProject {
 export const PROJECTS_LIST: IProject[] = [
   {
     id: "project__zena",
+    number: 1,
     title: "Zen-Auto",
     date: "2022",
     photos: [],
@@ -38,6 +40,7 @@ export const PROJECTS_LIST: IProject[] = [
   },
   {
     id: "project__zen-lendos",
+    number: 2,
     title: "ZenCode",
     date: "2022",
     photos: [],
@@ -55,6 +58,7 @@ export const PROJECTS_LIST: IProject[] = [
   },
   {
     id: "project__zen-dock",
+    number: 3,
     title: "ZenDock",
     date: "2022",
     photos: [],
@@ -79,6 +83,7 @@ export const PROJECTS_LIST: IProject[] = [
   },
   {
     id: "project__rkdr",
+    number: 4,
     title: "РКДР",
     date: "2022 - 2023",
     photos: [],
@@ -96,6 +101,7 @@ export const PROJECTS_LIST: IProject[] = [
   },
   {
     id: "project__okna",
+    number: 5,
     title: "Okna-store",
     date: "2023",
     photos: [],
@@ -116,6 +122,7 @@ export const PROJECTS_LIST: IProject[] = [
   // TODO: скрыто до 01.10.2023
   // {
   //     id: 'pro32-demo-endpoint',
+  // number: 6,
   //     title: 'Pro32-demo',
   //     date: '2023',
   //     photos: [],
