@@ -183,15 +183,13 @@ const HomeContent = () => {
             </h4>
             <p className={styles.skills__description}>
               {lang === LangEnum.EN &&
-                "Experience in creating React applications of varying degrees of complexity. " +
-                  "Experience in creating SSR applications using Next.js " +
-                  "Experience with other libraries: " +
-                  "MobX, Material UI, Styled Components and others."}
+                "Experience with React applications of varying complexity. " +
+                  "Experience with SSR applications in Next.js. " +
+                  "Experience with other libraries: MobX, Material UI, Styled Components and others."}
               {lang === LangEnum.RU &&
-                "Опыт создания приложений на React разной степени сложности. " +
-                  "Опыт создания SSR приложений с использованием Next.js. " +
-                  "Опыт работы с разными библиотеками: " +
-                  "MobX, Material UI, Styled Components и другие"}
+                "Опыт работы с  React-приложениями различной степени сложности. " +
+                  "Опыт работы с SSR-приложениями на Next.js. " +
+                  "Опыт работы с другими библиотеками: MobX, Material UI, Styled Components и другими."}
             </p>
           </PageCard>
 
