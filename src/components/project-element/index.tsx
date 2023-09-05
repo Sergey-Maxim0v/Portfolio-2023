@@ -4,68 +4,12 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 import { LangEnum } from "../../constants/enums";
 import { Context } from "../../context/context";
-import getWordDependingNumber from "../../utils/getWordDependingNumber";
 import PageCard from "../page-card";
+import getMonthWord from "../../utils/getMonthWord";
+import getTeamWord from "../../utils/getTeamWord";
 
 const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
   const { lang } = useContext(Context);
-
-  const getMonthWord = (num: number): string => {
-    if (lang === LangEnum.RU) {
-      return getWordDependingNumber({
-        num,
-        word_0: "месяцев",
-        word_1: "месяц",
-        word_2: "месяца",
-        word_5: "месяцев",
-      });
-    }
-
-    if (lang === LangEnum.EN) {
-      return getWordDependingNumber({
-        num,
-        word_0: "month",
-        word_1: "month",
-        word_2: "months",
-        word_5: "months",
-      });
-    }
-
-    return "";
-  };
-
-  const getTeamWord = (num: number | string): string => {
-    if (typeof num !== "number") {
-      if (lang === LangEnum.RU) {
-        return "разработчиков";
-      }
-      if (lang === LangEnum.EN) {
-        return "developers";
-      }
-    }
-
-    if (lang === LangEnum.RU) {
-      return getWordDependingNumber({
-        num,
-        word_0: "разработчиков",
-        word_1: "разработчик",
-        word_2: "разработчика",
-        word_5: "разработчиков",
-      });
-    }
-
-    if (lang === LangEnum.EN) {
-      return getWordDependingNumber({
-        num,
-        word_0: "developers",
-        word_1: "developer",
-        word_2: "developers",
-        word_5: "developers",
-      });
-    }
-
-    return "";
-  };
 
   return (
     <PageCard className={classNames(styles.projectElement, className)}>
@@ -100,7 +44,7 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
 
         <span> </span>
 
-        <span>{getTeamWord(project.developers)}</span>
+        <span>{getTeamWord(project.developers, lang)}</span>
 
         <span>.</span>
       </p>
@@ -115,7 +59,7 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
 
         <span> </span>
 
-        <span>{getMonthWord(project.time)}</span>
+        <span>{getMonthWord(project.time, lang)}</span>
       </p>
 
       <p className="">
