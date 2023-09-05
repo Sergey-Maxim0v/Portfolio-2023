@@ -81,8 +81,8 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
 
       <p className="">
         <span className={styles.subtitle}>
-          {lang === LangEnum.RU && `Стек технологий: `}
-          {lang === LangEnum.EN && `Technology stack: `}
+          {lang === LangEnum.RU && `Стек технологий:`}
+          {lang === LangEnum.EN && `Technology stack:`}
         </span>
 
         {project.technologies}
@@ -92,11 +92,13 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
 
       <p className="">
         <span className={styles.subtitle}>
-          {lang === LangEnum.RU && `Команда: `}
-          {lang === LangEnum.EN && `Team of `}
+          {lang === LangEnum.RU && `Команда:`}
+          {lang === LangEnum.EN && `Team of`}
         </span>
 
         <span>{project.developers}</span>
+
+        <span> </span>
 
         <span>{getTeamWord(project.developers)}</span>
 
@@ -105,8 +107,8 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
 
       <p className="">
         <span className={styles.subtitle}>
-          {lang === LangEnum.RU && `Работал  над проектом: `}
-          {lang === LangEnum.EN && `Worked on the project for `}
+          {lang === LangEnum.RU && `Работал  над проектом:`}
+          {lang === LangEnum.EN && `Worked on the project for`}
         </span>
 
         <span>{project.time}</span>
@@ -118,8 +120,8 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
 
       <p className="">
         <span className={styles.subtitle}>
-          {lang === LangEnum.RU && `Выполненные работы: `}
-          {lang === LangEnum.EN && `Completed works: `}
+          {lang === LangEnum.RU && `Выполненные работы:`}
+          {lang === LangEnum.EN && `Completed works:`}
         </span>
 
         <span>{project.myWorkRu}</span>
