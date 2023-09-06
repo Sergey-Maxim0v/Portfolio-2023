@@ -11,6 +11,9 @@ import classNames from "classnames";
 const ErrorPageContent: FC<IErrorPageContent> = ({ error }) => {
   const { lang } = useContext(Context);
 
+  const errorTitle = error?.name ?? "";
+  const errorDescription = error?.message ?? "";
+
   return (
     <div className={styles.container}>
       <h3 className={classNames(styles.title, "font__rampart")}>
@@ -32,14 +35,18 @@ const ErrorPageContent: FC<IErrorPageContent> = ({ error }) => {
       </NavLink>
 
       <div className={styles.description}>
-        <p>
-          <span>Error title: </span>
-          {error.name as string}
-        </p>
-        <p>
-          <span>Error message: </span>
-          {error.message as string}
-        </p>
+        {errorTitle && (
+          <p>
+            <span>Error title: </span>
+            {errorTitle}
+          </p>
+        )}
+        {errorDescription && (
+          <p>
+            <span>Error message: </span>
+            {errorDescription}
+          </p>
+        )}
       </div>
     </div>
   );
