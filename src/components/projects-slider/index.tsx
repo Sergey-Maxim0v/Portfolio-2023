@@ -1,5 +1,5 @@
 const ProjectsSlider = () => {
-  return <>// TODO: ProjectsSlider</>;
+  return <div>{/*// TODO: ProjectsSlider*/}</div>;
 };
 
 export default ProjectsSlider;
