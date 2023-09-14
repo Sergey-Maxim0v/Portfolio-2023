@@ -20,7 +20,7 @@ const HomeContent = () => {
   const linkPDF =
     lang === LangEnum.RU
       ? `${BASE_URL}/download/resume-ru.pdf`
-      : `${BASE_URL}/download/resume-en.pdf`;
+      : `${BASE_URL}/download/resume-ru.pdf`; // TODO: resume-en.pdf
 
   useEffect(() => {
     const onScroll = (event: Event) => {
@@ -185,11 +185,11 @@ const HomeContent = () => {
               {lang === LangEnum.EN &&
                 "Experience with React applications of varying complexity. " +
                   "Experience with SSR applications in Next.js. " +
-                  "Experience with other libraries: MobX, Material UI, Styled Components and others."}
+                  "Experience with libraries: MobX, Material UI, Styled Components and others."}
               {lang === LangEnum.RU &&
                 "Опыт работы с  React-приложениями различной степени сложности. " +
                   "Опыт работы с SSR-приложениями на Next.js. " +
-                  "Опыт работы с другими библиотеками: MobX, Material UI, Styled Components и другими."}
+                  "Опыт работы с библиотеками: MobX, Material UI, Styled Components и другими."}
             </p>
           </PageCard>
 
