@@ -119,19 +119,22 @@ export const PROJECTS_LIST: IProject[] = [
       "Wrote layout, wrote scripts for interactive elements " +
       "(modals, accordions, drop-down menus...), wrote simple animations.",
   },
-  // TODO: скрыто до 01.10.2023
-  // {
-  //     id: 'pro32-demo-endpoint',
-  // number: 6,
-  //     title: 'Pro32-demo',
-  //     date: '2023',
-  //     photos: [],
-  //     developers: 1,
-  //     time: 1,
-  //     technologies: 'React, MobX, Styled Components',
-  //     descriptionRu: 'Демо приложения для лендинга.',
-  //     descriptionEn: 'Demo app for Landing',
-  //     myWorkRu: 'Написал демо: верстка, логики, ui-kit компоненты (аккордеоны, кнопки, формы).',
-  //     myWorkEn: 'Wrote a demo: layout, logics, ui-kit components (accordions, buttons, forms).'
-  // },
+  {
+    id: "pro32-demo-endpoint",
+    number: 6,
+    title: "Pro32-demo",
+    date: "2023",
+    photos: [],
+    developers: 1,
+    time: 1,
+    technologies: "React, MobX, Styled Components",
+    descriptionRu: "Демо приложения для лендинга.",
+    descriptionEn: "Demo app for Landing",
+    myWorkRu:
+      "Сверстал демо, согласно макетам клиента, " +
+      "написал анимации и логику интерактивных элементов: аккордеоны, кнопки, формы.",
+    myWorkEn:
+      "Wrote a demo based on client layouts, " +
+      "wrote animation and logic of interactive elements: accordions, buttons, forms.",
+  },
 ];
