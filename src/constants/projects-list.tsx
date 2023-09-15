@@ -120,7 +120,7 @@ export const PROJECTS_LIST: IProject[] = [
       "(modals, accordions, drop-down menus...), wrote simple animations.",
   },
   {
-    id: "pro32-demo-endpoint",
+    id: "pro32-demo",
     number: 6,
     title: "Pro32-demo",
     date: "2023",
