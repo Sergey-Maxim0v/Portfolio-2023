@@ -17,7 +17,7 @@ export const PROJECTS_LIST: IProject[] = [
   {
     id: "project__zena",
     number: 1,
-    title: "Zen-Auto",
+    title: "Zena",
     date: "2022",
     photos: [],
     developers: "4 - 7",
@@ -32,8 +32,8 @@ export const PROJECTS_LIST: IProject[] = [
       "save the daily results of employees " +
       "and compiling summary tables and reports.",
     myWorkRu:
-      "Работал над пользовательской частью приложения, настроил взаимодействия пользователя " +
-      "с формами, настроил автосохранения, сохранения, написал интерактивные таблицы.",
+      "Разработал пользовательскую часть приложения, настроил взаимодействие пользователя с формами, " +
+      "настроил автосохранение форм, разработал интерактивные таблицы.",
     myWorkEn:
       "Worked on the user part of the application, set up user interaction" +
       "with forms, configured autosave, saved, wrote interactive tables.",
@@ -50,8 +50,8 @@ export const PROJECTS_LIST: IProject[] = [
     descriptionRu: "Лендинг",
     descriptionEn: "Landing",
     myWorkRu:
-      "Обновил приложение согласно новым макетам, написал простые анимации, " +
-      "скорректировал логики работы приложения, рефакторинг.",
+      "Обновил приложение согласно новым макетам, добавил простые анимации, " +
+      "скорректировал логику работы приложения, провел рефакторинг.",
     myWorkEn:
       "Updated the application according to the new layouts, wrote simple animations, " +
       "corrected the logic of the application, refactoring.",
@@ -64,7 +64,7 @@ export const PROJECTS_LIST: IProject[] = [
     photos: [],
     developers: 1,
     time: 1,
-    technologies: "Electron, React, Typescript, Tailwind CSS",
+    technologies: "Electron, React, Typescript, Tailwind CSS, Material-UI",
     descriptionRu:
       "Приложение работает локально. Сохраняет архив с бухгалтерскими " +
       "документами в формате DOCX, на основании введенных пользователем данных.",
@@ -73,9 +73,9 @@ export const PROJECTS_LIST: IProject[] = [
       "Saves an archive with accounting documents in DOCX format, " +
       "based on the data entered by the user.",
     myWorkRu:
-      "Исправил и настроил приложение " +
-      "(на момент начала работы приложение падало из-за ошибок), " +
-      "скорректировал стили согласно пожеланиям заказчика.",
+      "Исправил код и настроил приложение " +
+      "(на момент начала работы в приложении присутствовали критичные для запуска ошибки) " +
+      "скорректировал стили в ui части и генерируемых документах согласно пожеланиям заказчика.",
     myWorkEn:
       "Fixed and configured the application " +
       "(at the time of the start of work, the application was crashing due to errors), " +
@@ -84,7 +84,7 @@ export const PROJECTS_LIST: IProject[] = [
   {
     id: "project__rkdr",
     number: 4,
-    title: "РКДР",
+    title: "Сайт гос учреждения",
     date: "2022 - 2023",
     photos: [],
     developers: 3,
@@ -93,8 +93,8 @@ export const PROJECTS_LIST: IProject[] = [
     descriptionRu: "Сайт на 1C-Bitrix для гос. учреждения",
     descriptionEn: "Site on 1C-Bitrix for a government agency",
     myWorkRu:
-      "Написал верстку, написал скрипты работы интерактивных элементов " +
-      "(модалки, аккордеоны, выпадающие меню...), написал простые анимации.",
+      "Сверстал страницы и UI Kit по макетам, разработал скрипты работы интерактивных элементов " +
+      "(модальные окна, аккордеоны, выпадающие меню и т.д.), добавил простые анимации.",
     myWorkEn:
       "Wrote the layout, wrote scripts for interactive elements " +
       "(modals, accordions, dropdown menus...), wrote simple animations.",
@@ -113,8 +113,8 @@ export const PROJECTS_LIST: IProject[] = [
     descriptionEn:
       "Updated site on 1C-Bitrix for the manufacturer of plastic windows.",
     myWorkRu:
-      "Написал верстку, написал скрипты работы интерактивных элементов " +
-      "(модалки, аккордеоны, выпадающие меню...), написал простые анимации.",
+      "Сверстал страницы и UI Kit по макетам, разработал скрипты работы интерактивных элементов " +
+      "(модальные окна, аккордеоны, выпадающие меню и т.д.), добавил простые анимации.",
     myWorkEn:
       "Wrote layout, wrote scripts for interactive elements " +
       "(modals, accordions, drop-down menus...), wrote simple animations.",
@@ -122,7 +122,7 @@ export const PROJECTS_LIST: IProject[] = [
   {
     id: "pro32-demo",
     number: 6,
-    title: "Pro32-demo",
+    title: "Интерактивный обзор антивируса Pro32",
     date: "2023",
     photos: [],
     developers: 1,
