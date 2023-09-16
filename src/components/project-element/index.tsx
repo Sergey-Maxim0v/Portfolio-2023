@@ -45,8 +45,6 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
         <span> </span>
 
         <span>{getTeamWord(project.developers, lang)}</span>
-
-        <span>.</span>
       </p>
 
       <p className="">
@@ -68,7 +66,10 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
           {lang === LangEnum.EN && `Completed works:`}
         </span>
 
-        <span>{project.myWorkRu}</span>
+        <span>
+          {lang === LangEnum.RU && project.myWorkRu}
+          {lang === LangEnum.EN && project.myWorkEn}
+        </span>
       </p>
     </PageCard>
   );
