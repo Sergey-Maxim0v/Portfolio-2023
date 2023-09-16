@@ -35,8 +35,8 @@ export const PROJECTS_LIST: IProject[] = [
       "Разработал пользовательскую часть приложения, настроил взаимодействие пользователя с формами, " +
       "настроил автосохранение форм, разработал интерактивные таблицы.",
     myWorkEn:
-      "Worked on the user part of the application, set up user interaction" +
-      "with forms, configured autosave, saved, wrote interactive tables.",
+      "Developed the user part of the application, configured user interaction with forms, " +
+      "configured autosaving of forms, developed interactive tables.",
   },
   {
     id: "project__zen-lendos",
@@ -53,8 +53,8 @@ export const PROJECTS_LIST: IProject[] = [
       "Обновил приложение согласно новым макетам, добавил простые анимации, " +
       "скорректировал логику работы приложения, провел рефакторинг.",
     myWorkEn:
-      "Updated the application according to the new layouts, wrote simple animations, " +
-      "corrected the logic of the application, refactoring.",
+      "Updated the application according to the new layouts, added a simple animation, " +
+      "corrected the logic of the application, refactored.",
   },
   {
     id: "project__zen-dock",
@@ -77,9 +77,9 @@ export const PROJECTS_LIST: IProject[] = [
       "(на момент начала работы в приложении присутствовали критичные для запуска ошибки) " +
       "скорректировал стили в ui части и генерируемых документах согласно пожеланиям заказчика.",
     myWorkEn:
-      "Fixed and configured the application " +
-      "(at the time of the start of work, the application was crashing due to errors), " +
-      "adjusted the styles according to the wishes of the customer.",
+      "I corrected the code and configured the application " +
+      "(at the time of starting work, the application had critical errors for launching) " +
+      "and adjusted the styles in the ui part and generated documents according to the customer’s wishes",
   },
   {
     id: "project__rkdr",
@@ -96,8 +96,8 @@ export const PROJECTS_LIST: IProject[] = [
       "Сверстал страницы и UI Kit по макетам, разработал скрипты работы интерактивных элементов " +
       "(модальные окна, аккордеоны, выпадающие меню и т.д.), добавил простые анимации.",
     myWorkEn:
-      "Wrote the layout, wrote scripts for interactive elements " +
-      "(modals, accordions, dropdown menus...), wrote simple animations.",
+      "Wrote the layout, developed scripts for interactive elements " +
+      "(modals, accordions, dropdown menus...), added simple animations.",
   },
   {
     id: "project__okna",
@@ -116,8 +116,8 @@ export const PROJECTS_LIST: IProject[] = [
       "Сверстал страницы и UI Kit по макетам, разработал скрипты работы интерактивных элементов " +
       "(модальные окна, аккордеоны, выпадающие меню и т.д.), добавил простые анимации.",
     myWorkEn:
-      "Wrote layout, wrote scripts for interactive elements " +
-      "(modals, accordions, drop-down menus...), wrote simple animations.",
+      "Wrote the layout, developed scripts for interactive elements " +
+      "(modals, accordions, dropdown menus...), added simple animations.",
   },
   {
     id: "pro32-demo",
@@ -131,8 +131,8 @@ export const PROJECTS_LIST: IProject[] = [
     descriptionRu: "Демо приложения для лендинга.",
     descriptionEn: "Demo app for Landing",
     myWorkRu:
-      "Сверстал демо, согласно макетам клиента, " +
-      "написал анимации и логику интерактивных элементов: аккордеоны, кнопки, формы.",
+      "Сверстал демо, согласно макетам клиента. " +
+      "Разработал логику и добавил анимации для интерактивных элементов: аккордеоны, кнопки, формы.",
     myWorkEn:
       "Wrote a demo based on client layouts, " +
       "wrote animation and logic of interactive elements: accordions, buttons, forms.",
