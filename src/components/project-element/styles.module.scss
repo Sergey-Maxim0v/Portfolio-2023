@@ -1,5 +1,5 @@
 .projectElement {
-  padding: 1.5rem;
+  padding: min(2rem, 6vw);
   letter-spacing: 0.03em;
 
   & p {
