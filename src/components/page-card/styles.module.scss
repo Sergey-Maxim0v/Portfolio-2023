@@ -4,6 +4,12 @@
   padding: 1.2rem;
   border-radius: 1rem;
   border: 1px solid transparent;
+
+  @media (max-width: $b-tablet) {
+    margin-left: -8vw;
+    margin-right: -8vw;
+    border-radius: 0;
+  }
 }
 
 body:global(.light) .card {

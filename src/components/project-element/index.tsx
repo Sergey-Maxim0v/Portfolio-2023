@@ -18,7 +18,7 @@ const ProjectElement: FC<IProjectElement> = ({ className, project }) => {
         <span className="">{` ( ${project.date} )`}</span>
       </h4>
 
-      <p className="">
+      <p className={styles.description}>
         {lang === LangEnum.RU && `${project.descriptionRu}`}
         {lang === LangEnum.EN && `${project.descriptionEn}`}
       </p>

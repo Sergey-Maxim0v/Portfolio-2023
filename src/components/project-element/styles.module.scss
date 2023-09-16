@@ -1,5 +1,6 @@
 .projectElement {
   padding: 1.5rem;
+  letter-spacing: 0.03em;
 
   & p {
     margin-bottom: 0.7rem;
@@ -11,15 +12,34 @@
   }
 }
 
+body:global(.light) {
+  .projectElement {
+    box-shadow: 0.5rem 0.5rem 1rem $c-gray-6, 0 0 0.2rem $c-gray-6 inset;
+  }
+}
+
+body:global(.dark) {
+  .projectElement {
+    box-shadow: 0.3rem 0.3rem 0.7rem $c-black, 0 0 0.2rem $c-black inset;
+  }
+}
+
 .title {
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+p.description {
+  margin-bottom: 1.7rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
 }
 
 .subtitle {
   margin-right: 0.4rem;
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: max(0.85rem, 14px);
   opacity: 0.7;
 }
