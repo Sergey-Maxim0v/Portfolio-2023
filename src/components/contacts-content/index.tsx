@@ -30,7 +30,11 @@ const ContactsContent = () => {
                   randomAnimationClass,
                 )}
               >
-                <a className={styles.contacts__link} href={contact.link}>
+                <a
+                  className={styles.contacts__link}
+                  href={contact.link}
+                  target="_blank"
+                >
                   <Icon
                     className={styles.contacts__icon}
                     iconName={contact.icon}
