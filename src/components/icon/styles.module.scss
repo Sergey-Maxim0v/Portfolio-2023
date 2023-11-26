@@ -47,6 +47,10 @@
   &__react {
     animation: reactAnimation 4s linear infinite;
   }
+
+  &__leetcode {
+    margin: 1.1rem 0.9rem 0.9rem;
+  }
 }
 
 @keyframes rotateAnimation {

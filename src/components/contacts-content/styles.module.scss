@@ -109,7 +109,9 @@ body:global(.dark) .contacts {
     &:hover {
       @extend .shadow;
 
-      color: $c-sea-7;
+      .contacts__desc, &:before {
+        color: $c-sea-7;
+      }
     }
   }
 }
@@ -174,6 +176,14 @@ body:global(.dark) .contacts {
   &:hover {
     .contacts__icon {
       animation: animation_3 0.5s ease-out;
+    }
+  }
+}
+
+.animation_9 {
+  &:hover {
+    .contacts__icon {
+      animation: animation_2 0.3s ;
     }
   }
 }

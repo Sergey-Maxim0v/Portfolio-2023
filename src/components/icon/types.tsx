@@ -31,4 +31,5 @@ export enum IconNameEnum {
   vite = "vite",
   mobx = "mobx",
   styledComponents = "styledComponents",
+  leetcode = "leetcode",
 }

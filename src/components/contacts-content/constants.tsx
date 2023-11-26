@@ -58,4 +58,11 @@ export const CONTACTS: IContact[] = [
     link: "https://www.codewars.com/users/Sergey-Maxim0v",
     icon: IconNameEnum.codewars,
   },
+  {
+    id: "contact-9",
+    nameEn: "LeetCode",
+    nameRu: "LeetCode",
+    link: "https://leetcode.com/Sergey-Maxim0v/",
+    icon: IconNameEnum.leetcode,
+  },
 ];
