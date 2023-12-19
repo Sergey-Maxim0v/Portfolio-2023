@@ -1,4 +1,6 @@
+import { IPetProject } from "../../constants/pet-list";
+
 export interface ISlide {
-  number: number;
+  project: IPetProject;
   className?: string;
 }

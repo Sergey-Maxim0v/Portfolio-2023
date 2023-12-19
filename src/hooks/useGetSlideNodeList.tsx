@@ -1,17 +1,16 @@
 import { ReactElement, useMemo } from "react";
 import Slide from "../components/Slide";
-
-const SLIDES_COUNT = 7;
+import { PET_LIST } from "../constants/pet-list";
 
 export const useGetSlideNodeList = ({
   className,
 }: {
   className: string;
 }): ReactElement[] =>
-  useMemo(() => {
-    const result = [];
-    for (let i = 0; i <= SLIDES_COUNT; i++) {
-      result.push(<Slide key={i} number={i} className={className} />);
-    }
-    return result;
-  }, []);
+  useMemo(
+    () =>
+      PET_LIST.map((project) => (
+        <Slide key={project.id} className={className} project={project} />
+      )),
+    [],
+  );
