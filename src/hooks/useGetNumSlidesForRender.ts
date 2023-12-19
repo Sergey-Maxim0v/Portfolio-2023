@@ -1,21 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
 
 export const useGetNumSlidesForRender = ({
-  SLIDES_COUNT,
+  slidesNum,
   indexCurrentSlide,
 }: {
-  SLIDES_COUNT: number;
+  slidesNum: number;
   indexCurrentSlide: number;
 }) => {
   const [numListSlidesForRender, setNumListSlidesForRender] = useState<
     number[]
   >([]);
 
-  console.log(numListSlidesForRender);
-
   const getSlideNumList = () => {
     const result = [];
-    for (let i = 0; i <= SLIDES_COUNT; i++) {
+    for (let i = 0; i <= slidesNum; i++) {
       result.push(i);
     }
     return result;

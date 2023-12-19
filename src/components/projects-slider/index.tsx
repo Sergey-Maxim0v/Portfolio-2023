@@ -29,7 +29,7 @@ const ProjectsSlider: FC<ISlider> = ({
   });
 
   const numListSlidesForRender = useGetNumSlidesForRender({
-    SLIDES_COUNT: slideNodeList.length,
+    slidesNum: slideNodeList.length - 1,
     indexCurrentSlide,
   });
 
