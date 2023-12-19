@@ -19,16 +19,13 @@ const ProjectsContent = () => {
         <ProjectsList />
       </section>
 
-      {/*  TODO: pet projects*/}
       <section className={styles.projectsContent__section}>
-        {/*  <h2 className={styles.projectsContent__title}>*/}
-        {/*    {lang === LangEnum.EN && "Training projects"}*/}
-        {/*    {lang === LangEnum.RU && "Тренировочные проекты"}*/}
-        {/*  </h2>*/}
+        <h2 className={styles.projectsContent__title}>
+          {lang === LangEnum.EN && "Experiments, training projects"}
+          {lang === LangEnum.RU && "Эксперименты, тренировочные проекты"}
+        </h2>
 
-        {/*  <p className={styles.projectsContent__desc}>Web is fun!</p>*/}
-
-        <ProjectsSlider />
+        <ProjectsSlider autoPlay />
       </section>
     </>
   );
