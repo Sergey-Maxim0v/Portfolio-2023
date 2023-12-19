@@ -9,7 +9,7 @@ export const useGetSlideNodeList = ({
 }): ReactElement[] =>
   useMemo(
     () =>
-      PET_LIST.map((project) => (
+      PET_LIST.sort((el1, el2) => el2.number - el1.number).map((project) => (
         <Slide key={project.id} className={className} project={project} />
       )),
     [],
