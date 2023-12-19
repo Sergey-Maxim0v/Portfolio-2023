@@ -26,8 +26,7 @@ const ProjectsContent = () => {
           {lang === LangEnum.RU && "Эксперименты, тренировочные проекты"}
         </h2>
 
-        {/*  TODO: autoplay*/}
-        <ProjectsSlider />
+        <ProjectsSlider autoPlay />
       </section>
     </>
   );

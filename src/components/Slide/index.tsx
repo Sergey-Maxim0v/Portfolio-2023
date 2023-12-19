@@ -29,11 +29,13 @@ const Slide: FC<ISlide> = ({ project, className }) => {
         {project.gitLink}
       </p>
 
-      <p className="">
-        <span className={styles.subtitle}>Git-pages:</span>
+      {project.pageLink ? (
+        <p className="">
+          <span className={styles.subtitle}>Git-pages:</span>
 
-        {project.pageLink}
-      </p>
+          {project.pageLink}
+        </p>
+      ) : null}
 
       <p className="">
         <span className={styles.subtitle}>
@@ -45,15 +47,17 @@ const Slide: FC<ISlide> = ({ project, className }) => {
         {lang === LangEnum.EN && project.descriptionEn}
       </p>
 
-      <p className="">
-        <span className={styles.subtitle}>
-          {lang === LangEnum.RU && `Цель проекта:`}
-          {lang === LangEnum.EN && `Objective of the project:`}
-        </span>
+      {project.purposeRu && project.purposeEn ? (
+        <p className="">
+          <span className={styles.subtitle}>
+            {lang === LangEnum.RU && `Цель проекта:`}
+            {lang === LangEnum.EN && `Objective of the project:`}
+          </span>
 
-        {lang === LangEnum.RU && project.purposeRu}
-        {lang === LangEnum.EN && project.purposeEn}
-      </p>
+          {lang === LangEnum.RU && project.purposeRu}
+          {lang === LangEnum.EN && project.purposeEn}
+        </p>
+      ) : null}
     </div>
   );
 };
