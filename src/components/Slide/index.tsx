@@ -37,15 +37,17 @@ const Slide: FC<ISlide> = ({ project, className }) => {
         </p>
       ) : null}
 
-      <p className="">
-        <span className={styles.subtitle}>
-          {lang === LangEnum.RU && `Описание:`}
-          {lang === LangEnum.EN && `Description:`}
-        </span>
+      {project.descriptionRu && project.descriptionEn ? (
+        <p className="">
+          <span className={styles.subtitle}>
+            {lang === LangEnum.RU && `Описание:`}
+            {lang === LangEnum.EN && `Description:`}
+          </span>
 
-        {lang === LangEnum.RU && project.descriptionRu}
-        {lang === LangEnum.EN && project.descriptionEn}
-      </p>
+          {lang === LangEnum.RU && project.descriptionRu}
+          {lang === LangEnum.EN && project.descriptionEn}
+        </p>
+      ) : null}
 
       {project.purposeRu && project.purposeEn ? (
         <p className="">

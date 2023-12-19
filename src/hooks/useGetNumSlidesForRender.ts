@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useGetNumSlidesForRender = ({
   slidesNum,
@@ -6,72 +6,54 @@ export const useGetNumSlidesForRender = ({
 }: {
   slidesNum: number;
   indexCurrentSlide: number;
-}) => {
+}): number[] => {
+  if (!slidesNum) return [];
+  if (slidesNum === 1) return [0, 0, 0, 0, 0];
+  if (slidesNum === 2) return [0, 0, indexCurrentSlide, 1, 1];
+
   const [numListSlidesForRender, setNumListSlidesForRender] = useState<
     number[]
   >([]);
 
-  const getSlideNumList = () => {
-    const result = [];
-    for (let i = 0; i <= slidesNum; i++) {
-      result.push(i);
-    }
-    return result;
-  };
-
-  const SLIDE_NUM_LIST = useMemo(() => getSlideNumList(), []);
-
   useEffect(() => {
-    if (SLIDE_NUM_LIST[indexCurrentSlide - 1] === undefined) {
+    if (indexCurrentSlide === 0) {
+      setNumListSlidesForRender([slidesNum - 2, slidesNum - 1, 0, 1, 2]);
+      return;
+    }
+
+    if (indexCurrentSlide === 1) {
+      setNumListSlidesForRender([slidesNum - 1, 0, 1, 2, 3]);
+      return;
+    }
+
+    if (indexCurrentSlide === slidesNum - 1) {
       setNumListSlidesForRender([
-        SLIDE_NUM_LIST[SLIDE_NUM_LIST.length - 2],
-        SLIDE_NUM_LIST[SLIDE_NUM_LIST.length - 1],
-        SLIDE_NUM_LIST[indexCurrentSlide],
-        SLIDE_NUM_LIST[indexCurrentSlide + 1],
-        SLIDE_NUM_LIST[indexCurrentSlide + 2],
+        slidesNum - 3,
+        slidesNum - 2,
+        slidesNum - 1,
+        0,
+        1,
       ]);
       return;
     }
 
-    if (SLIDE_NUM_LIST[indexCurrentSlide - 2] === undefined) {
+    if (indexCurrentSlide === slidesNum - 2) {
       setNumListSlidesForRender([
-        SLIDE_NUM_LIST[SLIDE_NUM_LIST.length - 1],
-        SLIDE_NUM_LIST[indexCurrentSlide - 1],
-        SLIDE_NUM_LIST[indexCurrentSlide],
-        SLIDE_NUM_LIST[indexCurrentSlide + 1],
-        SLIDE_NUM_LIST[indexCurrentSlide + 2],
-      ]);
-      return;
-    }
-
-    if (SLIDE_NUM_LIST[indexCurrentSlide + 1] === undefined) {
-      setNumListSlidesForRender([
-        SLIDE_NUM_LIST[indexCurrentSlide - 2],
-        SLIDE_NUM_LIST[indexCurrentSlide - 1],
-        SLIDE_NUM_LIST[indexCurrentSlide],
-        SLIDE_NUM_LIST[0],
-        SLIDE_NUM_LIST[1],
-      ]);
-      return;
-    }
-
-    if (SLIDE_NUM_LIST[indexCurrentSlide + 2] === undefined) {
-      setNumListSlidesForRender([
-        SLIDE_NUM_LIST[indexCurrentSlide - 2],
-        SLIDE_NUM_LIST[indexCurrentSlide - 1],
-        SLIDE_NUM_LIST[indexCurrentSlide],
-        SLIDE_NUM_LIST[indexCurrentSlide + 1],
-        SLIDE_NUM_LIST[0],
+        slidesNum - 4,
+        slidesNum - 3,
+        slidesNum - 2,
+        slidesNum - 1,
+        0,
       ]);
       return;
     }
 
     setNumListSlidesForRender([
-      SLIDE_NUM_LIST[indexCurrentSlide - 2],
-      SLIDE_NUM_LIST[indexCurrentSlide - 1],
-      SLIDE_NUM_LIST[indexCurrentSlide],
-      SLIDE_NUM_LIST[indexCurrentSlide + 1],
-      SLIDE_NUM_LIST[indexCurrentSlide + 2],
+      indexCurrentSlide - 2,
+      indexCurrentSlide - 1,
+      indexCurrentSlide,
+      indexCurrentSlide + 1,
+      indexCurrentSlide + 2,
     ]);
   }, [indexCurrentSlide]);
 

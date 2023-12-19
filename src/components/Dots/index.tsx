@@ -8,7 +8,7 @@ const DOT_WIDTH = 32;
 const getDotsNumArr = (length: number) => {
   const result = [];
 
-  for (let i = 0; i <= length; i++) {
+  for (let i = 0; i < length; i++) {
     result.push(i);
   }
   return result;
@@ -20,7 +20,7 @@ const getTranslateNum = (indexCurrentSlide: number, length: number): number => {
   }
 
   if (indexCurrentSlide >= length - 2) {
-    return DOT_WIDTH * (length - 4) * -1;
+    return DOT_WIDTH * (length - 5) * -1;
   }
 
   if (indexCurrentSlide > 2) {

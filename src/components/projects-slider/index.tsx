@@ -29,7 +29,7 @@ const ProjectsSlider: FC<ISlider> = ({
   });
 
   const numListSlidesForRender = useGetNumSlidesForRender({
-    slidesNum: slideNodeList.length - 1,
+    slidesNum: slideNodeList.length,
     indexCurrentSlide,
   });
 
@@ -41,12 +41,12 @@ const ProjectsSlider: FC<ISlider> = ({
     setAnimationDirection(0);
 
     setIndexCurrentSlide((prevState) => {
-      if (direction > 0 && prevState >= slideNodeList.length) {
+      if (direction > 0 && prevState >= slideNodeList.length - 1) {
         return 0;
       }
 
       if (direction < 0 && prevState === 0) {
-        return slideNodeList.length;
+        return slideNodeList.length - 1;
       }
 
       return prevState + direction;
