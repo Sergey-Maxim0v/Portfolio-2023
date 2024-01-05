@@ -30,6 +30,6 @@ export const useKeyboardListener = ({
 
     sliderRef.current.addEventListener("keydown", listener);
 
-    return () => sliderRef.current!.removeEventListener("keydown", listener);
+    return () => sliderRef.current?.removeEventListener("keydown", listener);
   }, [isInFocus]);
 };
