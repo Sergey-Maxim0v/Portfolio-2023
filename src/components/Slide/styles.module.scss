@@ -13,9 +13,17 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 3rem;
-  border: 1px currentColor solid;
   border-radius: 2rem;
   overflow: hidden;
+}
+
+
+body:global(.light) .slide {
+  background-color: $c-white;
+}
+
+body:global(.dark) .slide {
+  background-color: $c-gray-1;
 }
 
 .title {
