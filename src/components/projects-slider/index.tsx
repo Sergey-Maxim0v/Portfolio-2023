@@ -23,6 +23,7 @@ const ProjectsSlider: FC<ISlider> = ({
   const [indexCurrentSlide, setIndexCurrentSlide] = useState<number>(0);
   const [animationDirection, setAnimationDirection] = useState<-1 | 0 | 1>(0);
   const [isInFocus, setIsInFocus] = useState(false);
+  const [isAutoplay, setIsAutoplay] = useState(autoPlay);
 
   const slideNodeList = useGetSlideNodeList({
     className: styles.slide,
@@ -54,7 +55,7 @@ const ProjectsSlider: FC<ISlider> = ({
   };
 
   useAutoplayChangeSlides({
-    autoPlay,
+    autoPlay: isAutoplay,
     autoPlayTime,
     changeSlide,
     indexCurrentSlide,
@@ -70,6 +71,8 @@ const ProjectsSlider: FC<ISlider> = ({
 
   return (
     <div
+      onMouseEnter={() => setIsAutoplay(false)}
+      onMouseLeave={() => autoPlay && setIsAutoplay(true)}
       className={styles.slider}
       onFocus={() => setIsInFocus(true)}
       onBlur={() => setIsInFocus(false)}

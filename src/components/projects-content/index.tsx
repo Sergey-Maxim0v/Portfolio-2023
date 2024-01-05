@@ -24,7 +24,7 @@ const ProjectsContent = () => {
           {lang === LangEnum.RU && "Эксперименты, тренировочные проекты"}
         </h2>
 
-        <ProjectsSlider />
+        <ProjectsSlider autoPlay autoPlayTime={7000} />
       </section>
     </>
   );

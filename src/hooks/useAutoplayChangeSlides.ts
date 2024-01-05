@@ -19,4 +19,4 @@ export const useAutoplayChangeSlides = ({
     const interval = setInterval(() => changeSlide(1), autoPlayTime);
 
     return () => clearInterval(interval);
-  }, [indexCurrentSlide]);
+  }, [indexCurrentSlide, autoPlay]);
