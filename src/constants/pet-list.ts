@@ -79,7 +79,7 @@ export const PET_LIST: IPetProject[] = [
   {
     id: "pet-4",
     number: 4,
-    title: "Portfolio 2022",
+    title: "Portfolio",
     date: "2022",
     photos: [],
     gitLink: "https://github.com/Sergey-Maxim0v/Portfolio",

@@ -2,6 +2,7 @@
   width: 160px;
   max-width: 160px;
   overflow-x: hidden;
+  color: currentColor;
 }
 
 .list {
@@ -9,4 +10,5 @@
   display: flex;
   align-items: center;
   transition: transform 0.2s;
+  color: currentColor;
 }

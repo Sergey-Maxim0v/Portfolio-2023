@@ -1,10 +1,12 @@
-$width-arrow-desktop: 100px;
-$width-arrow-mobile: 60px;
+$width-arrow-desktop: 8rem;
+$width-arrow-mobile: 4rem;
 $scale-no-current-slide: 80%;
 
 .slider {
+  margin-left: -8vw;
+  margin-right: -8vw;
   position: relative;
-  width: 100%;
+  width: calc(100% + 16vw);
   height: 30rem;
   display: flex;
   align-items: center;

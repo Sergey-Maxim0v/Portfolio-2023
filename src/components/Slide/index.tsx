@@ -9,57 +9,65 @@ const Slide: FC<ISlide> = ({ project, className }) => {
   const { lang } = useContext(Context);
 
   return (
-    <div className={classNames(className, styles.slide)}>
-      <h4 className={styles.title}>
-        {project.title} <span className={styles.date}>{project.date}</span>
-      </h4>
+    <div className={classNames(className, styles.slideRow)}>
+      <div className={styles.slide}>
+        <h4 className={styles.title}>
+          {project.title} <span className={styles.date}>{project.date}</span>
+        </h4>
 
-      <p className="">
-        <span className={styles.subtitle}>
-          {lang === LangEnum.RU && `Стек технологий:`}
-          {lang === LangEnum.EN && `Technology stack:`}
-        </span>
+        <ul className={styles.list}>
+          <li className={styles.element}>
+            <span className={styles.subtitle}>
+              {lang === LangEnum.RU && `Стек технологий:`}
+              {lang === LangEnum.EN && `Technology stack:`}
+            </span>
 
-        {project.technologies}
-      </p>
+            {project.technologies}
+          </li>
 
-      <p className="">
-        <span className={styles.subtitle}>Github:</span>
+          {project.descriptionRu && project.descriptionEn ? (
+            <li className={styles.element}>
+              <span className={styles.subtitle}>
+                {lang === LangEnum.RU && `Описание:`}
+                {lang === LangEnum.EN && `Description:`}
+              </span>
 
-        {project.gitLink}
-      </p>
+              {lang === LangEnum.RU && project.descriptionRu}
+              {lang === LangEnum.EN && project.descriptionEn}
+            </li>
+          ) : null}
 
-      {project.pageLink ? (
-        <p className="">
-          <span className={styles.subtitle}>Git-pages:</span>
+          {project.purposeRu && project.purposeEn ? (
+            <li className={styles.element}>
+              <span className={styles.subtitle}>
+                {lang === LangEnum.RU && `Цель проекта:`}
+                {lang === LangEnum.EN && `Objective of the project:`}
+              </span>
 
-          {project.pageLink}
-        </p>
-      ) : null}
+              {lang === LangEnum.RU && project.purposeRu}
+              {lang === LangEnum.EN && project.purposeEn}
+            </li>
+          ) : null}
 
-      {project.descriptionRu && project.descriptionEn ? (
-        <p className="">
-          <span className={styles.subtitle}>
-            {lang === LangEnum.RU && `Описание:`}
-            {lang === LangEnum.EN && `Description:`}
-          </span>
+          <li className={styles.element}>
+            <a className={styles.link} href={project.gitLink} target="_blank">
+              Github
+            </a>
+          </li>
 
-          {lang === LangEnum.RU && project.descriptionRu}
-          {lang === LangEnum.EN && project.descriptionEn}
-        </p>
-      ) : null}
-
-      {project.purposeRu && project.purposeEn ? (
-        <p className="">
-          <span className={styles.subtitle}>
-            {lang === LangEnum.RU && `Цель проекта:`}
-            {lang === LangEnum.EN && `Objective of the project:`}
-          </span>
-
-          {lang === LangEnum.RU && project.purposeRu}
-          {lang === LangEnum.EN && project.purposeEn}
-        </p>
-      ) : null}
+          {project.pageLink ? (
+            <li className={styles.element}>
+              <a
+                className={styles.link}
+                href={project.pageLink}
+                target="_blank"
+              >
+                Git-pages
+              </a>
+            </li>
+          ) : null}
+        </ul>
+      </div>
     </div>
   );
 };

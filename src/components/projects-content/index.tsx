@@ -10,15 +10,13 @@ const ProjectsContent = () => {
 
   return (
     <>
-      {/*  TODO */}
-      {/*<section className={styles.projectsContent__section}>*/}
-      {/*  <h2 className={styles.projectsContent__title}>*/}
-      {/*    {lang === LangEnum.EN && "Commercial projects"}*/}
-      {/*    {lang === LangEnum.RU && "Коммерческие проекты"}*/}
-      {/*  </h2>*/}
-
-      {/*  <ProjectsList />*/}
-      {/*</section>*/}
+      <section className={styles.projectsContent__section}>
+        <h2 className={styles.projectsContent__title}>
+          {lang === LangEnum.EN && "Commercial projects"}
+          {lang === LangEnum.RU && "Коммерческие проекты"}
+        </h2>
+        <ProjectsList />
+      </section>
 
       <section className={styles.projectsContent__section}>
         <h2 className={styles.projectsContent__title}>
@@ -26,7 +24,7 @@ const ProjectsContent = () => {
           {lang === LangEnum.RU && "Эксперименты, тренировочные проекты"}
         </h2>
 
-        <ProjectsSlider autoPlay />
+        <ProjectsSlider />
       </section>
     </>
   );

@@ -4,13 +4,16 @@
   min-width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 1px solid currentColor;
   background-color: transparent;
   cursor: pointer;
   opacity: 0.6;
+  color: currentColor;
 }
 
 .active {
-  background-color: white;
+  background-color: currentColor;
   cursor: auto;
 }
+
+
