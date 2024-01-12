@@ -1,0 +1,17 @@
+.slider {
+  @extend .scroll-hide;
+
+  margin-left: -8vw;
+  margin-right: -8vw;
+  position: relative;
+  width: calc(100% + 16vw);
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.slide {
+  width: 100%;
+  min-width: calc(100% - 10%);
+}

@@ -8,6 +8,8 @@ import { Context } from "../../context/context";
 const Slide: FC<ISlide> = ({ project, className }) => {
   const { lang } = useContext(Context);
 
+  // TODO: images
+
   return (
     <div className={classNames(className, styles.slideRow)}>
       <div className={styles.slide}>

@@ -4,9 +4,12 @@ import { Context } from "../../context/context";
 import ProjectsList from "../projects-list";
 import ProjectsSlider from "../projects-slider";
 import styles from "./styles.module.scss";
+import useMedia from "../../hooks/useMedia";
+import ProjectsSliderMobile from "../projects-slider-mobile";
 
 const ProjectsContent = () => {
   const { lang } = useContext(Context);
+  const { isMobile } = useMedia();
 
   return (
     <>
@@ -15,7 +18,8 @@ const ProjectsContent = () => {
           {lang === LangEnum.EN && "Commercial projects"}
           {lang === LangEnum.RU && "Коммерческие проекты"}
         </h2>
-        <ProjectsList />
+        {/*  TODO */}
+        {/*<ProjectsList />*/}
       </section>
 
       <section className={styles.projectsContent__section}>
@@ -24,7 +28,11 @@ const ProjectsContent = () => {
           {lang === LangEnum.RU && "Эксперименты, тренировочные проекты"}
         </h2>
 
-        <ProjectsSlider autoPlay autoPlayTime={7000} />
+        {isMobile ? (
+          <ProjectsSliderMobile />
+        ) : (
+          <ProjectsSlider autoPlay autoPlayTime={7000} />
+        )}
       </section>
     </>
   );
