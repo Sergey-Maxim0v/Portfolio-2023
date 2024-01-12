@@ -13,5 +13,15 @@
 
 .slide {
   width: 100%;
-  min-width: calc(100% - 10%);
+  min-width: calc(100% - 15%);
+
+  @media (max-width: calc($b-tablet - 1px)) {
+    &:first-child {
+      margin-left: 0.5rem;
+    }
+
+    &:last-child {
+      margin-right: 0.5rem;
+    }
+  }
 }

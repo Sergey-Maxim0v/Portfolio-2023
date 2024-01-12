@@ -18,8 +18,7 @@ const ProjectsContent = () => {
           {lang === LangEnum.EN && "Commercial projects"}
           {lang === LangEnum.RU && "Коммерческие проекты"}
         </h2>
-        {/*  TODO */}
-        {/*<ProjectsList />*/}
+        <ProjectsList />
       </section>
 
       <section className={styles.projectsContent__section}>
