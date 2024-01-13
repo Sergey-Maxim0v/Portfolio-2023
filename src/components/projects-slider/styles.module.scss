@@ -7,7 +7,8 @@ $scale-no-current-slide: 80%;
   margin-right: -8vw;
   position: relative;
   width: calc(100% + 16vw);
-  height: 30rem;
+  height: 32rem;
+  max-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +23,7 @@ $scale-no-current-slide: 80%;
   align-items: center;
   transform: translateX(calc($width-arrow-desktop * 5 - 200%));
 
-  @media (max-width: 768px) {
+  @media (max-width: $b-desktop) {
     transform: translateX(calc($width-arrow-mobile * 5 - 200%));
   }
 
@@ -30,7 +31,7 @@ $scale-no-current-slide: 80%;
     transition: transform 0.2s;
     transform: translateX(calc($width-arrow-desktop * 3 - 100%));
 
-    @media (max-width: 768px) {
+    @media (max-width: $b-desktop) {
       transform: translateX(calc($width-arrow-mobile * 3 - 100%));
     }
   }
@@ -39,7 +40,7 @@ $scale-no-current-slide: 80%;
     transition: transform 0.2s;
     transform: translateX(calc($width-arrow-desktop * 7 - 300%));
 
-    @media (max-width: 768px) {
+    @media (max-width: $b-desktop) {
       transform: translateX(calc($width-arrow-mobile * 7 - 300%));
     }
   }
@@ -82,7 +83,7 @@ $scale-no-current-slide: 80%;
   transform: translateY(-50%);
   width: $width-arrow-desktop;
 
-  @media (max-width: 768px) {
+  @media (max-width: $b-desktop) {
     width: $width-arrow-mobile;
   }
 
@@ -105,7 +106,7 @@ $scale-no-current-slide: 80%;
   min-width: calc(100% - $width-arrow-desktop * 2);
   height: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: $b-desktop) {
     min-width: calc(100% - $width-arrow-mobile * 2);
   }
 }
