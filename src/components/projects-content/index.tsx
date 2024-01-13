@@ -13,13 +13,14 @@ const ProjectsContent = () => {
 
   return (
     <>
-      <section className={styles.projectsContent__section}>
-        <h2 className={styles.projectsContent__title}>
-          {lang === LangEnum.EN && "Commercial projects"}
-          {lang === LangEnum.RU && "Коммерческие проекты"}
-        </h2>
-        <ProjectsList />
-      </section>
+      {/*  TODO */}
+      {/*<section className={styles.projectsContent__section}>*/}
+      {/*  <h2 className={styles.projectsContent__title}>*/}
+      {/*    {lang === LangEnum.EN && "Commercial projects"}*/}
+      {/*    {lang === LangEnum.RU && "Коммерческие проекты"}*/}
+      {/*  </h2>*/}
+      {/*  <ProjectsList />*/}
+      {/*</section>*/}
 
       <section className={styles.projectsContent__section}>
         <h2 className={styles.projectsContent__title}>
@@ -30,7 +31,8 @@ const ProjectsContent = () => {
         {isMobile ? (
           <ProjectsSliderMobile />
         ) : (
-          <ProjectsSlider autoPlay autoPlayTime={7000} />
+          //   TODO: autoPlay
+          <ProjectsSlider autoPlayTime={7000} />
         )}
       </section>
     </>
