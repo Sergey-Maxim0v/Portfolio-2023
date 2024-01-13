@@ -46,7 +46,7 @@ $scale-no-current-slide: 80%;
   }
 
   // slides animation
-  & div {
+  & > div {
     transform: scaleY($scale-no-current-slide);
     transition: transform 0.2s;
 

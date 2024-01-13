@@ -9,8 +9,6 @@ import SlideImages from "../slide-images";
 const Slide: FC<ISlide> = ({ project, className }) => {
   const { lang } = useContext(Context);
 
-  // TODO: images
-
   return (
     <div className={classNames(className, styles.slideRow)}>
       <div className={styles.slide}>
@@ -18,6 +16,16 @@ const Slide: FC<ISlide> = ({ project, className }) => {
           <h4 className={styles.title}>
             {project.title} <span className={styles.date}>{project.date}</span>
           </h4>
+
+          <p className={styles.links}>
+            <a className={styles.link} href={project.gitLink} target="_blank">
+              Github
+            </a>
+
+            <a className={styles.link} href={project.pageLink} target="_blank">
+              Git-pages
+            </a>
+          </p>
 
           <ul className={styles.list}>
             <li className={styles.element}>
@@ -50,24 +58,6 @@ const Slide: FC<ISlide> = ({ project, className }) => {
 
                 {lang === LangEnum.RU && project.purposeRu}
                 {lang === LangEnum.EN && project.purposeEn}
-              </li>
-            ) : null}
-
-            <li className={styles.element}>
-              <a className={styles.link} href={project.gitLink} target="_blank">
-                Github
-              </a>
-            </li>
-
-            {project.pageLink ? (
-              <li className={styles.element}>
-                <a
-                  className={styles.link}
-                  href={project.pageLink}
-                  target="_blank"
-                >
-                  Git-pages
-                </a>
               </li>
             ) : null}
           </ul>

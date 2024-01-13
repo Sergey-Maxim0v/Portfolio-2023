@@ -5,10 +5,7 @@ import classNames from "classnames";
 
 const SlideImages: FC<ISlideImages> = ({ project, className }) => {
   return (
-    <div className={classNames(styles.element, className)}>
-      {/* TODO */}
-      SlideImages
-    </div>
+    <div className={classNames(styles.element, className)}>{/* TODO */}</div>
   );
 };
 
