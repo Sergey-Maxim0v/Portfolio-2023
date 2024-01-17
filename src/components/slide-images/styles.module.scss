@@ -13,7 +13,7 @@
   max-width: 80%;
   border-radius: 0.1rem;
   box-shadow: 0 0 0 0.1rem $c-gray-1, 0 0 0 0.5rem $c-white, 0 0 0 0.6rem $c-gray-1;
-  transition: transform 0.3s;
+  transition: transform 0.3s, bottom 0.3s;
 
   &:nth-child(1) {
     height: auto;
@@ -49,9 +49,9 @@
 
   &.animated {
     z-index: 7;
-    top: 50%;
-    transform: translate(0, -50%);
-    animation: animation-opacity 300 ease-in-out, top 300 ease-in-out;
+    bottom: 50%;
+    transform: translate(0, 50%);
+    transition: transform 0.5s, bottom 0.5s;
   }
 }
 
