@@ -1,3 +1,63 @@
 .element {
-  background-color: #1c4913;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.picture {
+  position: absolute;
+  right: 2rem;
+  bottom: 4rem;
+  transform: rotateZ(350deg);
+  height: auto;
+  max-height: 80%;
+  width: auto;
+  max-width: 80%;
+  border-radius: 0.1rem;
+  box-shadow: 0 0 0 0.1rem $c-gray-1, 0 0 0 0.5rem $c-white, 0 0 0 0.6rem $c-gray-1;
+  transition: opacity 0.2s, right 0.3s, bottom 0.3s;
+
+  &:nth-child(1) {
+    height: auto;
+    max-height: 90%;
+    width: auto;
+    max-width: 90%;
+    right: 2rem;
+    bottom: 2rem;
+    transform: rotateZ(355deg);
+  }
+
+  &:nth-child(2) {
+    right: 13rem;
+    bottom: 2.2rem;
+    transform: rotateZ(10deg);
+  }
+
+  &:nth-child(3) {
+    right: 13rem;
+    bottom: 13rem;
+    transform: rotateZ(30deg);
+  }
+
+  &:nth-child(4) {
+    right: 3.5rem;
+    bottom: 10rem;
+    transform: rotateZ(340deg);
+  }
+
+  &:nth-child(5) {
+    right: 7rem;
+    bottom: 7rem;
+    transform: rotateZ(320deg);
+  }
+
+  &:nth-child(6) {
+    right: 8rem;
+    bottom: 7.5rem;
+    transform: rotateZ(340deg);
+  }
+
+  &:nth-child(7) {
+    right: 13rem;
+    bottom: 14rem;
+    transform: rotateZ(330deg);
+  }
 }
