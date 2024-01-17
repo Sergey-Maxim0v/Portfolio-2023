@@ -5,7 +5,7 @@
 .picture {
   position: absolute;
   right: 2rem;
-  bottom: 4rem;
+  bottom: 2rem;
   transform: rotateZ(350deg);
   height: auto;
   max-height: 80%;
@@ -13,51 +13,54 @@
   max-width: 80%;
   border-radius: 0.1rem;
   box-shadow: 0 0 0 0.1rem $c-gray-1, 0 0 0 0.5rem $c-white, 0 0 0 0.6rem $c-gray-1;
-  transition: opacity 0.2s, right 0.3s, bottom 0.3s;
+  transition: transform 0.3s;
 
   &:nth-child(1) {
     height: auto;
     max-height: 90%;
     width: auto;
     max-width: 90%;
-    right: 2rem;
-    bottom: 2rem;
-    transform: rotateZ(355deg);
+    transform: rotateZ(355deg) translate(-1rem, -1rem);
   }
 
   &:nth-child(2) {
-    right: 13rem;
-    bottom: 2.2rem;
-    transform: rotateZ(10deg);
+    transform: rotateZ(10deg) translate(-10rem, -1rem);
   }
 
   &:nth-child(3) {
-    right: 13rem;
-    bottom: 13rem;
-    transform: rotateZ(30deg);
+    transform: rotateZ(30deg) translate(-12rem, -4rem);
   }
 
   &:nth-child(4) {
-    right: 3.5rem;
-    bottom: 10rem;
-    transform: rotateZ(340deg);
+    transform: rotateZ(340deg) translate(-1rem, -4rem);
   }
 
   &:nth-child(5) {
-    right: 7rem;
-    bottom: 7rem;
-    transform: rotateZ(320deg);
+    transform: rotateZ(320deg) translate(-7rem, -7rem);
   }
 
   &:nth-child(6) {
-    right: 8rem;
-    bottom: 7.5rem;
-    transform: rotateZ(340deg);
+    transform: rotateZ(40deg) translate(-8rem, -7.5rem);
   }
 
   &:nth-child(7) {
-    right: 13rem;
-    bottom: 14rem;
-    transform: rotateZ(330deg);
+    transform: rotateZ(330deg) translate(-6rem, -10rem);
+  }
+
+  &.animated {
+    z-index: 7;
+    top: 50%;
+    transform: translate(0, -50%);
+    animation: animation-opacity 300 ease-in-out, top 300 ease-in-out;
+  }
+}
+
+@keyframes animation-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
