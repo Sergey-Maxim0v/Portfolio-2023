@@ -32,13 +32,15 @@ const Slide: FC<ISlide> = ({ project, className }) => {
               <span className={styles.underline}>Github</span>
             </a>
 
-            <a
-              className={classNames(styles.link, styles.text)}
-              href={project.pageLink}
-              target="_blank"
-            >
-              <span className={styles.underline}>Git-pages</span>
-            </a>
+            {project.pageLink && (
+              <a
+                className={classNames(styles.link, styles.text)}
+                href={project.pageLink}
+                target="_blank"
+              >
+                <span className={styles.underline}>Git-pages</span>
+              </a>
+            )}
           </p>
 
           <ul className={styles.list}>
