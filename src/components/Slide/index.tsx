@@ -19,22 +19,30 @@ const Slide: FC<ISlide> = ({ project, className }) => {
     <div ref={containerRef} className={classNames(className, styles.slideRow)}>
       <div className={styles.slide}>
         <div className={styles.content}>
-          <h4 className={styles.title}>
+          <h4 className={classNames(styles.title, styles.text)}>
             {project.title} <span className={styles.date}>{project.date}</span>
           </h4>
 
           <p className={styles.links}>
-            <a className={styles.link} href={project.gitLink} target="_blank">
+            <a
+              className={classNames(styles.link, styles.text)}
+              href={project.gitLink}
+              target="_blank"
+            >
               Github
             </a>
 
-            <a className={styles.link} href={project.pageLink} target="_blank">
+            <a
+              className={classNames(styles.link, styles.text)}
+              href={project.pageLink}
+              target="_blank"
+            >
               Git-pages
             </a>
           </p>
 
           <ul className={styles.list}>
-            <li className={styles.element}>
+            <li className={classNames(styles.element, styles.text)}>
               <span className={styles.subtitle}>
                 {lang === LangEnum.RU && `Стек технологий:`}
                 {lang === LangEnum.EN && `Technology stack:`}
@@ -44,7 +52,7 @@ const Slide: FC<ISlide> = ({ project, className }) => {
             </li>
 
             {project.descriptionRu && project.descriptionEn ? (
-              <li className={styles.element}>
+              <li className={classNames(styles.element, styles.text)}>
                 <span className={styles.subtitle}>
                   {lang === LangEnum.RU && `Описание:`}
                   {lang === LangEnum.EN && `Description:`}
@@ -56,7 +64,7 @@ const Slide: FC<ISlide> = ({ project, className }) => {
             ) : null}
 
             {project.purposeRu && project.purposeEn ? (
-              <li className={styles.element}>
+              <li className={classNames(styles.element, styles.text)}>
                 <span className={styles.subtitle}>
                   {lang === LangEnum.RU && `Цель проекта:`}
                   {lang === LangEnum.EN && `Objective of the project:`}
