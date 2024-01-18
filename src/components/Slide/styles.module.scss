@@ -142,9 +142,13 @@
 .link {
   display: inline-block;
   margin-right: 1em;
-  position: relative;
   letter-spacing: 0.03em;
   color: currentColor;
+}
+
+.underline {
+  display: inline-block;
+  position: relative;
 
   &:before {
     content: '';

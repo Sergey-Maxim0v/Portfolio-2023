@@ -21,7 +21,7 @@
     max-height: 90%;
     width: auto;
     max-width: 90%;
-    transform: rotateZ(355deg) translate(-1rem, 10rem);
+    transform: rotateZ(355deg) translate(-1rem, min(12rem, 50%));
   }
 
   &:nth-child(2) {
@@ -37,15 +37,15 @@
   }
 
   &:nth-child(5) {
-    transform: rotateZ(320deg) translate(-3rem, 8rem);
+    transform: rotateZ(320deg) translate(-3rem, 12rem);
   }
 
   &:nth-child(6) {
-    transform: rotateZ(40deg) translate(-2rem, 11rem);
+    transform: rotateZ(40deg) translate(-2rem, 13rem);
   }
 
   &:nth-child(7) {
-    transform: rotateZ(330deg) translate(-3rem, 11rem);
+    transform: rotateZ(330deg) translate(-3rem, 14rem);
   }
 
   &.animated {

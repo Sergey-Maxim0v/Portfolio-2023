@@ -29,7 +29,7 @@ const Slide: FC<ISlide> = ({ project, className }) => {
               href={project.gitLink}
               target="_blank"
             >
-              Github
+              <span className={styles.underline}>Github</span>
             </a>
 
             <a
@@ -37,7 +37,7 @@ const Slide: FC<ISlide> = ({ project, className }) => {
               href={project.pageLink}
               target="_blank"
             >
-              Git-pages
+              <span className={styles.underline}>Git-pages</span>
             </a>
           </p>
 
