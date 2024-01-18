@@ -5,7 +5,7 @@
 .picture {
   position: absolute;
   right: 2rem;
-  bottom: 2rem;
+  bottom: 50%;
   transform: rotateZ(350deg);
   height: auto;
   max-height: 80%;
@@ -21,36 +21,35 @@
     max-height: 90%;
     width: auto;
     max-width: 90%;
-    transform: rotateZ(355deg) translate(-1rem, -1rem);
+    transform: rotateZ(355deg) translate(-1rem, 10rem);
   }
 
   &:nth-child(2) {
-    transform: rotateZ(10deg) translate(-10rem, -1rem);
+    transform: rotateZ(10deg) translate(-10rem, 12rem);
   }
 
   &:nth-child(3) {
-    transform: rotateZ(30deg) translate(-12rem, -4rem);
+    transform: rotateZ(30deg) translate(-10rem, 10rem);
   }
 
   &:nth-child(4) {
-    transform: rotateZ(340deg) translate(-1rem, -4rem);
+    transform: rotateZ(340deg) translate(-3rem, 4rem);
   }
 
   &:nth-child(5) {
-    transform: rotateZ(320deg) translate(-7rem, -7rem);
+    transform: rotateZ(320deg) translate(-3rem, 8rem);
   }
 
   &:nth-child(6) {
-    transform: rotateZ(40deg) translate(-8rem, -7.5rem);
+    transform: rotateZ(40deg) translate(-2rem, 11rem);
   }
 
   &:nth-child(7) {
-    transform: rotateZ(330deg) translate(-6rem, -10rem);
+    transform: rotateZ(330deg) translate(-3rem, 11rem);
   }
 
   &.animated {
     z-index: 7;
-    bottom: 50%;
     transform: translate(0, 50%);
     transition: transform 0.5s, bottom 0.5s;
   }
