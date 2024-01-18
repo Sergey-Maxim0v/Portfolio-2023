@@ -11,9 +11,10 @@
   max-height: 80%;
   width: auto;
   max-width: 80%;
-  border-radius: 0.1rem;
-  box-shadow: 0 0 0 0.1rem $c-gray-1, 0 0 0 0.5rem $c-white, 0 0 0 0.6rem $c-gray-1;
+  border-radius: 0.01rem;
+  box-shadow: 0 0 0 0.5rem $c-gray-6, 0 0 0 0.6rem $c-gray-1;
   transition: transform 0.3s, bottom 0.3s;
+  animation: animation-picture 0.3s;
 
   &:nth-child(1) {
     height: auto;
@@ -55,11 +56,10 @@
   }
 }
 
-@keyframes animation-opacity {
+@keyframes animation-picture {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }

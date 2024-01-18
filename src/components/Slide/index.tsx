@@ -1,16 +1,22 @@
-import { FC, useContext } from "react";
+import { FC, useContext, lazy, Suspense, useRef } from "react";
 import { ISlide } from "./types";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { LangEnum } from "../../constants/enums";
 import { Context } from "../../context/context";
-import SlideImages from "../slide-images";
+import { useIsVisibleComponent } from "../../hooks/useIsVisibleComponent";
+
+const SlideImages = lazy(() => import("../slide-images"));
 
 const Slide: FC<ISlide> = ({ project, className }) => {
   const { lang } = useContext(Context);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const isVisibleContainer = useIsVisibleComponent(containerRef);
+
   return (
-    <div className={classNames(className, styles.slideRow)}>
+    <div ref={containerRef} className={classNames(className, styles.slideRow)}>
       <div className={styles.slide}>
         <div className={styles.content}>
           <h4 className={styles.title}>
@@ -63,7 +69,11 @@ const Slide: FC<ISlide> = ({ project, className }) => {
           </ul>
         </div>
 
-        <SlideImages project={project} className={styles.images} />
+        {isVisibleContainer && (
+          <Suspense>
+            <SlideImages project={project} className={styles.images} />
+          </Suspense>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState, lazy, Suspense } from "react";
+import { useRef, lazy, Suspense } from "react";
 
 import styles from "./styles.module.scss";
-import onIntersection from "../../utils/onIntersection";
 import useIsResizingWindow from "../../hooks/useIsResizingWindow";
+import { useIsVisibleComponent } from "../../hooks/useIsVisibleComponent";
 
 const SkillsSpaceAnimation = lazy(
   () => import("./components/skills-space-animation"),
@@ -11,18 +11,9 @@ const SkillsSpaceAnimation = lazy(
 const BackgroundSkillsSpace = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [isVisibleContainer, setIsVisibleContainer] = useState(true);
+  const isVisibleContainer = useIsVisibleComponent(containerRef);
 
   const isResizing = useIsResizingWindow(1000);
-
-  useEffect(() => {
-    containerRef.current &&
-      onIntersection({
-        element: containerRef.current,
-        visibleCallback: () => setIsVisibleContainer(true),
-        hiddenCallback: () => setIsVisibleContainer(false),
-      });
-  }, []);
 
   return (
     <div ref={containerRef} className={styles.row}>
