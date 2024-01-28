@@ -155,4 +155,16 @@ export const PET_LIST: IPetProject[] = [
       "React application allows you to load from the server, " +
       "change, save, delete customer list lines.",
   },
+  {
+    id: "pet-8",
+    number: 8,
+    title: "IP Check",
+    date: "2024",
+    photos: ["pet-8-ipcheck.png"],
+    gitLink: "https://github.com/Sergey-Maxim0v/ip-check",
+    pageLink: "https://sergey-maxim0v.github.io/ip-check/",
+    technologies: "React, Typescript, Vite, react-yandex-maps.",
+    descriptionRu: "Приложение просмотра информации по IP и геолокации",
+    descriptionEn: "Application for viewing information by IP and geolocation",
+  },
 ];
