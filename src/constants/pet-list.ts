@@ -167,4 +167,18 @@ export const PET_LIST: IPetProject[] = [
     descriptionRu: "Приложение просмотра информации по IP и геолокации",
     descriptionEn: "Application for viewing information by IP and geolocation",
   },
+  {
+    id: "pet-9",
+    number: 9,
+    title: "Yandex landing",
+    date: "2024",
+    photos: ["pet-9-1.png", "pet-9-2.png", "pet-9-3.png"],
+    gitLink: "https://github.com/Sergey-Maxim0v/yandex-landing-2024",
+    pageLink: "https://sergey-maxim0v.github.io/yandex-landing-2024/",
+    technologies: "JS, CSS, HTML",
+    descriptionRu:
+      "Небольшой лендинг. Тестовое задание от яндекса. Написал на CSS, JS, HTML без сборщиков и без других технологий. Несколько необычных дизайнерских решений по адаптиву компонентов. Два слайдера с разной логикой.",
+    descriptionEn:
+      "Landing page. Test task from Yandex. Several unusual design solutions for adapting components. Two sliders with different logic. The buttons in the first section scroll the page to the corresponding sections.",
+  },
 ];
