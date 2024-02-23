@@ -181,4 +181,18 @@ export const PET_LIST: IPetProject[] = [
     descriptionEn:
       "Landing page. Test task from Yandex. Several unusual design solutions for adapting components. Two sliders with different logic. The buttons in the first section scroll the page to the corresponding sections.",
   },
+  {
+    id: "pet-10",
+    number: 10,
+    title: "Starter Vite TS Nunjucks",
+    date: "2024",
+    photos: ["pet-10-starter.png"],
+    gitLink: "https://github.com/Sergey-Maxim0v/starter-vite-ts-nunj",
+    pageLink: "https://sergey-maxim0v.github.io/starter-vite-ts-nunj/",
+    technologies: "Vite, TS, Nunjucks, SCSS, ESLint, Prettier",
+    descriptionRu:
+      "Шаблон приложения для быстрой подготовки многостраничной верстки. Настроены Prettier и ESLint. Написаны примеры интерактивных элементов, примеры организации страниц, блоков, компонентов.",
+    descriptionEn:
+      "Application template for quickly preparing multi-page layout. Prettier and ESLint configured. Examples of interactive elements, examples of organizing pages, blocks, and components have been prepared.",
+  },
 ];
