@@ -195,4 +195,23 @@ export const PET_LIST: IPetProject[] = [
     descriptionEn:
       "Application template for quickly preparing multi-page layout. Prettier and ESLint configured. Examples of interactive elements, examples of organizing pages, blocks, and components have been prepared.",
   },
+  {
+    id: "pet-11",
+    number: 11,
+    title: "Weather (React, Typescript)",
+    date: "2024",
+    photos: [
+      "pet-11-weather-1.png",
+      "pet-11-weather-2.png",
+      "pet-11-weather-3.png",
+      "pet-11-weather-4.png",
+    ],
+    gitLink: "https://github.com/Sergey-Maxim0v/react-weather",
+    pageLink: "https://sergey-maxim0v.github.io/react-weather/",
+    technologies: "React, Typescript, Vite",
+    descriptionRu:
+      "UI-компонент, отображает погоду текущего местоположения пользователя. Приложение получает погоду с Weatherapi.com, координаты с ipapi.co.",
+    descriptionEn:
+      "UI-component that displays the weather of the user's current location. The application receives weather from weatherapi.com, coordinates from ipapi.co.",
+  },
 ];
