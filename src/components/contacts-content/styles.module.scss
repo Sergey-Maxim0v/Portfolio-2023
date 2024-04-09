@@ -109,7 +109,8 @@ body:global(.dark) .contacts {
     &:hover {
       @extend .shadow;
 
-      .contacts__desc, &:before {
+      .contacts__desc,
+      &:before {
         color: $c-sea-7;
       }
     }
@@ -117,73 +118,91 @@ body:global(.dark) .contacts {
 }
 
 .animation_1 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_1 0.3s linear;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_1 0.3s linear;
+      }
     }
   }
 }
 
 .animation_2 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_2 0.4s;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_2 0.4s;
+      }
     }
   }
 }
 
 .animation_3 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_2 0.4s;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_2 0.4s;
+      }
     }
   }
 }
 
 .animation_4 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_2 0.4s;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_2 0.4s;
+      }
     }
   }
 }
 
 .animation_5 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_2 0.4s;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_2 0.4s;
+      }
     }
   }
 }
 
 .animation_6 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_2 0.4s;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_2 0.4s;
+      }
     }
   }
 }
 
 .animation_7 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_2 0.4s;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_2 0.4s;
+      }
     }
   }
 }
 
 .animation_8 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_3 0.5s ease-out;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_3 0.5s ease-out;
+      }
     }
   }
 }
 
 .animation_9 {
-  &:hover {
-    .contacts__icon {
-      animation: animation_2 0.3s ;
+  @include no-touch {
+    &:hover {
+      .contacts__icon {
+        animation: animation_2 0.3s;
+      }
     }
   }
 }

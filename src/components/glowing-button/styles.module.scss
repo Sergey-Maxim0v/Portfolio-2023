@@ -16,9 +16,11 @@
     border-color 0.2s;
   font-size: 1.05rem;
 
-  &:hover {
-    border-color: currentColor;
-    overflow: hidden;
+  @include no-touch {
+    &:hover {
+      border-color: currentColor;
+      overflow: hidden;
+    }
   }
 
   &:before {
@@ -53,8 +55,10 @@
 }
 
 body:global(.light) .button {
-  &:hover {
-    color: $c-gray-1;
+  @include no-touch {
+    &:hover {
+      color: $c-gray-1;
+    }
   }
 
   &:before {
@@ -66,14 +70,18 @@ body:global(.light) .button {
     background-color: $c-gray-7;
   }
 
-  &:hover:after {
-    background-color: transparent;
+  @include no-touch {
+    &:hover:after {
+      background-color: transparent;
+    }
   }
 }
 
 body:global(.dark) .button {
-  &:hover {
-    color: $c-gray-6;
+  @include no-touch {
+    &:hover {
+      color: $c-gray-6;
+    }
   }
 
   &:before {
@@ -85,8 +93,10 @@ body:global(.dark) .button {
     background-color: $c-sea-1;
   }
 
-  &:hover:after {
-    background-color: transparent;
+  @include no-touch {
+    &:hover:after {
+      background-color: transparent;
+    }
   }
 }
 

@@ -38,12 +38,14 @@
     color: red;
   }
 
-  &:hover {
-    @media (min-width: $b-tablet) {
-      #{$parent}__content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+  @include no-touch {
+    &:hover {
+      @media (min-width: $b-tablet) {
+        #{$parent}__content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
       }
     }
   }
@@ -57,14 +59,18 @@ body:global(.light) .languageChanger {
   &__button {
     color: $c-gray-4;
 
-    &:hover {
-      color: $c-orange-1;
+    @include no-touch {
+      &:hover {
+        color: $c-orange-1;
+      }
     }
   }
 
   &__element {
-    &:hover {
-      color: $c-orange-1;
+    @include no-touch {
+      &:hover {
+        color: $c-orange-1;
+      }
     }
   }
 
@@ -80,14 +86,18 @@ body:global(.dark) .languageChanger {
   }
 
   &__button {
-    &:hover {
-      color: $c-sea-6;
+    @include no-touch {
+      &:hover {
+        color: $c-sea-6;
+      }
     }
   }
 
   &__element {
-    &:hover {
-      color: $c-sea-6;
+    @include no-touch {
+      &:hover {
+        color: $c-sea-6;
+      }
     }
   }
 

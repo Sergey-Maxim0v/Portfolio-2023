@@ -12,6 +12,7 @@ export default defineConfig({
       scss: {
         additionalData: `
                                     @import "src/assets/styles/constants.scss";
+                                    @import "src/assets/styles/mixins.scss";
                                     @import "src/assets/styles/typography.scss";
                                     @import "src/assets/styles/global.scss";
                                 `,

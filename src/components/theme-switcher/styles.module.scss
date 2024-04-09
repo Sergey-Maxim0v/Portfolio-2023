@@ -33,17 +33,19 @@
     width: 60%;
   }
 
-  &:hover {
-    & * {
-      animation: none;
-    }
+  @include no-touch {
+    &:hover {
+      & * {
+        animation: none;
+      }
 
-    #{$parent}__moon {
-      fill: $c-sea-6;
-    }
+      #{$parent}__moon {
+        fill: $c-sea-6;
+      }
 
-    #{$parent}__sun * {
-      color: $c-orange-1;
+      #{$parent}__sun * {
+        color: $c-orange-1;
+      }
     }
   }
 

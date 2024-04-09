@@ -50,8 +50,10 @@
 
 body:global(.light) .headerDesktop {
   & .headerLink {
-    &:hover {
-      color: $c-orange-1;
+    @include no-touch {
+      &:hover {
+        color: $c-orange-1;
+      }
     }
 
     &__active {
@@ -69,8 +71,10 @@ body:global(.light) .headerDesktop {
 
 body:global(.dark) .headerDesktop {
   & .headerLink {
-    &:hover {
-      color: $c-sea-6;
+    @include no-touch {
+      &:hover {
+        color: $c-sea-6;
+      }
     }
 
     &__active {

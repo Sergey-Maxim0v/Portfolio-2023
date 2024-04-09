@@ -59,9 +59,11 @@ $line-height: calc($burger-size / 5);
       }
     }
 
-    &:hover {
-      & #{$parent}__element {
-        transform: rotate(225deg);
+    @include no-touch {
+      &:hover {
+        & #{$parent}__element {
+          transform: rotate(225deg);
+        }
       }
     }
   }

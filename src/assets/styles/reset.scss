@@ -62,8 +62,10 @@ a:visited {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: none;
+@include no-touch {
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 ul li {
